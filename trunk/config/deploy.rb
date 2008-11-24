@@ -1,7 +1,7 @@
 # replace with the name of your application
 set :application, "hearsay"
 # replace with the HTTP (NOT HTTPS) read-only URL of your Google Code SVN
-set :repository,  "http://hearsay-cs194.googlecode.com/svn/trunk/"
+set :repository,  "http://calhearsay.googlecode.com/svn/trunk/"
 
 # directory for deployment on remote machine
 set :deploy_to, "/mnt/app"
