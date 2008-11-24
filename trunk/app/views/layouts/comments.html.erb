@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>hearsay! - collaborative photo sharing and gossiping of the local community</title>
+  <link rel="shortcut icon" href="/images/hicon.png" type="image/x-icon">
+  <%= stylesheet_link_tag 'entry' %>
+  <%= javascript_include_tag "shadedBorder" %>
+  <%= javascript_include_tag "shadedBorderVar" %>
+</head>
+<body id="entry">
+  <div id="banner">
+    <!--<%= image_tag("logo02.jpg") %>-->
+    <!-- <br />
+    <%= "Hearsay!" %>-->
+  </div>
+  <p>
+  <div id="columns">
+  <div id="shadowed-border" class="sb">
+      <div id="side">
+      <h1> user info))) </h1>
+      <%= render :partial => 'users/user_bar' %>
+    </div>
+    <div id="main">
+      <div id="entries">
+      <p><p1><%= flash[:notice] %></p1></p>
+      <%= yield %>
+           </div>
+    </div>
+  </div>
+  </div>
+  </p>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<html>
+<body>
+<div id="entry-list">
+  <!--<h1>entries</h1>-->
+
+<% for entry in @entries %>
+  <p>
+  <table cellpadding="5" cellspacing="0" width="100%">
+      <tr class="list-line-even">
+         <td width="100px">
+	 <% if entry.picture != NIL %>
+	      <img class="list-one-sheet" src="<%=entry.picture%>">
+	 <% end %>
+
+        <% if entry.pic %>
+              <img class="list-one-sheet" src="<%=entry.pic.public_filename(:thumb) %>">
+         <% end %>
+
+
+
+      </td>
+      
+      <td width="90%" valign="top">
+      
+      <p>
+      <div align="right" id="subs">USERNAME: <%= entry.user.name %> | DATE_POSTED</div>
+        <span class="list-title"><%= link_to h(entry.title), entry %></span><br />
+	<subs><b>category:</b> <%= entry.category %></p> | <b>tags:</b>
+	<% #for tag in entry.tags %>
+		<%#= tag.tag %>
+	<% #end %>
+	<%#= link_to 'add tag', new_entry_tag_url(@entry) %>
+	</subs>
+	<p>
+        <%= h(truncate(entry.description, 80)) %>
+	</p>
+	<p>
+	<!--
+	<div class="list-actions">
+        <%= link_to 'edit', edit_entry_path(entry) %> | 
+	-->
+        <%= link_to 'delete', entry, :confirm => 'Are you sure?', :method => :delete %>
+	
+      </p>
+        </td>
+       </tr>
+    
+  
+  </table>
+  </p>
+  <% end %>
+</div>
+<br />
+
+<%= link_to 'Post a new entry', new_entry_path %>
+</body>
+</html>
