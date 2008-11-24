@@ -1,0 +1,52 @@
+<head>
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>hearsay! - collaborative photo sharing and gossiping of the local community</title>
+    <link rel="shortcut icon" href="/images/hicon.png" type="image/x-icon">
+
+  <%= javascript_include_tag 'shadedBorder' %>
+  <%= javascript_include_tag 'shadedBorderVar' %>
+</head>
+<body id="comments">
+<p>
+   <t1><%=h @entry.title %></t1>
+   <br><b>category:</b>   <%=h @entry.category %> | <b>tags: </b>
+</p>
+<p>
+<br>
+     <%=h @entry.description %>
+</p>
+<p align="center">
+    <%= image_tag(@entry.picture) %>
+    <%= image_tag(@entry.pic.public_filename) %>
+</p>
+
+<%# for tag in @tags %>
+<%#= tag.tag %>
+<% #end %>
+<%#= link_to 'add tag', new_entry_tag_url(@entry) %>
+
+<p>
+<div id="shadowed-border2" class="sb">
+<div id="comment">
+<% i=0 %>
+<% for comment in @comments %>
+<% i+=1 %>
+<div align="right">
+<t1><%= i %></t1>
+</div>
+<%= comment.comment %>
+<br><subs>USERNAME | DATE_POSTED</subs>
+</p>
+<hr>
+
+<% end %>
+<%= link_to 'post a new comment', new_entry_comment_url(@entry) %>
+</div>
+</p>
+</div>
+<p>
+<%= link_to 'edit entry', edit_entry_path(@entry) %> |
+<%= link_to 'back to entries', entries_path %>
+</p>
+</body>
+</html>

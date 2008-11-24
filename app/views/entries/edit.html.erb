@@ -1,0 +1,10 @@
+<h1>Editing entry</h1>
+
+<% form_for(@entry) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => "form", :locals => { :f => f, :label_text => "Update"} %>
+<% end %>
+
+<%= link_to 'Show', @entry %> |
+<%= link_to 'Back', entries_path %>

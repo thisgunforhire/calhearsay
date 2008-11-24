@@ -1,0 +1,37 @@
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%#= f.label :picture %>
+    
+    <table border="0">
+    <tr>Insert an image from a URL or upload your own photo (<i>optional</i>)</tr>
+    <tr><td>Image from URL (http://...)</td><td>Upload an image</td></tr>
+    <tr><td><input type="text" id="entry_picture" name="entry[picture]"></td>
+    <td><%= file_field_tag 'entry_pic' %></td>
+    </tr>
+    </table>
+    <%#= f.text_field :picture %> 
+  </p>
+  <p>
+  <%#= f.label :pic %>
+    
+  </p>  
+  
+  <p>
+    <%= f.label :category %><br />
+    <select name="entry[category]" id="entry_category">
+    <option value="">[select a category]</option>
+    <option value="hos">hos</option>
+    <option value="bums">bums</option>
+    </select>
+    <!--<%= f.text_field :category %>-->
+  </p>
+  <p>
+    <%= f.submit label_text %>
+  </p>
