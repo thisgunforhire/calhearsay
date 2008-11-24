@@ -1,6 +1,7 @@
 class Entry < ActiveRecord::Base
   has_one:pic
   has_many:comments
+  has_many:tags
   belongs_to:user
   
   has_attachment :content_type => :image, 
