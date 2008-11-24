@@ -11,7 +11,7 @@ set :deploy_to, "/mnt/app"
 # set :scm, :subversion
 
 # replace the below with the hostname of your EC2 instance:
-set :machine_name, "ec2-75-101-218-95.compute-1.amazonaws.com"
+set :machine_name, "ec2-67-202-23-244.compute-1.amazonaws.com"
 role :app, "#{machine_name}"
 role :web, "#{machine_name}"
 role :db,  "#{machine_name}", :primary => true
@@ -30,7 +30,7 @@ set :user, "root"
 # but if that doesn't work you can set this to a fixed string.
 
 # ssh_options[:keys] = "/Users/fox/id_rsa-cs194"
-ssh_options[:keys] = File.join(ENV["HOME"], "id_rsa-cs194")
+ssh_options[:keys] = "C:\\ruby\\apps\\id_rsa-cs194" #File.join(ENV["HOME"], "id_rsa-cs194")
 puts ssh_options[:keys]
 
 # Mongrel setup
