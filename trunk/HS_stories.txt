@@ -1,0 +1,41 @@
+Group 7:
+   Denise Ngai (submitter)
+   Sam Zats
+   David Reichbach
+WikiLink:
+   project hearsay!
+   http://ucbcs194.pbwiki.com/hearsay!
+
+Models:
+   database | fields :
+
+USER
+ID | LOGIN | PASSWORD | EMAIL | REG-DATE
+
+ENTRY
+ID | TITLE | DESC | PHOTO | CATEGORY | USER | RANKING | ANONY?
+
+COMMENT
+ID | ENTRY-ID | COMMENT | TEXT | USER | ANONY?
+
+user-->category-->entry-->comment
+
+stories:
+
+   Users:
+1. user can register (set name, password, and email)
+2. user logs-in and authenticates; has option to "remember" log-in to stay logged in for a duration of time (a week?)
+3. user can edit name, password, and email.
+4. user can destroy own identity (profile, entry, comments, etc.)
+
+   Entry:
+1. user can create an entry.
+2. user can edit their own entry.
+3. user can destroy their own entry.
+4. user can rank an entry based on category.
+
+   Comment:
+1. user can create a comment for an entry.
+2. user can edit their own comment.
+3. user can destroy their own comment.
+4. entry owner can destroy comments by other users.

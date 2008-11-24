@@ -1,0 +1,48 @@
+/* This is the style sheet for how the comments will be displayed on each entry */
+#comment {
+	background: #000000;
+	color: #ffffff;
+	padding: 0.5em;
+	margin: 1em;
+}
+/*For shadedBorder.js*/
+#shadowed-border {
+  padding-left: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  width: auto;
+  height: auto;
+  margin-left: 0em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  /*margin: 20px auto;*/
+  }
+
+#shadowed-border .sb-inner {
+  background:#000000;
+}
+
+#shadowed-border .sb-border {
+  background:#fff;
+}
+/*
+#shadowed-border2 {
+  padding: 10px;
+  width: 30%;
+  margin: 10px auto; 
+}
+
+#shadowed-border2 .sb-inner {
+  background:#DFE2FF;
+}
+
+#shadowed-border2 .sb-border {
+  background:#FFDC9F;
+}
+
+.plain {
+  padding: 10px;
+  width: 30%;
+  margin: 10px auto;
+  border: thin solid black;
+}*/
