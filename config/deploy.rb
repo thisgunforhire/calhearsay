@@ -1,5 +1,5 @@
 # replace with the name of your application
-set :application, "hearsay"
+set :application, "calhearsay"
 # replace with the HTTP (NOT HTTPS) read-only URL of your Google Code SVN
 set :repository,  "http://calhearsay.googlecode.com/svn/trunk/"
 
