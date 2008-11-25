@@ -24,10 +24,10 @@
       <p>
       <div align="right" id="subs">USERNAME: <%= entry.user.name %> | DATE_POSTED</div>
         <span class="list-title"><%= link_to h(entry.title), entry %></span><br />
-	<subs><b>category:</b> <%= entry.category %></p> | <b>tags:</b>
-	<% #for tag in entry.tags %>
-		<%#= tag.tag %>
-	<% #end %>
+	<subs><b>category:</b> <%= entry.category %></p> | <b>tags</b>
+	<% for tag in entry.tags %>
+		: <%= tag.tag %>
+	<% end %>
 	<%#= link_to 'add tag', new_entry_tag_url(@entry) %>
 	</subs>
 	<p>
