@@ -17,23 +17,45 @@
   <div id="columns">
     <div id="shadowed-border" class="sb">
       <div id="side">
-      <div align="center"><h1>user info</h1></div>
-      <p><a href="/login">Log in</a> | <a href="/signup">Sign up</a></p>
+      <div align="center"><h1>welcome!</h1>
+      <form action="/session" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="43af0b4b7ee522940fe5e20bd871dd64cc049edc" /></div><p><label for="login">Login</label><br />
+<input id="login" name="login" type="text" /></p>
+
+<p><label for="password">Password</label><br/>
+<input id="password" name="password" type="password" /></p>
+
+
+<p><label for="remember_me">Remember me</label>
+<input id="remember_me" name="remember_me" type="checkbox" value="1" /></p>
+
+
+<p><input name="commit" type="submit" value="Log in" /></p>
+</form>
+
+      <p><!--<a href="/login">log in</a> | -->(<a href="/signup">sign up</a>)</p>
+       </div></div>
+    <div id="right">
+       <div align="center"><h1>meet the developers</h1>
+       <p><img src="images/david.jpg"><br>
+       david</p>
+       <p><img src="images/denise.jpg"><br>
+       denise</p>
+       <p><img src="images/sam.jpg"><br>
+       sam</p>
        </div>
-<!--       <div id="right">
-       <p align="center"><h1>archive</h1></p>
 
       </div>
-      -->
+
       <div id="main">
 	<div id="prebox">
 		<p>A picture is worth 1,000 words. Stop talking and start showing!</p>
 
 		<p>Share your story or unique occurrence in Berkeley or any campus, for that matter, to the student population.</p>
 
-		<p>Users can upload or email in photos of campus personalities, protesters, hippies, the popular girl, or the campus jock at their finest moments. Viewers are welcome to comment with their insight or link to other relevant photos.</p>
+		<p>Users can upload photos of campus personalities, protesters, hippies, the popular girl, or the campus jock at their finest moments. Viewers are welcome to comment with their insight or link to other relevant photos.</p>
 
 		<p>Rank the hottest girl. The most "granola" Berkeleyan. Most awkward geek.</p>
+    <p>So what are you waiting for? Start posting! There's nothing to feel guilty about -- it's all <b>hearsay!</b></p>
         </div>
 	<div id="entries">
   <p>You must log in to <a href="entries">view the posts</a>. If you do not have a log in and password yet, please sign up!</p>
