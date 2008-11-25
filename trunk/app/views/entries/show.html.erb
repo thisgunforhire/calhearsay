@@ -12,12 +12,12 @@
 <p>
 <div align="right" id="subs"><b>posted by</b> <%= @entry.user.login %> <b>on</b> <%= @entry.created_at %></div>
    <t1><%=h @entry.title %></t1>
-   <br><b>category:</b>   <%=h @entry.category %> | 
-   <b>tags:</b><% for tag in @tags %>
- <%= link_to h(tag.tag), entries_path %>
+   <br><b>category</b> : <%=h @entry.category %> | 
+   <b>tags</b><% for tag in @tags %>
+ : <%= link_to h(tag.tag), entries_path %>
 <% end %>
 <%if @entry.user_id == current_user.id%>
-(<%= link_to 'add tag', new_entry_tag_url(@entry) %>)
+: (<%= link_to 'add tag', new_entry_tag_url(@entry) %>)
 <%end%>
 
 <!--
