@@ -3,7 +3,9 @@ class Entry < ActiveRecord::Base
   has_many:comments
   has_many:tags
   belongs_to:user
-  
+
+  acts_as_rateable
+
   has_attachment :content_type => :image, 
                  :storage => :file_system, 
                  :processor => 'Rmagick',
