@@ -1,13 +1,89 @@
-<%@query = Entry.find(:all)%>
-<%for entry in @query%>
+<%#hos, bums, celebs, hot, geeks, other%>
 <div align="center">
-<%= link_to h(entry.title), entry %><br/>
-<% if entry.picture != '' %>
+<%@query = Entry.find(:all)%>
+
+<a href="">hos</a><br/>
+<%for entry in @query%>
+<%if entry.category == 'hos'%>
+  <%= link_to h(entry.title), entry %><br/>
+  <% if entry.picture != '' %>
     <img width=60 src="<%=entry.picture%>">
   <% else %>
   <% if entry.pic != nil %>
     <img width=60 src="<%=entry.pic.public_filename %>">
   <% end %>
   <% end %><br/>
-</div>
 <%end%>
+<%end%>
+
+<a href="">bums</a><br/>
+<%for entry in @query%>
+<%if entry.category == 'bums'%>
+  <%= link_to h(entry.title), entry %><br/>
+  <% if entry.picture != '' %>
+    <img width=60 src="<%=entry.picture%>">
+  <% else %>
+  <% if entry.pic != nil %>
+    <img width=60 src="<%=entry.pic.public_filename %>">
+  <% end %>
+  <% end %><br/>
+<%end%>
+<%end%>
+
+<a href="">celebs</a><br/>
+<%for entry in @query%>
+<%if entry.category == 'celebs'%>
+  <%= link_to h(entry.title), entry %><br/>
+  <% if entry.picture != '' %>
+    <img width=60 src="<%=entry.picture%>">
+  <% else %>
+  <% if entry.pic != nil %>
+    <img width=60 src="<%=entry.pic.public_filename %>">
+  <% end %>
+  <% end %><br/>
+<%end%>
+<%end%>
+
+<a href="">geeks</a><br/>
+<%for entry in @query%>
+<%if entry.category == 'geeks'%>
+  <%= link_to h(entry.title), entry %><br/>
+  <% if entry.picture != '' %>
+    <img width=60 src="<%=entry.picture%>">
+  <% else %>
+  <% if entry.pic != nil %>
+    <img width=60 src="<%=entry.pic.public_filename %>">
+  <% end %>
+  <% end %><br/>
+<%end%>
+<%end%>
+
+<a href="">hot</a><br/>
+<%for entry in @query%>
+<%if entry.category == 'hot'%>
+  <%= link_to h(entry.title), entry %><br/>
+  <% if entry.picture != '' %>
+    <img width=60 src="<%=entry.picture%>">
+  <% else %>
+  <% if entry.pic != nil %>
+    <img width=60 src="<%=entry.pic.public_filename %>">
+  <% end %>
+  <% end %><br/>
+<%end%>
+<%end%>
+
+<a href="">other</a><br/>
+<%for entry in @query%>
+<%if entry.category == 'other'%>
+  <%= link_to h(entry.title), entry %><br/>
+  <% if entry.picture != '' %>
+    <img width=60 src="<%=entry.picture%>">
+  <% else %>
+  <% if entry.pic != nil %>
+    <img width=60 src="<%=entry.pic.public_filename %>">
+  <% end %>
+  <% end %><br/>
+<%end%>
+<%end%>
+
+</div>
