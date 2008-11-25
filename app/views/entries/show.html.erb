@@ -9,16 +9,29 @@
 <body id="comments">
 <p>
    <t1><%=h @entry.title %></t1>
-   <br><b>category:</b>   <%=h @entry.category %> | <b>tags: </b><% for tag in @tags %>
-<%= tag.tag %>
+   <br><b>category:</b>   <%=h @entry.category %> | 
+   <b>tags: </b><% for tag in @tags %>
+<%= tag.tag %>, 
 <% end %>
 <%= link_to 'add tag', new_entry_tag_url(@entry) %>
+<form action="/entries/@entry.id" class="edit_entry" id="edit_entry_@entry.id" method="post">
+<br>rate it! <input type="radio" value="1" id="@entry.add_vote(value)">1 <input type="radio" value="2" id="@entry.add_vote(value)">2
+<br><input id="entry_submit" name="commit" type="submit" value="Create" />
+<br><%= @entry.score %>
+
 </p>
 <p>
 <br>
      <%=h @entry.description %>
 </p>
 <p align="center">
+  <% if @entry.picture != nil %>
+    <img class="resize-pic" src="<%=@entry.picture%>">
+  <% else %>
+  <% if @entry.pic != nil %>
+    <img class="resize-pic" src="<%= @entry.pic.public_filename %>">
+  <% end %>
+  <% end %>
     <%= image_tag(@entry.picture) %>
     <%= image_tag(@entry.pic.public_filename) %>
 </p>
