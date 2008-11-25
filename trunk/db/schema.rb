@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081119040806) do
+ActiveRecord::Schema.define(:version => 20081124041917) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(:version => 20081119040806) do
   create_table "tags", :force => true do |t|
     t.string   "tag"
     t.integer  "entry_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "userpics", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20081119040806) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
+    t.integer  "userpic_id"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
