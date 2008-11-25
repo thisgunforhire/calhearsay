@@ -104,6 +104,11 @@ font: 150% bold century gothic, sans-serif;
 color: #1E90FF;
 /*border-bottom: 3px dotted #77d;*/
 }
+ c1 {
+	font-weight: bold;
+	color: fuchsia;
+	font-size: medium;
+}
 
 #prebox {
 #float: left;
