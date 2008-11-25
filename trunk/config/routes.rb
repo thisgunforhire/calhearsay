@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :tags
   
-  map.resources :rating, :member => { :rate => :post }
+  #map.resources :rating, :member => { :rate => :post }
+ map.rate '/rate', :controller => 'rating', :action => 'rate'
+
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
