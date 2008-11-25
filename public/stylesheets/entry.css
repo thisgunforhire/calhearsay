@@ -181,6 +181,9 @@ background: #d0d0d0;
 .resize-pic {
 	width: 400px;
 }
+.user-pic {
+	width: 100px;
+}
 
 .fieldWithErrors {
   padding: 2px;
