@@ -1,8 +1,9 @@
 <%#hos, bums, celebs, hot, geeks, other%>
-<div align="center">
+
 <%@query = Entry.find(:all)%>
 
-<a href="">hos</a><br/>
+<c1>hos</c1><br/>
+<div align="center">
 <%for entry in @query%>
 <%if entry.category == 'hos'%>
   <%= link_to h(entry.title), entry %><br/>
@@ -15,8 +16,10 @@
   <% end %><br/>
 <%end%>
 <%end%>
+</div>
 
-<a href="">bums</a><br/>
+<c1>bums<c1><br/>
+<div align="center">
 <%for entry in @query%>
 <%if entry.category == 'bums'%>
   <%= link_to h(entry.title), entry %><br/>
@@ -29,8 +32,10 @@
   <% end %><br/>
 <%end%>
 <%end%>
+</div>
 
-<a href="">celebs</a><br/>
+<c1>celebs</c1><br/>
+<div align="center">
 <%for entry in @query%>
 <%if entry.category == 'celebs'%>
   <%= link_to h(entry.title), entry %><br/>
@@ -43,8 +48,10 @@
   <% end %><br/>
 <%end%>
 <%end%>
+</div>
 
-<a href="">geeks</a><br/>
+<c1>geeks</c1><br/>
+<div align="center">
 <%for entry in @query%>
 <%if entry.category == 'geeks'%>
   <%= link_to h(entry.title), entry %><br/>
@@ -57,8 +64,10 @@
   <% end %><br/>
 <%end%>
 <%end%>
+</div>
 
-<a href="">hot</a><br/>
+<c1>hot</c1><br/>
+<div align="center">
 <%for entry in @query%>
 <%if entry.category == 'hot'%>
   <%= link_to h(entry.title), entry %><br/>
@@ -71,8 +80,10 @@
   <% end %><br/>
 <%end%>
 <%end%>
+</div>
 
-<a href="">other</a><br/>
+<c1>other</c1><br/>
+<div align="center">
 <%for entry in @query%>
 <%if entry.category == 'other'%>
   <%= link_to h(entry.title), entry %><br/>
@@ -85,5 +96,4 @@
   <% end %><br/>
 <%end%>
 <%end%>
-
 </div>
