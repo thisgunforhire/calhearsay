@@ -30,11 +30,14 @@
      <%=h @entry.description %>
 </p>
 <p align="center">
-  <% if @entry.picture != nil %>
+  <% if @entry.picture != '' %>
+    <%=@entry.picture%>
     <img class="resize-pic" src="<%=@entry.picture%>">
   <% else %>
-  <% if @entry.pic != nil %>
-    <img class="resize-pic" src="<%= @entry.pic.public_filename %>">
+  <% if @entry.pic != nil %>poop2
+    <%if @entry.pic.public_filename != nil %>poop3
+      <img class="resize-pic" src="<%= @entry.pic.public_filename %>">
+    <% end %>
   <% end %>
   <% end %>
 </p>
