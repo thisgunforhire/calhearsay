@@ -10,10 +10,13 @@
 <p>
    <t1><%=h @entry.title %></t1>
    <br><b>category:</b>   <%=h @entry.category %> | 
-   <b>tags: </b><% for tag in @tags %>
-<%= tag.tag %>, 
+   <b>tags</b><% for tag in @tags %>
+: <%= link_to h(tag.tag), entries_path %>
 <% end %>
+<%if @entry.user_id == current_user.id%>
 <%= link_to 'add tag', new_entry_tag_url(@entry) %>
+<%end%>
+
 <form action="/entries/@entry.id" class="edit_entry" id="edit_entry_@entry.id" method="post">
 <br>rate it! <input type="radio" value="1" id="@entry.add_vote(value)">1 <input type="radio" value="2" id="@entry.add_vote(value)">2
 <br><input id="entry_submit" name="commit" type="submit" value="Create" />
