@@ -128,7 +128,7 @@ padding-bottom: 1px;
 padding-right: 10px;
 height: auto;
 }
-img {
+#entries img {
 	border: 2px solid #1E90FF;
 	padding: 0px;
 	background: #000000;
@@ -187,7 +187,12 @@ subs {
 .resize-pic {
 	width: 400px;
 }
-
+.img-border {
+	border: 2px solid #1E90FF;
+	padding: 0px;
+	background: #000000;
+}
+	
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
