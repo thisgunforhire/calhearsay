@@ -69,6 +69,7 @@ module AuthenticatedSystem
       #    store_location
         #  redirect_to new_session_path
         #end
+     
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987
         # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
         # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
@@ -80,22 +81,21 @@ module AuthenticatedSystem
     #end
 
     
-    def access_denied
-      respond_to do |accepts|
-        accepts.html do
+   def access_denied
+      respond_to do |format|
+        format.html do
           store_location
-          redirect_to :controller => '/account', :action => 'login'
+          redirect_to new_session_path
         end
-        accepts.js do
-          render(:update) { |page| page.redirect_to(:controller => '/account', :action => 'login') }
-        end
-        accepts.xml do
-          headers["Status"]           = "Unauthorized"
-          headers["WWW-Authenticate"] = %(Basic realm="Web Password")
-          render :text => "Could't authenticate you", :status => '401 Unauthorized'
+     
+        # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987
+        # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
+        # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
+        # for a workaround.)
+        format.any(:json, :xml) do
+          request_http_basic_authentication 'Web Password'
         end
       end
-      false
     end
     
     
