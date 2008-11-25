@@ -167,7 +167,8 @@ background: #d0d0d0;
 	border: 1px solid #1E90FF;
 }
 #entry-list td {
-	padding-left: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
 	padding-top: 0px;
 }
 #entry-list subs{
