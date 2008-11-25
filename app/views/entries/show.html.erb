@@ -52,8 +52,13 @@
 </div>
 <%= comment.comment %>
 <br><subs><b>posted by</b> <%= comment.user.login %> <b>on</b> <%= comment.created_at %>
+<br>
 <% if current_user.id == comment.user_id %>
-<br><%= link_to 'edit', edit_entry_comment_path(@entry,comment) %> | <%= link_to 'delete', entry_comment_path(@entry,comment), :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'edit', edit_entry_comment_path(@entry,comment) %> | <%= link_to 'delete', entry_comment_path(@entry,comment), :confirm => 'Are you sure?', :method => :delete %>
+<% else %>
+<% if current_user.id == @entry.user_id %>
+<%= link_to 'delete', entry_comment_path(@entry,comment), :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
 <% end %>
 </subs>
 </p>
