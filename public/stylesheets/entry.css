@@ -108,8 +108,8 @@ color: #1E90FF;
 #float: left;
 border: 1px dashed #000000;
 background: #ffffff;
-padding-left: 5px;
-padding-right: 1px;
+padding-left: 10px;
+padding-right: 2px;
 padding-bottom: 0px;
 height: auto;
 margin-bottom: 1px;
@@ -117,9 +117,9 @@ margin-bottom: 1px;
 #entries {
 border: 1px dashed #000000;
 background: #ffffff;
-padding-left: 5px;
+padding-left: 10px;
 padding-bottom: 1px;
-padding-right: 1px;
+padding-right: 2px;
 height: auto;
 }
 #entries img{
