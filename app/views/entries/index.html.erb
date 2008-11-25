@@ -25,9 +25,14 @@
       <div align="right" id="subs"><b>posted by</b> <%= entry.user.login %> <b>on</b> <%= entry.created_at %></div>
         <span class="list-title"><%= link_to h(entry.title), entry %></span><br />
 	<subs><b>category:</b> <%= entry.category %></p> | <b>tags:</b>
+  <% i=0 %>
 	<% for tag in entry.tags %>
+  <% if i < 3 %>
 		 <%= tag.tag %>
+     <% i += 1 %>
+  <% end %>   
 	<% end %>
+  ...
 	<%#= link_to 'add tag', new_entry_tag_url(@entry) %>
 	</subs>
 	<p>
