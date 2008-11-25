@@ -11,11 +11,11 @@
 <div align="right" id="subs"><b>posted by</b> <%= @entry.user.login %> <b>on</b> <%= @entry.created_at %></div>
    <t1><%=h @entry.title %></t1>
    <br><b>category:</b>   <%=h @entry.category %> | 
-   <b>tags</b><% for tag in @tags %>
-: <%= link_to h(tag.tag), entries_path %>
+   <b>tags:</b><% for tag in @tags %>
+ <%= link_to h(tag.tag), entries_path %>
 <% end %>
 <%if @entry.user_id == current_user.id%>
-: (<%= link_to 'add tag', new_entry_tag_url(@entry) %>)
+(<%= link_to 'add tag', new_entry_tag_url(@entry) %>)
 <%end%>
 
 <!--
@@ -51,12 +51,7 @@
 <t1><%= i %></t1>
 </div>
 <%= comment.comment %>
-<br><subs>
-<%if comment.anon == 'no'%>
-<b>posted by</b> <%= comment.user.login %> <b>on</b> <%= comment.created_at %>
-<%else%>
-<b>posted anonymously</b>
-<%end%>
+<br><subs><b>posted by</b> <%= comment.user.login %> <b>on</b> <%= comment.created_at %>
 <br>
 <% if current_user.id == comment.user_id %>
 <%= link_to 'edit', edit_entry_comment_path(@entry,comment) %> | <%= link_to 'delete', entry_comment_path(@entry,comment), :confirm => 'Are you sure?', :method => :delete %>
