@@ -1,0 +1,13 @@
+<%@query = Entry.find(:all)%>
+<%for entry in @query%>
+<div align="center">
+<%= link_to h(entry.title), entry %><br/>
+<% if entry.picture != '' %>
+    <img width=60 src="<%=entry.picture%>">
+  <% else %>
+  <% if entry.pic != nil %>
+    <img width=60 src="<%=entry.pic.public_filename %>">
+  <% end %>
+  <% end %><br/>
+</div>
+<%end%>

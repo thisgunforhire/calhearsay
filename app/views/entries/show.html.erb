@@ -5,6 +5,8 @@
 
   <%= javascript_include_tag 'shadedBorder' %>
   <%= javascript_include_tag 'shadedBorderVar' %>
+  <%= javascript_include_tag :defaults %>
+  
 </head>
 <body id="comments">
 <p>
@@ -51,7 +53,12 @@
 <t1><%= i %></t1>
 </div>
 <%= comment.comment %>
-<br><subs><b>posted by</b> <%= comment.user.login %> <b>on</b> <%= comment.created_at %>
+<br><subs>
+<%if comment.anon == 'no'%>
+<b>posted by</b> <%= comment.user.login %> <b>on</b> <%= comment.created_at %>
+<%else%>
+<b>posted anonymously</b>
+<%end%>
 <br>
 <% if current_user.id == comment.user_id %>
 <%= link_to 'edit', edit_entry_comment_path(@entry,comment) %> | <%= link_to 'delete', entry_comment_path(@entry,comment), :confirm => 'Are you sure?', :method => :delete %>
