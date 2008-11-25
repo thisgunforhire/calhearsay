@@ -1,6 +1,7 @@
+<div align="center">
 <% if logged_in? -%>
   <div id="user-bar-greeting">Logged in as <%#= link_to_current_user :content_method => :login %><b><%= current_user.login %></b></div>
-  <p align="center"><img src="http://fashion.berkeley.edu/images/smile.jpg"></p>
+  <p><img src="http://fashion.berkeley.edu/images/smile.jpg"></p>
   
   <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
 <% else -%>
@@ -8,3 +9,4 @@
   <div id="user-bar-action"  ><%= link_to "Log in",  login_path,  { :title => "Log in" } %> /
                                <%= link_to "Sign up", signup_path, { :title => "Create an account" } %></div>
 <% end -%>
+</div>
