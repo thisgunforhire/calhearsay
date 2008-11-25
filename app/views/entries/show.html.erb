@@ -9,7 +9,10 @@
 <body id="comments">
 <p>
    <t1><%=h @entry.title %></t1>
-   <br><b>category:</b>   <%=h @entry.category %> | <b>tags: </b>
+   <br><b>category:</b>   <%=h @entry.category %> | <b>tags: </b><% for tag in @tags %>
+<%= tag.tag %>
+<% end %>
+<%= link_to 'add tag', new_entry_tag_url(@entry) %>
 </p>
 <p>
 <br>
@@ -19,11 +22,6 @@
     <%= image_tag(@entry.picture) %>
     <%= image_tag(@entry.pic.public_filename) %>
 </p>
-
-<%# for tag in @tags %>
-<%#= tag.tag %>
-<% #end %>
-<%#= link_to 'add tag', new_entry_tag_url(@entry) %>
 
 <p>
 <div id="shadowed-border2" class="sb">
