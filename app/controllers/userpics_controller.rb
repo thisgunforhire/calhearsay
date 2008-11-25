@@ -9,20 +9,17 @@ def new
 end
 
 def create
-  @userpic = Userpic.new(params[:pic])
-  
-  @user.userpic = Userpic.new(:uploaded_data => params[:user_pic])
-  
+  @userpic = Userpic.new(params[:userpic])
   if @userpic.save
-    flash[:notice] = 'Pic was successfully created.'
-    redirect_to pic_url(@userpic)     
+    flash[:notice] = 'Userpic was successfully created.'
+    redirect_to userpic_url(@userpic)     
   else
     render :action => :new
   end
 end
 
 def show
-    @Userpic = Userpic.find(params[:id])
+    @userpic = Userpic.find(params[:id])
 end
 
 
