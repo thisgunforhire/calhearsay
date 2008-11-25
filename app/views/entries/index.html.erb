@@ -22,7 +22,7 @@
       <td width="90%" valign="top">
       
       <p>
-      <div align="right" id="subs">USERNAME: <%= entry.user.name %> | DATE_POSTED <%= entry.created_on %></div>
+      <div align="right" id="subs">USERNAME: <%= entry.user.name %> | DATE_POSTED <%= entry.created_at %></div>
         <span class="list-title"><%= link_to h(entry.title), entry %></span><br />
 	<subs><b>category:</b> <%= entry.category %></p> | <b>tags</b>
 	<% for tag in entry.tags %>
