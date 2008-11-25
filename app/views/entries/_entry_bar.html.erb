@@ -2,11 +2,11 @@
 
 <%@query = Entry.find(:all)%>
 
-<c1>hos</c1><br/>
+<c1>(hos)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'hos'%>
-  <%= link_to h(entry.title), entry %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=60 src="<%=entry.picture%>">
   <% else %>
@@ -18,11 +18,11 @@
 <%end%>
 </div>
 
-<c1>bums<c1><br/>
+<c1>(bums)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'bums'%>
-  <%= link_to h(entry.title), entry %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=60 src="<%=entry.picture%>">
   <% else %>
@@ -34,11 +34,11 @@
 <%end%>
 </div>
 
-<c1>celebs</c1><br/>
+<c1>(celebs)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'celebs'%>
-  <%= link_to h(entry.title), entry %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=60 src="<%=entry.picture%>">
   <% else %>
@@ -50,11 +50,11 @@
 <%end%>
 </div>
 
-<c1>geeks</c1><br/>
+<c1>(geeks)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'geeks'%>
-  <%= link_to h(entry.title), entry %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=60 src="<%=entry.picture%>">
   <% else %>
@@ -66,11 +66,11 @@
 <%end%>
 </div>
 
-<c1>hot</c1><br/>
+<c1>(hot)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'hot'%>
-  <%= link_to h(entry.title), entry %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=60 src="<%=entry.picture%>">
   <% else %>
@@ -82,11 +82,11 @@
 <%end%>
 </div>
 
-<c1>other</c1><br/>
+<c1>(other)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'other'%>
-  <%= link_to h(entry.title), entry %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=60 src="<%=entry.picture%>">
   <% else %>
