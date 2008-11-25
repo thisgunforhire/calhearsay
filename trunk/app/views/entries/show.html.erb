@@ -8,7 +8,7 @@
 </head>
 <body id="comments">
 <p>
-<div align="right" id="subs"><b>posted by</b> <%= entry.user.login %> <b>on</b> <%= entry.created_at %></div>
+<div align="right" id="subs"><b>posted by</b> <%= @entry.user.login %> <b>on</b> <%= @entry.created_at %></div>
    <t1><%=h @entry.title %></t1>
    <br><b>category:</b>   <%=h @entry.category %> | 
    <b>tags</b><% for tag in @tags %>
@@ -54,7 +54,7 @@
 <t1><%= i %></t1>
 </div>
 <%= comment.comment %>
-<br><subs>USERNAME <%= comment.user.login %> | DATE_POSTED <%= comment.created_at %></subs>
+<br><subs><b>posted by</b> <%= comment.user.login %> <b>on</b> <%= comment.created_at %></subs>
 </p>
 <hr>
 
