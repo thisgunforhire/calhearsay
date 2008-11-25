@@ -55,7 +55,7 @@ class EntriesController < ApplicationController
     @entry.num_votes = 0
     @entry.raw_score = 0
     @entry.score = 0.0
-    @entry.picture = nil
+    #@entry.picture = nil
     @entry.pic = Pic.new(:uploaded_data => params[:entry_pic])
     
     respond_to do |format|
