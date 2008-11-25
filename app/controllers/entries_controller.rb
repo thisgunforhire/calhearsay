@@ -15,6 +15,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.xml
   def show
+    @entries = Entry.find(:all)
     @entry = Entry.find(params[:id])
     @comments = @entry.comments
     @tags = @entry.tags
