@@ -61,22 +61,45 @@ module AuthenticatedSystem
     # behavior in case the user is not authorized
     # to access the requested action.  For example, a popup window might
     # simply close itself.
-    def access_denied
-      respond_to do |format|
-        format.html do
-          store_location
-          redirect_to new_session_path
-        end
+  
+#old
+#    def access_denied
+  #    respond_to do |format|
+    #    format.html do
+      #    store_location
+        #  redirect_to new_session_path
+        #end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987
         # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
         # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
         # for a workaround.)
-        format.any(:json, :xml) do
-          request_http_basic_authentication 'Web Password'
+        #format.any(:json, :xml) do
+         # request_http_basic_authentication 'Web Password'
+        #end
+      #end
+    #end
+
+    
+    def access_denied
+      respond_to do |accepts|
+        accepts.html do
+          store_location
+          redirect_to :controller => '/account', :action => 'login'
+        end
+        accepts.js do
+          render(:update) { |page| page.redirect_to(:controller => '/account', :action => 'login') }
+        end
+        accepts.xml do
+          headers["Status"]           = "Unauthorized"
+          headers["WWW-Authenticate"] = %(Basic realm="Web Password")
+          render :text => "Could't authenticate you", :status => '401 Unauthorized'
         end
       end
+      false
     end
-
+    
+    
+    
     # Store the URI of the current request in the session.
     #
     # We can return to this location by calling #redirect_back_or_default.

@@ -67,6 +67,11 @@ module AuthenticatedSystem
           store_location
           redirect_to new_<%= controller_routing_name %>_path
         end
+
+        accepts.js do
+          render(:update) { |page| page.redirect_to(:controller => '/account', :action => 'login') }
+        end
+        
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987
         # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
         # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
