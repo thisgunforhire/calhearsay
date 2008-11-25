@@ -29,6 +29,7 @@
 <br>
      <%=h @entry.description %>
 </p>
+<%= render :partial => "rating/rate", :locals => { :asset => @entry } %>
 <p align="center">
   <% if @entry.picture != '' %>
     <%=@entry.picture%>
