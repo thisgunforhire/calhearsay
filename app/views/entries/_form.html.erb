@@ -12,11 +12,10 @@
     <table border="0">
     <tr>Insert an image from a URL or upload your own photo (<i>Must have an image</i>)</tr>
     <tr><td padding="4">Image from URL (http://...)</td><td padding="4">Upload an image</td></tr>
-    <tr><td><input type="text" id="entry_picture" name="entry[picture]"></td>
+    <tr><td><%= f.text_field :picture %></td>
     <td><%= file_field_tag 'entry_pic' %></td>
     </tr>
     </table>
-    <%#= f.text_field :picture %> 
   </p>
   <p>
   <%#= f.label :pic %>
