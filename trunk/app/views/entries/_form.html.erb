@@ -10,8 +10,8 @@
     <%#= f.label :picture %>
     
     <table border="0">
-    <tr>Insert an image from a URL or upload your own photo (<i>optional</i>)</tr>
-    <tr><td>Image from URL (http://...)</td><td>Upload an image</td></tr>
+    <tr>Insert an image from a URL or upload your own photo (<i>Must have an image</i>)</tr>
+    <tr><td padding="4">Image from URL (http://...)</td><td padding="4">Upload an image</td></tr>
     <tr><td><input type="text" id="entry_picture" name="entry[picture]"></td>
     <td><%= file_field_tag 'entry_pic' %></td>
     </tr>
@@ -29,6 +29,9 @@
     <option value="">[select a category]</option>
     <option value="hos">hos</option>
     <option value="bums">bums</option>
+    <option value="celebs">celebs</option>
+    <option value="geeks">geeks</option>
+    <option value="hot">hot</option>
     </select>
     <!--<%= f.text_field :category %>-->
   </p>
