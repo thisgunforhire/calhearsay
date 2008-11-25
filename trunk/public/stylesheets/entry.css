@@ -171,6 +171,11 @@ background: #d0d0d0;
 #subs {
 	font-size: x-small;
 }
+
+.resize-pic {
+	width: 400px;
+}
+
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
