@@ -33,7 +33,6 @@
 <%= render :partial => "rating/rate", :locals => { :asset => @entry } %>
 <p align="center">
   <% if @entry.picture != '' %>
-    <%=@entry.picture%>
     <img class="resize-pic" src="<%=@entry.picture%>">
   <% else %>
   <% if @entry.pic != nil %>
