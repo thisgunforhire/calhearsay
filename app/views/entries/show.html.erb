@@ -14,7 +14,7 @@
 : <%= link_to h(tag.tag), entries_path %>
 <% end %>
 <%if @entry.user_id == current_user.id%>
-<%= link_to 'add tag', new_entry_tag_url(@entry) %>
+: <%= link_to 'add tag', new_entry_tag_url(@entry) %>
 <%end%>
 
 <form action="/entries/@entry.id" class="edit_entry" id="edit_entry_@entry.id" method="post">
