@@ -2,7 +2,7 @@ class CreateEntries < ActiveRecord::Migration
   def self.up
     create_table :entries do |t|
       t.string :title
-      t.decimal :rating
+      t.string :rating
       t.text :description
       t.string :picture
       t.string :category
