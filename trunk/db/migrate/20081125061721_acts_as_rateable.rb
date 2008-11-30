@@ -1,7 +1,7 @@
 class ActsAsRateable < ActiveRecord::Migration
   def self.up
     create_table :ratings, :force => true do |t|
-      t.column :rating, :integer, :default => 0
+      t.column :rating, :decimal, :default => 0.0
       t.column :created_at, :datetime, :null => false
       t.column :rateable_type, :string, :limit => 15,
       :default => "", :null => false
