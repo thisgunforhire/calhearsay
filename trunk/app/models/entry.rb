@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
   acts_as_rateable 
+  
   has_one:pic
   has_many:comments
   has_many:tags
