@@ -1,14 +1,3 @@
-<head>
-   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>hearsay! - collaborative photo sharing and gossiping of the local community</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-
-  <%= javascript_include_tag 'shadedBorder' %>
-  <%= javascript_include_tag 'shadedBorderVar' %>
-  <%= javascript_include_tag :defaults %>
-  
-</head>
-<body id="comments">
 <p>
 <div align="right" id="subs"><b>posted by</b> <%= @entry.user.login %> <b>on</b> <%= @entry.created_at %></div>
    <t1><%=h @entry.title %></t1>
@@ -32,7 +21,10 @@
 <br>
      <%=h @entry.description %>
 </p>
-<%= render :partial => "rating/rate", :locals => { :asset => @entry } %>
+Rating: <%= @entry.rating %>
+<div id="star-ratings-block">
+    <%= render :partial => "rating/rate", :locals => { :entry => @entry } %>
+</div>
 <p align="center">
   <% if @entry.picture != '' %>
     <img class="resize-pic" src="<%=@entry.picture%>">

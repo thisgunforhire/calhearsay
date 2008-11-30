@@ -1,10 +1,11 @@
 class Entry < ActiveRecord::Base
+  acts_as_rateable 
   has_one:pic
   has_many:comments
   has_many:tags
   belongs_to:user
 
-  acts_as_rateable
+ 
   
   #validations
   validates_presence_of :user
