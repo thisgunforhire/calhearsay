@@ -21,8 +21,8 @@
 <br>
      <%=h @entry.description %>
 </p>
+<div id="star-ratings-block" align="center">
 Rating: <%= @entry.rating %>
-<div id="star-ratings-block">
     <%= render :partial => "rating/rate", :locals => { :entry => @entry } %>
 </div>
 <p align="center">
