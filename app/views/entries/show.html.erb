@@ -1,5 +1,11 @@
 <p>
-<div align="right" id="subs"><b>posted by</b> <%= @entry.user.login %> <b>on</b> <%= @entry.created_at %></div>
+<div align="right" id="subs">
+	<%if @entry.user.userpic != nil%>
+		<img width=100 src="<%= @entry.user.userpic.public_filename %>">
+	<%else%>
+		<img src="../images/smile.jpg">
+	<%end%>
+<br><b><%= @entry.user.login %></b> <b>on</b> <%= @entry.created_at %></div>
    <t1><%=h @entry.title %></t1>
    <br><b>category</b> : <%=h @entry.category %> | 
    <b>tags</b><% for tag in @tags %>
@@ -40,7 +46,7 @@
 	<%if comment.user.userpic != nil%>
 		<img width=100 src="<%= comment.user.userpic.public_filename %>">
 	<%else%>
-		<img src="http://fashion.berkeley.edu/images/smile.jpg">
+		<img src="../images/smile.jpg">
 	<%end%>
 	<br><b><%= comment.user.login %></b>
 <% else %>
