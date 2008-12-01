@@ -4,9 +4,9 @@
   <% @user = User.find(current_user.id) %>
   <p>
   <%if @user.userpic != nil%>
-  <img width=100 src="<%= @user.userpic.public_filename %>">
+  <img width=100 src="<%= @user.userpic.public_filename %>" border="1">
   <%else%>
-  <img src="../images/smile.jpg">
+  <img src="../images/smile.jpg" border="1">
   <%end%>
   </p>
   <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
