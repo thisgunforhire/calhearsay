@@ -6,7 +6,7 @@
   <%if @user.userpic != nil%>
   <img width=100 src="<%= @user.userpic.public_filename %>">
   <%else%>
-  <img src="http://fashion.berkeley.edu/images/smile.jpg">
+  <img src="../images/smile.jpg">
   <%end%>
   </p>
   <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
