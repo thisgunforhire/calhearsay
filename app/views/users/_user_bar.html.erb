@@ -8,8 +8,22 @@
   <%end%>
   <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
 <% else -%>
-  <div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></div>
-  <div id="user-bar-action"  ><%= link_to "Log in",  login_path,  { :title => "Log in" } %> /
+<% form_tag session_path do -%>
+<p align="center"><%= label_tag 'login' %><br />
+<%= text_field_tag 'login', @login %></p>
+
+<p align="center"><%= label_tag 'password' %><br/>
+<%= password_field_tag 'password', nil %></p>
+
+
+<p align="center"><%= label_tag 'remember_me', 'Remember me' %>
+<%= check_box_tag 'remember_me', '1', @remember_me %></p>
+
+
+<p align="center"><%= submit_tag 'Log in' %></p>
+<% end -%>
+  <!--<div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></div>-->
+  <div id="user-bar-action"  ><!--<%= link_to "Log in",  login_path,  { :title => "Log in" } %> /-->
                                <%= link_to "Sign up", signup_path, { :title => "Create an account" } %></div>
 <% end -%>
 </div>
