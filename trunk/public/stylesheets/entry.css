@@ -134,9 +134,10 @@ height: auto;
 	padding: 0px;
 	background: #000000;
 }
-#entries p1 {
+p1 {
 	font-weight: bold;
 	color: fuchsia;
+	font-size: large;
 }
 #entries t1 {
 font: 200% bold century gothic, sans-serif;

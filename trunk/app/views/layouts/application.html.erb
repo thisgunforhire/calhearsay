@@ -5,41 +5,55 @@
 <head>
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>hearsay! - collaborative photo sharing and gossiping of the local community</title>
-  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <%= stylesheet_link_tag 'entry' %>
-  <%= javascript_include_tag "shadedBorder" %>
-  <%= javascript_include_tag "shadedBorderVar" %>
-    <%= javascript_include_tag :defaults %>
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"  href="/stylesheets/entry.css" type="text/css">
+<script type="text/javascript" src="/javascripts/shadedBorder.js"></script>
+<script type="text/javascript" src="/javascripts/shadedBorderVar.js"></script>
 </head>
 <body id="entry">
   <div id="banner">
-    <!--<%= image_tag("logo02.jpg") %>-->
-    <!-- <br />
-    <%= "Hearsay!" %>-->
-  </div>
+   </div>
   <p>
   <div id="columns">
-  <div id="shadowed-border" class="sb">
+    <div id="shadowed-border" class="sb">
       <div id="side">
-      <div align="center"><h1>user info</h1></div>
-      <%= render :partial => 'users/user_bar' %>
-    </div>
-     <!--
-     <div id="right"">
-       <div align="center"><h1>archive</h1></div>
-       <%= render :partial => 'entries/entry_bar'%>
+      <div align="center"><h1>welcome!</h1>
+        <%= render :partial => 'users/user_bar' %>
+       </div></div>
+    <div id="right">
+       <div align="center"><h1>meet the developers</h1>
+       <p><img src="../images/david.jpg" class="img-border"><br>
+       david</p>
+       <p><img src="../images/denise.jpg" class="img-border"><br>
+       denise</p>
+       <p><img src="../images/sam.jpg" class="img-border"><br>
+       sam</p>
+       </div>
+
       </div>
-      -->
-    <div id="main">
-      <div id="entries">
-      <p><p1><%= flash[:notice] %><%= flash[:error] %></p1></p>
-      <%= yield %>
-           </div>
+
+      <div id="main">
+	<div id="prebox">
+	<p><p1><%= flash[:notice] %><%= flash[:error] %></p1></p>
+		<p>A picture is worth 1,000 words. Stop talking and start showing!</p>
+
+		<p>Share your story or unique occurrence in Berkeley or any campus, for that matter, to the student population.</p>
+
+		<p>Users can upload photos of campus personalities, protesters, hippies, the popular girl, or the campus jock at their finest moments. Viewers are welcome to comment with their insight or link to other relevant photos.</p>
+
+		<p>Rank the hottest girl. The most "granola" Berkeleyan. Most awkward geek.</p>
+    <p>So what are you waiting for? Start posting! There's nothing to feel guilty about -- it's all <b>hearsay!</b></p>
+        </div>
+	<div id="entries">
+	  <p>You must log in to <a href="entries">view the posts</a>. If you do not have a log in and password yet, please sign up!</p>
+  <%= yield %>
+		
+	</div>
+      </div>
+     
     </div>
-  </div>
   </div>
   </p>
 </body>
 </html>
-
 
