@@ -8,7 +8,7 @@ Zipcode<br>
 <br>
 <input type="button" value="Go to Address" onclick="initialize()">
   
-<%= render :partial => 'entry_map' %>
+<%= render :partial => '/entryMap' %>
 
 <% form_for @entry, :html =>{ :multipart => true}  do |f| %>
   <%= f.error_messages %>
