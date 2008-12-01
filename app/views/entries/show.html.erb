@@ -23,7 +23,6 @@
 </p>
 
 <div id="star-ratings-block">
-    <b>Rating:</b> <%= number_with_precision(@entry.rating, 0.1) %>
     <%= render :partial => "rating/rate", :locals => { :entry => @entry } %>
     <br><b>click refresh to see changes</b>
 </div>
