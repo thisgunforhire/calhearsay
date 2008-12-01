@@ -59,6 +59,9 @@ class EntriesController < ApplicationController
     #@entry.picture = nil
     @entry.pic = Pic.new(:uploaded_data => params[:entry_pic])
     
+    @entry.addr = params[:paddr]
+    @entry.zip = params[:pzip]
+    
     respond_to do |format|
       if @entry.save
         flash[:notice] = 'Entry was successfully created.'
