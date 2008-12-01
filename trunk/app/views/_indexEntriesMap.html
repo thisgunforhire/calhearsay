@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>      
+  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAUo6KMsX914F3mJeC8AyItRRJMzv-qxJhMFJmxMHCqdhfyLeJExRwSrjRYYwQ0XViW_vvcrNe9Cnz3A"
+      type="text/javascript"></script>
+            
+            
+            
+    <script type="text/javascript">
+
+    var ads
+    var map
+    var marker
+    var geocoder
+    var ad
+
+    function load() {
+    	if (GBrowserIsCompatible()) {   
+	    map = new GMap2(document.getElementById("map_canvas"));
+	    map.setCenter(new GLatLng(37.4419, -122.1419), 13);
+	
+	    map.addControl(new GLargeMapControl);
+	    map.addControl(new GMapTypeControl());
+	    geocoder    = new GClientGeocoder();	
+	}
+    }    
+    
+    function initialize() {
+
+	for (var i = 0; i < <% ads.length %>; i++) {
+	    ad = ads[i];
+	    
+	    address = <% entry.addr %> + " " + <% entry.zip %>;
+
+	    tempMarker = geocoder.getLatLng(address, createMarker);
+	    
+	    if (i == 0){
+		map.setCenter(tempMarker.getLatLng(), 13);
+	    }
+
+	    map.addOverlay(tempMarker);
+	}
+    }
+
+    function createMarker(latlng) {
+	marker = new GMarker(latlng);
+	
+	GEvent.addListener(marker, "click", function() {
+			marker.openInfoWindowTabsHtml(
+				[new GInfoWindowTab("Overview",
+					"<div class=\"infowindow\"><h3>Tagged!</h3><a href=\"../../public/images/example.jpg\" onclick='Slimbox.open(\"../../public/images/example.jpg\",\"Please Find Me!\");return false' rel=\"lightbox\" ><img src=\"../../public/images/example.jpg\" width=150 height=100 align=left></a><br /><br /><body><b>Name:</b><% ad.pname %><br><b>Species:</b><% ad.pspecies %><br><b>Color:</b><% ad.pcolor %><br><b>Last Seen:</b><% ad.paddr %> <% ad.pzip %></body></div>"),
+				 new GInfoWindowTab("Description",<% ad.pdesc %>)]
+			);
+        });
+        
+	return marker;
+    	    
+    }
+
+
+    </script>
+  </head>
+
+  <body onload="initialize()" onunload="GUnload()">
+    <div id="map_canvas" style="width: 680px; height: 480px"></div>
+  </body>
+</html>
+

@@ -1,0 +1,68 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+ <meta http-equiv="content-type" content="text/html; charset=utf-8"/>  
+ <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAUo6KMsX914F3mJeC8AyItRRJMzv-qxJhMFJmxMHCqdhfyLeJExRwSrjRYYwQ0XViW_vvcrNe9Cnz3A"
+      type="text/javascript"></script>           
+            
+    <script type="text/javascript">
+
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+	var map = new GMap2(document.getElementById("map_canvas"));
+	var address	= document.getElementById("address");
+	var zipcode	= document.getElementByID("zipcode");
+	var totaladdy	= address + " " + zipcode;
+	var geocoder    = new GClientGeocoder();
+
+	map.addControl(new GLargeMapControl);
+	map.addControl(new GMapTypeControl());
+
+  	geocoder.getLatLng(
+    	    address,
+    	    function(point) {
+		if (!point) {
+		    alert(address + " not found");
+		} else {
+		    map.setCenter(point, 13);
+		    getAddress(point)
+		}
+	    }
+	);
+      }
+    }
+
+    function getAddress(latlng) {
+      if (latlng != null) {
+        address = latlng;
+        geocoder.getLocations(latlng, showAddress);
+      }
+    }
+
+    function showAddress(response) {
+      map.clearOverlays();
+      if (!response || response.Status.code != 200) {
+        alert("Status Code:" + response.Status.code);
+      } else {
+        place = response.Placemark[0];
+        point = new GLatLng(place.Point.coordinates[1],
+                            place.Point.coordinates[0]);
+	var marker = new GMarker(point, {draggable: true});
+	map.addOverlay(marker);	
+
+	marker.openInfoWindowHtml(
+	'<b>Is this the desired address?</b>' + '<br>' +
+        place.address);
+
+	GEvent.addListener(marker, "dragstart", function() {
+          map.closeInfoWindow();
+        });
+
+        GEvent.addListener(marker, "dragend", getAddress);
+      }
+    }
+        
+
+    </script>
+
+</html>
+

@@ -1,0 +1,62 @@
+
+	<script type="text/javascript">
+
+		
+    var map;
+    var geocoder;
+		var i = 0;
+    var address;
+	
+
+    function initialize() {
+			if (GBrowserIsCompatible()) {   
+			map = new GMap2(document.getElementById("map_canvas"));
+	    map.setCenter(new GLatLng(37.4419, -122.1419), 13);
+	
+	    map.addControl(new GLargeMapControl);
+	    map.addControl(new GMapTypeControl());
+	    geocoder = new GClientGeocoder();	
+			
+			<% for entry in @entries do %>
+			var addr = new String(<%= '"' %> <%= entry.addr.to_s %><%= '"' %>);
+	    address = addr;
+			
+			function createMarker(latlng) {
+						var test = latlng.lat();
+						var marker = new GMarker(latlng);
+						
+			if (i == 0){
+						i = i +1;	
+		  map.setCenter(marker.getLatLng(), 13);
+	    }
+
+	    map.addOverlay(marker);
+			
+	GEvent.addListener(marker, "click", function() {
+			<% unless (Pic.find(:first, :conditions => { :pid => ad.id })) == nil %>
+			var info = "<div class=\"infowindow\"><h3>Have You Seen Me?</h3><a href=\"<%= Mugshot.find(:first, :conditions => { :pid => ad.id }).public_filename %>\" onclick='Slimbox.open(\"<%= Mugshot.find(:first, :conditions => { :pid => ad.id }).public_filename %>\",\"Please Find Me!\");return false' rel=\"lightbox\" ><img src=\"<%= Mugshot.find(:first, :conditions => { :pid => ad.id }).public_filename %>\" width=150 height=100 align=left></a><br /><br /><body><b>Name:</b><%= ad.pname %><br><b>Species:</b><%= ad.pspecies %><br><b>Color:</b><%= ad.pcolor %><br><b>Last Seen:</b><%= ad.paddr %> <%= ad.pzip %></body></div>";
+			<% else %>
+			var info = "<div class=\"infowindow\"><h3>Have You Seen Me?</h3><br /><br /><body><b>Name:</b><%= ad.pname %><br><b>Species:</b><%= ad.pspecies %><br><b>Color:</b><%= ad.pcolor %><br><b>Last Seen:</b><%= ad.paddr %> <%= ad.pzip %></body></div>";
+			<% end %>
+			var desc = "<div class=\"infowindow\"><body><%= ad.pdesc %><br><a href=\"/respond?id=<%= ad.id %>\">Contact</a></body></div>";
+			marker.openInfoWindowTabsHtml(
+				[new GInfoWindowTab("Overview", info),
+				new GInfoWindowTab("Description", desc)]		
+        )});
+
+    }
+			
+			
+	    geocoder.getLatLng(address, createMarker);
+
+			<% end %>		
+			}
+    }
+
+
+
+
+    </script>
+
+    <div id="map_canvas" style="width: 500px; height: 400px"></div>
+

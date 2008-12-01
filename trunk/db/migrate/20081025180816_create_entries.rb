@@ -8,6 +8,9 @@ class CreateEntries < ActiveRecord::Migration
       t.string :category
       t.integer :user_id
       
+      t.string :addr
+      t.string :zip
+      
       t.integer :num_votes
       t.integer :raw_score
       t.decimal :score
