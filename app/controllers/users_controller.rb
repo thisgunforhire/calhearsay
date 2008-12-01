@@ -6,12 +6,18 @@ class UsersController < ApplicationController
   # render new.rhtml
   def new
     @user = User.new
+     respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @user }
+    end
   end
  
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
-    @user.userpic = Userpic.new(:uploaded_data => params[:user_userpic])
+   # @user.userpic = Userpic.new(:uploaded_data => params[:user_pic])
+    
+    
     success = @user && @user.save
     if success && @user.errors.empty?
             # Protects against session fixation attacks, causes request forgery

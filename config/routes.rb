@@ -1,8 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :tags
-  map.resources :userpics
   
-  #map.resources :rating, :member => { :rate => :post }
+ #map.resources :rating, :member => { :rate => :post }
  map.rate '/rate', :controller => 'rating', :action => 'rate'
 
 
@@ -11,12 +10,14 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   
+
+  map.resource :session
+
   map.resources :users do |user|
     user.resources :userpics
   end
 
-  map.resource :session
-
+  
   map.resources :entries do |entry|
 	entry.resources :comments
         entry.resources :tags
@@ -28,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :entries
   
   map.resources :pics
-
+  map.resources :userpics
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

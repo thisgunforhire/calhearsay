@@ -3,9 +3,11 @@
   <div id="user-bar-greeting">Logged in as <%#= link_to_current_user :content_method => :login %><b><%= current_user.login %></b></div>
   <p><img src="http://fashion.berkeley.edu/images/smile.jpg"></p>
   <% @user = User.find(current_user.id) %>
+
   <%if @user.userpic != nil%>
-  <img src="<%#= @user.userpic.public_filename %>" width=60>
+  <img class="resize-pic" src="<%= @user.userpic.public_filename %>">
   <%end%>
+
   <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
 <% else -%>
 <% form_tag session_path do -%>
