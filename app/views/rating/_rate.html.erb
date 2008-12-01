@@ -4,7 +4,7 @@
           Currently <%= number_with_precision(entry.rating, 1) %>/5 Stars.
         </li>
     <li>
-        <%= link_to_remote( "1", {:update => "star-ratings-block", :url => { :controller => "rating", 
+        <%= link_to_remote( "1", {:url => { :controller => "rating", 
             :action => "rate", :id => entry.id, :rating => 1}},
             :class => 'one-star', :name => '1 star out of 5') %>
     </li>
