@@ -40,19 +40,30 @@
 <div id="shadowed-border2" class="sb">
 <div id="comment">
 <% i=0 %>
+<table border="0" width="500">
 <% for comment in @comments %>
 <% i+=1 %>
-<div align="right">
-<t1><%= i %></t1>
-</div>
-<%= comment.comment %>
-<br><subs>
+<tr><td>
+<center>
 <%if comment.anon == 'no'%>
-<b>posted by</b> <%= comment.user.login %> <b>on</b> <%= comment.created_at %>
-<%else%>
-<b>posted anonymously</b>
-<%end%>
-<br>
+	<%if comment.user.userpic != nil%>
+		<img width=100 src="<%= comment.user.userpic.public_filename %>">
+	<%else%>
+		<img src="http://fashion.berkeley.edu/images/smile.jpg">
+	<%end%>
+	<br><b><%= comment.user.login %></b>
+<% else %>
+	<img src="../images/smiley.jpg">
+	<br><b>anonymous</b>
+<% end %>
+  </center>
+  </td>
+  <td>
+<p align="right">
+<t1><%= i %></t1>
+</p>
+<p><%= comment.comment %></p>
+<p align="right"><subs>
 <% if current_user.id == comment.user_id %>
 <%= link_to 'edit', edit_entry_comment_path(@entry,comment) %> | <%= link_to 'delete', entry_comment_path(@entry,comment), :confirm => 'Are you sure?', :method => :delete %>
 <% else %>
@@ -60,11 +71,15 @@
 <%= link_to 'delete', entry_comment_path(@entry,comment), :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
 <% end %>
+<br><%= comment.created_at %>
+</p>
 </subs>
 </p>
-<hr>
-
+</td></tr>
+<tr><td><hr></td><td><hr></td></tr>
 <% end %>
+</table>
+
 <%= link_to 'post a new comment', new_entry_comment_url(@entry) %>
 </div>
 </p>
