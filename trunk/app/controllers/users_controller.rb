@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
-   # @user.userpic = Userpic.new(:uploaded_data => params[:user_pic])
+    @user.userpic = Userpic.new(:uploaded_data => params[:user_pic])
     
     
     success = @user && @user.save
