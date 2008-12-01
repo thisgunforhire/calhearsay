@@ -8,24 +8,11 @@
 <%if @entry.user_id == current_user.id%>
 : (<%= link_to 'add tag', new_entry_tag_url(@entry) %>)
 <%end%>
-
-<!--
-<form action="/entries/@entry.id" class="edit_entry" id="edit_entry_@entry.id" method="post">
-<br>rate it! <input type="radio" value="1" id="@entry.add_vote(value)">1 <input type="radio" value="2" id="@entry.add_vote(value)">2
-<br><input id="entry_submit" name="commit" type="submit" value="Create" />
-<br><%= @entry.score %>
--->
-
 </p>
 <p>
 <br>
      <%=h @entry.description %>
 </p>
-
-<div id="star-ratings-block">
-    <%= render :partial => "rating/rate", :locals => { :entry => @entry } %>
-</div>
-
 <p align="center">
   <% if @entry.picture != '' %>
     <img class="resize-pic" src="<%=@entry.picture%>">
@@ -35,7 +22,11 @@
     <% end %>
   <% end %>
 </p>
-
+<p align="center">
+<div id="star-ratings-block" align="center">
+    <%= render :partial => "rating/rate", :locals => { :entry => @entry } %>
+</div>
+</p>
 <p>
 <div id="shadowed-border2" class="sb">
 <div id="comment">
