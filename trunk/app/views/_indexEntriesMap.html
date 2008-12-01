@@ -48,8 +48,13 @@
 	GEvent.addListener(marker, "click", function() {
 			marker.openInfoWindowTabsHtml(
 				[new GInfoWindowTab("Overview",
-					"<div class=\"infowindow\"><h3>Tagged!</h3><a href=\"../../public/images/example.jpg\" onclick='Slimbox.open(\"../../public/images/example.jpg\",\"Please Find Me!\");return false' rel=\"lightbox\" ><img src=\"../../public/images/example.jpg\" width=150 height=100 align=left></a><br /><br /><body><b>Name:</b><% ad.pname %><br><b>Species:</b><% ad.pspecies %><br><b>Color:</b><% ad.pcolor %><br><b>Last Seen:</b><% ad.paddr %> <% ad.pzip %></body></div>"),
-				 new GInfoWindowTab("Description",<% ad.pdesc %>)]
+                                      <% if entry.picture != '' %>
+                                                <img class="list-one-sheet" src="<%=entry.picture%>">
+                                        <% else %>
+                                        <% if entry.pic != nil %>
+                                           <img class="list-one-sheet" src="<%=entry.pic.public_filename %>">
+                                            <% end %>),
+				 new GInfoWindowTab("Description",<% entry.description %>)]
 			);
         });
         
