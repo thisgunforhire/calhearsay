@@ -32,18 +32,6 @@
 
 	    map.addOverlay(marker);
 			
-	GEvent.addListener(marker, "click", function() {
-			<% unless (Pic.find(:first, :conditions => { :pid => ad.id })) == nil %>
-			var info = "<div class=\"infowindow\"><h3>Have You Seen Me?</h3><a href=\"<%= Mugshot.find(:first, :conditions => { :pid => ad.id }).public_filename %>\" onclick='Slimbox.open(\"<%= Mugshot.find(:first, :conditions => { :pid => ad.id }).public_filename %>\",\"Please Find Me!\");return false' rel=\"lightbox\" ><img src=\"<%= Mugshot.find(:first, :conditions => { :pid => ad.id }).public_filename %>\" width=150 height=100 align=left></a><br /><br /><body><b>Name:</b><%= ad.pname %><br><b>Species:</b><%= ad.pspecies %><br><b>Color:</b><%= ad.pcolor %><br><b>Last Seen:</b><%= ad.paddr %> <%= ad.pzip %></body></div>";
-			<% else %>
-			var info = "<div class=\"infowindow\"><h3>Have You Seen Me?</h3><br /><br /><body><b>Name:</b><%= ad.pname %><br><b>Species:</b><%= ad.pspecies %><br><b>Color:</b><%= ad.pcolor %><br><b>Last Seen:</b><%= ad.paddr %> <%= ad.pzip %></body></div>";
-			<% end %>
-			var desc = "<div class=\"infowindow\"><body><%= ad.pdesc %><br><a href=\"/respond?id=<%= ad.id %>\">Contact</a></body></div>";
-			marker.openInfoWindowTabsHtml(
-				[new GInfoWindowTab("Overview", info),
-				new GInfoWindowTab("Description", desc)]		
-        )});
-
     }
 			
 			

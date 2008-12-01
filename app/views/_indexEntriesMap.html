@@ -44,19 +44,6 @@
 
     function createMarker(latlng) {
 	marker = new GMarker(latlng);
-	
-	GEvent.addListener(marker, "click", function() {
-			marker.openInfoWindowTabsHtml(
-				[new GInfoWindowTab("Overview",
-                                      <% if entry.picture != '' %>
-                                                <img class="list-one-sheet" src="<%=entry.picture%>">
-                                        <% else %>
-                                        <% if entry.pic != nil %>
-                                           <img class="list-one-sheet" src="<%=entry.pic.public_filename %>">
-                                            <% end %>),
-				 new GInfoWindowTab("Description",<% entry.description %>)]
-			);
-        });
         
 	return marker;
     	    
