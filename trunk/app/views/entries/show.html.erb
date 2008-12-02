@@ -25,7 +25,7 @@
 
 <p align="center">
   <% if @entry.picture != '' %>
-    <img class="resize-pic" src="<%=@entry.picture%>">
+    <a href="<%= @entry.picture %>"><img class="resize-pic" src="<%=@entry.picture%>"></a>
   <% else %>
   <% if @entry.pic != nil %>
       <a href="<%= @entry.pic.public_filename %>"><img class="resize-pic" src="<%= @entry.pic.public_filename %>"></a>

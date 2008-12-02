@@ -12,6 +12,7 @@ class Entry < ActiveRecord::Base
   validates_presence_of :user
   validates_presence_of :title
   validates_presence_of :state
+  
   validates_length_of :title, :maximum => 100, :if => Proc.new{|x| !(x.title.blank?)}
   validates_presence_of :description
   validates_length_of :description, :maximum => 500, :if => Proc.new{|x| !(x.description.blank?)}
