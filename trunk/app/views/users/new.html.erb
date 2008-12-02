@@ -1,6 +1,7 @@
  <%= javascript_include_tag :defaults %>
  
 <h1>Sign up!</h1>
+<font color="red"><b>*All fields are <u>REQUIRED</u></b></font>
 <% @user.password = @user.password_confirmation = nil %>
 
 <%= error_messages_for :user %>
@@ -13,8 +14,9 @@
 
 <p><%= label_tag 'password_confirmation', 'Confirm Password' %> <%= f.password_field :password_confirmation %></p>
 
-<p>Upload a user icon (<i>Optional</i>): <%= file_field_tag 'user_pic' %>
+<p>Upload a user icon: <%= file_field_tag 'user_pic' %>
+<br><sup>(Icon will be resized to 100x100 pixels)</sup>
 </p>
 
-<p><%= submit_tag 'Sign up!' %></p>
+<p><%= submit_tag 'Sign up!' %>  <input type="reset" value="Do over!"></p>
 <% end -%>

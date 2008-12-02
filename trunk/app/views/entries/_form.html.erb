@@ -1,10 +1,10 @@
   <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :title %> <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <label for="entry_description">Description/Content</label>
+    <br><textarea cols="65" rows="10" id="entry_description" name="entry[description]"></textarea>
+    <%#= f.label :description %> <%#= f.text_area :description %>
   </p>
   <p>
     <%#= f.label :picture %>
@@ -23,8 +23,7 @@
   </p>  
   
   <p>
-    <%= f.label :category %><br />
-    <select name="entry[category]" id="entry_category">
+    <%= f.label :category %> <select name="entry[category]" id="entry_category">
     <option value="">[select a category]</option>
     <option value="hos">hos</option>
     <option value="bums">bums</option>
@@ -36,6 +35,6 @@
     <!--<%= f.text_field :category %>-->
   </p>
   <p>
-    <%= f.submit label_text %>
+    <%= f.submit label_text %>  <input type="reset" value="Do over!">
   </p>
 

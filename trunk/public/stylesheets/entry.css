@@ -110,6 +110,18 @@ color: #1E90FF;
 	color: #000000;
 	font-size: 18px;
 }
+textarea {
+	background: lightblue;
+	font: century gothic;
+	}
+input {
+	background: lightblue;
+	font: century gothic;
+}
+select {
+	background: lightblue;
+	font: century gothic;
+}
 
 #prebox {
 #float: left;
