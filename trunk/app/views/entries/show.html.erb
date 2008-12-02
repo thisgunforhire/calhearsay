@@ -14,7 +14,7 @@
 <td valign="top" width="101">
 <div align="right" id="subs">
 	<%if @entry.user.userpic != nil%>
-		<img width="100" height="100" src="<%= @entry.user.userpic.public_filename %>">
+		<img width="100" src="<%= @entry.user.userpic.public_filename %>">
 	<%else%>
 		<img src="../images/smile.jpg">
 	<%end%>
