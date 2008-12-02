@@ -2,15 +2,18 @@
  
 <h1>Sign up!</h1>
 <font color="red"><b>*All fields are <u>REQUIRED</u></b></font>
+<p>
 <% @user.password = @user.password_confirmation = nil %>
-
+</p>
 <%= error_messages_for :user %>
 <% form_for :user, :html =>{ :multipart => true}, :url => users_path do |f| -%>
-<p><%= label_tag 'login' %> <%= f.text_field :login %></p>
+<p>Desired <%= label_tag 'login' %> Name <%= f.text_field :login %></p>
 
 <p><%= label_tag 'email' %> <%= f.text_field :email %></p>
 
-<p><%= label_tag 'password' %> <%= f.password_field :password %></p>
+<p><%= label_tag 'password' %> <%= f.password_field :password %>
+<br><subs>(Must be at least 6 digits.)</subs>
+</p>
 
 <p><%= label_tag 'password_confirmation', 'Confirm Password' %> <%= f.password_field :password_confirmation %></p>
 
