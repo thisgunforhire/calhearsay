@@ -12,10 +12,10 @@
 </td>
 <td valign="top" width="101">
 <div align="right" id="subs">
-	<%if @entry.user.userpic != nil%>
+	<%if @entry.user.userpic.filename != nil%>
 		<img width="100" src="<%= @entry.user.userpic.public_filename %>">
 	<%else%>
-		<img src="../images/smile.jpg">
+		<img src="../images/smiley.jpg">
 	<%end%>
 <br><b><div align=center><%= @entry.user.login %></div></b></div>
 </td></tr>
@@ -27,11 +27,11 @@
   <% if @entry.picture != '' %>
     <a href="<%= @entry.picture %>"><img class="resize-pic" src="<%=@entry.picture%>"></a>
   <% else %>
-  <% if @entry.pic != nil %>
-      <%if @entry.pic.filename != nil%>
+  <% if @entry.pic.filename != nil %>
         <a href="<%= @entry.pic.public_filename %>"><img class="resize-pic" src="<%= @entry.pic.public_filename %>"></a>
-      <%end%>
-    <% end %>
+  <%else%>
+        <img src="../images/holder.jpg">
+  <% end %>
   <% end %>
 </p>
 <p>
@@ -52,10 +52,10 @@
 <tr><td>
 <center>
 <%if comment.anon == 'no'%>
-	<%if comment.user.userpic != nil%>
+	<%if comment.user.userpic.filename != nil%>
 		<img width=100 src="<%= comment.user.userpic.public_filename %>">
 	<%else%>
-		<img src="../images/smile.jpg">
+		<img src="../images/smiley.jpg">
 	<%end%>
 	<br><b><%= comment.user.login %></b>
 <% else %>

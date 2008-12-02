@@ -20,9 +20,11 @@
   <% if entry.picture != '' %>
       <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
-  <% if entry.pic != nil %>
+  <% if entry.pic.filename != nil %>
     <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-      <% end %>
+  <%else%>
+    <img src="../images/holder.jpg">
+  <% end %>
   <% end %><br/>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
@@ -39,9 +41,11 @@
   <p><% if entry.picture != '' %>
       <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
-  <% if entry.pic != nil %>
+  <% if entry.pic.filename != nil %>
     <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-      <% end %>
+  <%else%>
+    <img src="../images/holder.jpg">
+  <% end %>
   <% end %><br/>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
@@ -58,9 +62,11 @@
   <p><% if entry.picture != '' %>
       <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
-  <% if entry.pic != nil %>
+  <% if entry.pic.filename != nil %>
     <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-      <% end %>
+  <%else%>
+    <img src="../images/holder.jpg">
+  <% end %>
   <% end %><br/>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
@@ -77,9 +83,11 @@
   <p><% if entry.picture != '' %>
       <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
-  <% if entry.pic != nil %>
+  <% if entry.pic.filename != nil %>
     <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-      <% end %>
+  <%else%>
+    <img src="../images/holder.jpg">
+  <% end %>
   <% end %><br/>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
@@ -96,9 +104,11 @@
   <p><% if entry.picture != '' %>
       <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
-  <% if entry.pic != nil %>
+  <% if entry.pic.filename != nil %>
     <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-      <% end %>
+  <%else%>
+    <img src="../images/holder.jpg">
+  <% end %>
   <% end %><br/>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
@@ -115,9 +125,11 @@
   <p><% if entry.picture != '' %>
       <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
-  <% if entry.pic != nil %>
+  <% if entry.pic.filename != nil %>
     <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-      <% end %>
+  <%else%>
+    <img src="../images/holder.jpg">
+  <% end %>
   <% end %><br/>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
