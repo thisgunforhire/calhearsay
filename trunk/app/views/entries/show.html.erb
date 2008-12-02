@@ -20,9 +20,7 @@
 <br><b><div align=center><%= @entry.user.login %></div></b></div>
 </td></tr>
 </table>
-<p>
-     <%=h @entry.description %>
-</p>
+
 <p align="center">
   <% if @entry.picture != '' %>
     <img class="resize-pic" src="<%=@entry.picture%>">
@@ -31,6 +29,9 @@
       <img class="resize-pic" src="<%= @entry.pic.public_filename %>">
     <% end %>
   <% end %>
+</p>
+<p>
+     <%=h @entry.description %>
 </p>
 <p align="center">
 <div id="star-ratings-block" align="center">
