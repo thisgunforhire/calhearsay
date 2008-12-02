@@ -16,14 +16,15 @@
     <%@hos += 1%>
     <c1>(hos)</c1><br/>
   <%end%>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
+  <p>
   <% if entry.picture != '' %>
-    <img width=100 class="img-border" src="<%=entry.picture%>">
+      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
   <% if entry.pic != nil %>
-    <img width=100 class="img-border" src="<%=entry.pic.public_filename %>">
-  <% end %>
+    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
+      <% end %>
   <% end %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
 <%end%>
 </div>
@@ -35,14 +36,14 @@
     <%@bums += 1%>
     <c1>(bums)</c1><br/>
   <%end%>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
-  <% if entry.picture != '' %>
-    <img width=100 class="img-border" src="<%=entry.picture%>">
+  <p><% if entry.picture != '' %>
+      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
   <% if entry.pic != nil %>
-    <img width=100 class="img-border" src="<%=entry.pic.public_filename %>">
-  <% end %>
+    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
+      <% end %>
   <% end %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
 <%end%>
 </div>
@@ -54,14 +55,14 @@
     <%@celebs += 1%>
     <c1>(celebs)</c1><br/>
   <%end%>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
-  <% if entry.picture != '' %>
-    <img width=100 class="img-border" src="<%=entry.picture%>">
+  <p><% if entry.picture != '' %>
+      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
   <% if entry.pic != nil %>
-    <img width=100 class="img-border" src="<%=entry.pic.public_filename %>">
-  <% end %>
+    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
+      <% end %>
   <% end %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
 <%end%>
 </div>
@@ -73,14 +74,14 @@
     <%@geeks = 1%>
     <c1>(geeks)</c1><br/>
   <%end%>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
-  <% if entry.picture != '' %>
-    <img width=100 class="img-border" src="<%=entry.picture%>">
+  <p><% if entry.picture != '' %>
+      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
   <% if entry.pic != nil %>
-    <img width=100 class="img-border" src="<%=entry.pic.public_filename %>">
-  <% end %>
+    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
+      <% end %>
   <% end %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
 <%end%>
 </div>
@@ -92,14 +93,14 @@
     <%@hot = 1%>
     <c1>(hot)</c1><br/>
   <%end%>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
-  <% if entry.picture != '' %>
-    <img width=100 class="img-border" src="<%=entry.picture%>">
+  <p><% if entry.picture != '' %>
+      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
   <% if entry.pic != nil %>
-    <img width=100 class="img-border" src="<%=entry.pic.public_filename %>">
-  <% end %>
+    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
+      <% end %>
   <% end %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
 <%end%>
 </div>
@@ -111,14 +112,14 @@
     <%@other = 1%>
     <c1>(other)</c1><br/>
   <%end%>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
-  <% if entry.picture != '' %>
-    <img width=100 class="img-border" src="<%=entry.picture%>">
+  <p><% if entry.picture != '' %>
+      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
   <% else %>
   <% if entry.pic != nil %>
-    <img width=100 class="img-border" src="<%=entry.pic.public_filename %>">
-  <% end %>
+    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
+      <% end %>
   <% end %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
 <%end%>
 </div>
