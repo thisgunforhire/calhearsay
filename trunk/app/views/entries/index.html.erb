@@ -32,8 +32,10 @@
   <% if entry.picture != '' %>
     <img class="list-one-sheet" src="<%=entry.picture%>">
   <% else %>
-  <% if entry.pic != nil %>
+  <% if entry.pic.filename != nil %>
     <img class="list-one-sheet" src="<%=entry.pic.public_filename %>">
+  <%else%>
+    <img src="../images/holder.jpg">
   <% end %>
   <% end %>
 

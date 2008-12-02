@@ -6,10 +6,10 @@
   comments posted: <%=@user.comment_count%>
   </subs></p>
   <p>
-  <%if @user.userpic != nil%>
+  <%if @user.userpic.filename != nil%>
   <img width="100" src="<%= @user.userpic.public_filename %>" border="1">
   <%else%>
-  <img src="../images/smile.jpg" border="1">
+  <img src="../images/smiley.jpg" border="1">
   <%end%>
   </p>
   <div id="user-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
@@ -30,10 +30,10 @@
         <%@u_ent+=1%>
         user with most entries:
         <p align="center">
-        <%if user.userpic != nil%>
+        <%if user.userpic.filename != nil%>
           <img width="100" src="<%= user.userpic.public_filename %>" border="1">
         <%else%>
-          <img src="../images/smile.jpg" border="1">
+          <img src="../images/smiley.jpg" border="1">
         <%end%>
         <br>
         <b><%= user.login %></b>
@@ -43,10 +43,10 @@
         <%@u_com+=1%>
         user with most comments:
         <p align="center">
-        <%if user.userpic != nil%>
+        <%if user.userpic.filename != nil%>
           <img width="100" src="<%= user.userpic.public_filename %>" border="1">
         <%else%>
-          <img src="../images/smile.jpg" border="1">
+          <img src="../images/smiley.jpg" >
         <%end%>
         <br>
         <b><%= user.login %></b>
