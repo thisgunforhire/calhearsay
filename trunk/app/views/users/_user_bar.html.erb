@@ -2,6 +2,8 @@
 <% if logged_in? -%>
   <div id="user-bar-greeting">Logged in as <%#= link_to_current_user :content_method => :login %><b><%= current_user.login %></b></div>
   <% @user = User.find(current_user.id) %>
+  entry_count : <%=@user.entry_count%>
+  comment_count : <%=@user.comment_count%>
   <p>
   <%if @user.userpic != nil%>
   <img width="100" src="<%= @user.userpic.public_filename %>" border="1">

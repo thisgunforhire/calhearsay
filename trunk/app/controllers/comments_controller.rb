@@ -59,6 +59,7 @@ class CommentsController < ApplicationController
 	  @entry = Entry.find(params[:entry_id])
 	  @comment.entry = @entry
     @comment.user = current_user
+    @comment.user.comment_count += 1
 	
     respond_to do |format|
       if @comment.save
