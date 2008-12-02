@@ -1,6 +1,6 @@
+<div id="tags">
 <p>
-  <b>Tag:</b>
-  <%=h @tag.tag %>
+  <h1>Entries with tag <b><u><%=h @tag.tag %></u></b>:</h1>
 </p>
 <% i = 0 %>
 <%@e = Entry.find(:all)%>
@@ -17,6 +17,7 @@
         <%# i += 1 %>
         <%#= i %>. <%#= link_to (entry.title), entry%><br>
         -->
+        <p>
           <table cellpadding="5" cellspacing="0" width="100%">
       <tr class="list-line-even">
          <td width="100px">
@@ -40,7 +41,7 @@
   <% i=0 %>
 	<% for tag in entry.tags %>
   <% if i < 3 %>
-		 <%= tag.tag %>
+		 <%= link_to h(tag.tag), entry_tag_url(entry,tag) %>
      <% i += 1 %>
   <% end %>   
 	<% end %>
@@ -72,9 +73,10 @@
     
   
   </table>
-
+</p>
     <%end%>
 <%end%>
 <p>
 <%= link_to 'Back to entry', entry_path(@entry) %>
 </p>
+</div>

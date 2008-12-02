@@ -206,7 +206,9 @@ subs {
 	padding: 0px;
 	background: #000000;
 }
-	
+#tags table {
+	border: 1px solid #1E90FF;
+}	
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
