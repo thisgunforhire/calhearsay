@@ -4,7 +4,7 @@
   <% @user = User.find(current_user.id) %>
   <p>
   <%if @user.userpic != nil%>
-  <img width="100" height="100" src="<%= @user.userpic.public_filename %>" border="1">
+  <img width="100" src="<%= @user.userpic.public_filename %>" border="1">
   <%else%>
   <img src="../images/smile.jpg" border="1">
   <%end%>
