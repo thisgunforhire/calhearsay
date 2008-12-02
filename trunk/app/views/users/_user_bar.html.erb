@@ -1,15 +1,12 @@
-
-<% if logged_in? -%>
 <div align="center">
+<% if logged_in? -%>
   <div id="user-bar-greeting">Logged in as <%#= link_to_current_user :content_method => :login %><b><%= current_user.login %></b></div>
   <% @user = User.find(current_user.id) %>
-  </div>
-  <subs>entries posted: <%=@user.entry_count%>
+  <p align="left"><subs>entries posted: <%=@user.entry_count%>
   comments posted: <%=@user.comment_count%>
-  </subs>
+  </subs></p>
   <p>
   <%if @user.userpic != nil%>
-  <div align="center">
   <img width="100" src="<%= @user.userpic.public_filename %>" border="1">
   <%else%>
   <img src="../images/smile.jpg" border="1">
