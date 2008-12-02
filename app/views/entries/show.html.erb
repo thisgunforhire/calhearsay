@@ -2,6 +2,7 @@
    <t1><%=h @entry.title %></t1>
    <br><subs>(<b>posted on</b> <%= @entry.created_at %>)</subs>
    <br><b>category</b> : <%=h @entry.category %> | 
+   <br><b>location</b>: <%=h @entry.state %> |
    <b>tags</b><% for tag in @tags %>
  : <%= link_to h(tag.tag), entry_tag_url(@entry,tag) %>
 <% end %>
