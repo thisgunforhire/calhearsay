@@ -26,6 +26,7 @@
     <%end%>
     <%for user in @u%>
       <%if user.entry_count == @u_ent%>
+        <%@u_ent+=1%>
         user with most entries:
         <b><%= user.login %></b>
         <p align="center">
@@ -37,6 +38,7 @@
         </p>
       <%end%>
       <%if user.comment_count == @u_com%>
+        <%@u_com+=1%>
         user with most comments:
         <b><%= user.login %></b><br>
         <p align="center">
