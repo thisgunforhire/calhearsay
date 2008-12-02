@@ -13,7 +13,7 @@
 <%for entry in @query%>
 <%if entry.category == 'hos'%>
   <%if @hos == 0%>
-    <%@hos = 1%>
+    <%@hos += 1%>
     <c1>(hos)</c1><br/>
   <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
@@ -32,7 +32,7 @@
 <%for entry in @query%>
 <%if entry.category == 'bums'%>
   <%if @bums == 0%>
-    <%@bums = 1%>
+    <%@bums += 1%>
     <c1>(bums)</c1><br/>
   <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
@@ -51,7 +51,7 @@
 <%for entry in @query%>
 <%if entry.category == 'celebs'%>
   <%if @celebs == 0%>
-    <%@ceebs = 1%>
+    <%@celebs += 1%>
     <c1>(celebs)</c1><br/>
   <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
