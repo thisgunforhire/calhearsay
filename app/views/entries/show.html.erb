@@ -1,11 +1,9 @@
-
-
 <table border="0" width="550"><tr><td valign="top">
    <t1><%=h @entry.title %></t1>
    <br><subs>(<b>posted on</b> <%= @entry.created_at %>)</subs>
    <br><b>category</b> : <%=h @entry.category %> | 
    <b>tags</b><% for tag in @tags %>
- : <%= link_to h(tag.tag), entries_path %>
+ : <%= link_to h(tag.tag), entry_tag_path(@entry,tag) %>
 <% end %>
 <%if @entry.user_id == current_user.id%>
 : (<%= link_to 'add tag', new_entry_tag_url(@entry) %>)
