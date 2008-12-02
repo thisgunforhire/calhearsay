@@ -1,11 +1,21 @@
-<%#hos, bums, celebs, hot, geeks, other%>
-
+<%#hos, bums, celebs, geeks, hot, other%>
+<div align="center"><h1>archive</h1></div>
 <%@query = Entry.find(:all)%>
 
-<c1>(hos)</c1><br/>
+<%@hos = 0%>
+<%@bums = 0%>
+<%@celebs = 0%>
+<%@geeks = 0%>
+<%@hot = 0%>
+<%@other = 0%>
+
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'hos'%>
+  <%if @hos == 0%>
+    <%@hos = 1%>
+    <c1>(hos)</c1><br/>
+  <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=100 class="img-border" src="<%=entry.picture%>">
@@ -18,10 +28,13 @@
 <%end%>
 </div>
 
-<c1>(bums)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'bums'%>
+  <%if @bums == 0%>
+    <%@bums = 1%>
+    <c1>(bums)</c1><br/>
+  <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=100 class="img-border" src="<%=entry.picture%>">
@@ -34,10 +47,13 @@
 <%end%>
 </div>
 
-<c1>(celebs)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'celebs'%>
+  <%if @celebs == 0%>
+    <%@ceebs = 1%>
+    <c1>(celebs)</c1><br/>
+  <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=100 class="img-border" src="<%=entry.picture%>">
@@ -50,10 +66,13 @@
 <%end%>
 </div>
 
-<c1>(geeks)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'geeks'%>
+  <%if @geeks == 0%>
+    <%@geeks = 1%>
+    <c1>(geeks)</c1><br/>
+  <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=100 class="img-border" src="<%=entry.picture%>">
@@ -66,10 +85,13 @@
 <%end%>
 </div>
 
-<c1>(hot)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'hot'%>
+  <%if @hot == 0%>
+    <%@hot = 1%>
+    <c1>(hot)</c1><br/>
+  <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=100 class="img-border" src="<%=entry.picture%>">
@@ -82,10 +104,13 @@
 <%end%>
 </div>
 
-<c1>(other)</c1><br/>
 <div align="center">
 <%for entry in @query%>
 <%if entry.category == 'other'%>
+  <%if @other == 0%>
+    <%@other = 1%>
+    <c1>(other)</c1><br/>
+  <%end%>
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% if entry.picture != '' %>
     <img width=100 class="img-border" src="<%=entry.picture%>">

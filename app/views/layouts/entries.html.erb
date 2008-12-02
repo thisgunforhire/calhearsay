@@ -15,7 +15,7 @@
       type="text/javascript"></script>
 </head>
 <body id="entry">
-  <div id="banner">
+<div id="banner">
     <!--<%= image_tag("logo02.jpg") %>-->
     <!-- <br />
     <%= "Hearsay!" %>-->
@@ -26,11 +26,10 @@
       <div id="side">
       <div align="center"><h1>user info</h1></div>
       <%= render :partial => 'users/user_bar' %>
-      <%#= render :partial => 'users/user_pic' %>
       </div>
        <div id="right">
-       <div align="center"><h1>archive</h1></div>
-       <%= render :partial => 'entries/entry_bar'%>
+       <%= render :partial => 'entries/top_ranked'%>
+       <%= render :partial => 'entries/archive'%>
       </div>
       <div id="main">
    <!--   
