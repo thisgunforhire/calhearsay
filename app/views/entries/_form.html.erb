@@ -10,9 +10,9 @@
     <%#= f.label :picture %>
     
     <table border="0">
-    <tr>Insert an image from a URL or upload your own photo (<i>Must have an image</i>)</tr>
-    <tr><td padding="4">Image from URL (http://...)</td><td padding="4">Upload an image</td></tr>
-    <tr><td><%= f.text_field :picture %></td>
+    <tr>Insert an image from a URL or upload your own photo (<i>*<u>REQUIRED</u></i>)</tr>
+    <tr><td padding="4">Image from URL (http://...)</td><td> &nbsp; </td><td padding="4">Upload an image</td></tr>
+    <tr><td><%= f.text_field :picture %></td><td> &nbsp; </td>
     <td><%= file_field_tag 'entry_pic' %></td>
     </tr>
     </table>
@@ -22,7 +22,7 @@
     
   </p>  
   <p>
-  <%= f.label :state %> <select name="entry[state]" id="entry_state">
+    <%= f.label :state %> <select name="entry[state]" id="entry_state">
     <option value="">[select a state]</option>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -75,6 +75,7 @@
     <option value="WI">Wisconsin</option>
     <option value="WY">Wyoming</option>
     </select>
+    <br><subs>This is the state in which your entry topic takes place. (For example, if your entry is about a bum sighting in New York, you would select 'New York'.)</subs>
   </p>
   <p>
     <%= f.label :category %> <select name="entry[category]" id="entry_category">
