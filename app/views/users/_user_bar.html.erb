@@ -28,25 +28,27 @@
       <%if user.entry_count == @u_ent%>
         <%@u_ent+=1%>
         user with most entries:
-        <b><%= user.login %></b>
         <p align="center">
         <%if user.userpic != nil%>
           <img width="100" src="<%= user.userpic.public_filename %>" border="1">
         <%else%>
           <img src="../images/smile.jpg" border="1">
         <%end%>
+        <br>
+        <b><%= user.login %></b>
         </p>
       <%end%>
       <%if user.comment_count == @u_com%>
         <%@u_com+=1%>
         user with most comments:
-        <b><%= user.login %></b><br>
         <p align="center">
         <%if user.userpic != nil%>
           <img width="100" src="<%= user.userpic.public_filename %>" border="1">
         <%else%>
           <img src="../images/smile.jpg" border="1">
         <%end%>
+        <br>
+        <b><%= user.login %></b>
         </p>
       <%end%>
     <%end%>  
