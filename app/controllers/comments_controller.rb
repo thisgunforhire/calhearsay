@@ -63,6 +63,7 @@ class CommentsController < ApplicationController
 	
     respond_to do |format|
       if @comment.save
+        @comment.user.save
         flash[:notice] = 'Comment was successfully created.'
         format.html { redirect_to(@entry) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }

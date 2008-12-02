@@ -58,13 +58,13 @@ class EntriesController < ApplicationController
     @entry.score = 0.0
     #@entry.picture = nil
     @entry.pic = Pic.new(:uploaded_data => params[:entry_pic])
-    
+    @entry.user.entry_count += 1
     @entry.addr = params[:paddr]
     @entry.zip = params[:pzip]
     
     respond_to do |format|
       if @entry.save
-        @entry.user.entry_count += 1
+        @entry.user.save
         flash[:notice] = 'Entry was successfully created.'
         format.html { redirect_to(@entry) }
         format.xml  { render :xml => @entry, :status => :created, :location => @entry }

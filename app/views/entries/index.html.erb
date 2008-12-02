@@ -6,16 +6,21 @@
   <%@chd = ''%>
   <%for entry in @entries%>
   <%@chld += entry.state%>
-  <%@count = 60%>
+  <%@count = 66%>
   <%for ent in @entries%>
     <%if ent.state == entry.state%>
-      <%@count += 5%>
+      <%if @count < 90%>
+        <%@count += 4%>
+      <%end%>
     <%end%>
   <%end%>
   <%@chd = @chd.concat(@count)%>
   <%end%>
+  <t1>Hearsay Per Capita Map</t1><br>
+  <p1>Hearsay comitted per person by state.<br>The brighter the state, the more its residents gossiped.</p1>
   <p align="center">
-  <img src="http://chart.apis.google.com/chart?chco=f5f5f5,edf0d4,6c9642,365e24,13390a&chd=s:<%=@chd%>&chf=bg,s,eaf7fe&chtm=usa&chld=<%=@chld%>&chs=440x220&cht=t">
+  <img style="border-width:0;" src="http://chart.apis.google.com/chart?chco=000000,000000,f29f01,365e24,13390a&chd=s:<%=@chd%>&chf=bg,s,ffffff&chtm=usa&chld=<%=@chld%>&chs=440x220&cht=t">
+  <%#000000,000000,f29f01     f5f5f5,edf0d4,6c9642,365e24,13390a%>
   </p>
   <p align="right"><%= link_to 'Post a new entry', new_entry_path %> | <a href="#recent">Newest entry</a></p>
 
