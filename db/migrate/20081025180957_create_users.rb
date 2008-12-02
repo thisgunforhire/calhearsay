@@ -11,6 +11,9 @@ class CreateUsers < ActiveRecord::Migration
       t.column :remember_token,            :string, :limit => 40
       t.column :remember_token_expires_at, :datetime
       t.column :userpic_id,    :integer
+      t.integer :entry_count
+      t.integer :comment_count
+      
 
     end
     add_index :users, :login, :unique => true

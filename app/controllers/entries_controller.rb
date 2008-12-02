@@ -64,6 +64,7 @@ class EntriesController < ApplicationController
     
     respond_to do |format|
       if @entry.save
+        @entry.user.entry_count += 1
         flash[:notice] = 'Entry was successfully created.'
         format.html { redirect_to(@entry) }
         format.xml  { render :xml => @entry, :status => :created, :location => @entry }
