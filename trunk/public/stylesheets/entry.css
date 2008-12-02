@@ -285,6 +285,7 @@ subs {
 }
 #comment hr {
 	color: #1E90FF;
+	border-style: dotted;
 }
 
     .star-rating{

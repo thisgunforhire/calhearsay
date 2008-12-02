@@ -1,12 +1,8 @@
-<p>
-<div align="right" id="subs">
-	<%if @entry.user.userpic != nil%>
-		<img width=100 src="<%= @entry.user.userpic.public_filename %>">
-	<%else%>
-		<img src="../images/smile.jpg">
-	<%end%>
-<br><b><%= @entry.user.login %></b> <b>on</b> <%= @entry.created_at %></div>
+
+
+<table border="0" width="550"><tr><td valign="top">
    <t1><%=h @entry.title %></t1>
+   <br><subs>(<b>posted on</b> <%= @entry.created_at %>)</subs>
    <br><b>category</b> : <%=h @entry.category %> | 
    <b>tags</b><% for tag in @tags %>
  : <%= link_to h(tag.tag), entries_path %>
@@ -14,9 +10,18 @@
 <%if @entry.user_id == current_user.id%>
 : (<%= link_to 'add tag', new_entry_tag_url(@entry) %>)
 <%end%>
-</p>
+</td>
+<td valign="top" width="101">
+<div align="right" id="subs">
+	<%if @entry.user.userpic != nil%>
+		<img width="100" height="100" src="<%= @entry.user.userpic.public_filename %>">
+	<%else%>
+		<img src="../images/smile.jpg">
+	<%end%>
+<br><b><div align=center><%= @entry.user.login %></div></b></div>
+</td></tr>
+</table>
 <p>
-<br>
      <%=h @entry.description %>
 </p>
 <p align="center">
@@ -59,7 +64,7 @@
 <p align="right">
 <t1><%= i %></t1>
 </p>
-<p><%= comment.comment %></p>
+<a name="comments"></a><p><%= comment.comment %></p>
 <p align="right"><subs>
 <% if current_user.id == comment.user_id %>
 <%= link_to 'edit', edit_entry_comment_path(@entry,comment) %> | <%= link_to 'delete', entry_comment_path(@entry,comment), :confirm => 'Are you sure?', :method => :delete %>

@@ -40,6 +40,14 @@
 	<p>
         <%= h(truncate(entry.description, 80)) %>
 	</p>
+	<p align="right">
+	<% j = 0 %>
+	<% for comment in entry.comments %>
+	<% j += 1 %>
+	<% end %>
+	<%= link_to j, entry_path(entry.id, :anchor => "comments")%> <%= link_to 'comments', entry_path(entry.id, :anchor => "comments")%>
+	</p>
+	
 	<p>
 	<!--
 	<div class="list-actions">
