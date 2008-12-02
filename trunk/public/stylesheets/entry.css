@@ -162,7 +162,7 @@ font-weight: bold;
 font-size: larger;
 }
 
-#entry-list .list-one-sheet {
+.list-one-sheet {
 width: 100px;
 /*height: 70px; 
 sorry denise i made a change :david
@@ -176,7 +176,7 @@ text-align: right;
 padding-left: 1px;
 }
 
-#entry-list .list-line-even {
+.list-line-even {
 background: #d0d0d0;
 }
 
