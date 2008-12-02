@@ -26,7 +26,7 @@
     <img class="resize-pic" src="<%=@entry.picture%>">
   <% else %>
   <% if @entry.pic != nil %>
-      <img class="resize-pic" src="<%= @entry.pic.public_filename %>">
+      <a href="<%= @entry.pic.public_filename %>"><img class="resize-pic" src="<%= @entry.pic.public_filename %>"></a>
     <% end %>
   <% end %>
 </p>
