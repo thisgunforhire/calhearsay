@@ -6,6 +6,7 @@ class CreateEntries < ActiveRecord::Migration
       t.text :description
       t.string :picture
       t.string :category
+      t.string :state
       t.integer :user_id
       
       t.string :addr
