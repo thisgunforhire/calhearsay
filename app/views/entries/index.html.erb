@@ -2,7 +2,7 @@
 <body>
 <div id="entry-list">
   <!--<h1>entries</h1>-->
-
+  <p align="right"><%= link_to 'Post a new entry', new_entry_path %> | <a href="#recent">Newest entry</a></p>
 
 <% for entry in @entries %>
   <p>
@@ -63,9 +63,8 @@
   </table>
   </p>
   <% end %>
+  <a name="recent"></a>
 </div>
-<br />
-
-<%= link_to 'Post a new entry', new_entry_path %>
+<br>
 </body>
 </html>
