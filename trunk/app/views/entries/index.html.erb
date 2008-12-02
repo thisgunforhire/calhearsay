@@ -35,7 +35,7 @@
 	<% end %>
   ...
 	<%#= link_to 'add tag', new_entry_tag_url(@entry) %>
-	<br><b>rating:</b> <%= number_with_precision(entry.rating, 1) %>/5 stars
+	<br><b>rating:</b> <%= number_with_precision(entry.rating, 1) %>/5.0 stars
 	</subs>
 	<p>
         <%= h(truncate(entry.description, 80)) %>
