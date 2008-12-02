@@ -2,6 +2,21 @@
 <body>
 <div id="entry-list">
   <!--<h1>entries</h1>-->
+  <%@chld = ''%>
+  <%@chd = ''%>
+  <%for entry in @entries%>
+  <%@chld += entry.state%>
+  <%@count = 60%>
+  <%for ent in @entries%>
+    <%if ent.state == entry.state%>
+      <%@count += 5%>
+    <%end%>
+  <%end%>
+  <%@chd = @chd.concat(@count)%>
+  <%end%>
+  <p align="center">
+  <img src="http://chart.apis.google.com/chart?chco=f5f5f5,edf0d4,6c9642,365e24,13390a&chd=s:<%=@chd%>&chf=bg,s,eaf7fe&chtm=usa&chld=<%=@chld%>&chs=440x220&cht=t">
+  </p>
   <p align="right"><%= link_to 'Post a new entry', new_entry_path %> | <a href="#recent">Newest entry</a></p>
 
 <% for entry in @entries %>
@@ -25,7 +40,7 @@
       <p>
       <div align="right" id="subs"><b>posted by</b> <%= entry.user.login %> <b>on</b> <%= entry.created_at %></div>
         <span class="list-title"><%= link_to h(entry.title), entry %></span><br />
-	<subs><b>category:</b> <%= entry.category %></p> | <b>tags:</b>
+	<subs><b>category:</b> <%= entry.category %></p> | <b>location:</b> <%= entry.state %> | <b>tags:</b>
   <% i=0 %>
 	<% for tag in entry.tags %>
   <% if i < 3 %>
