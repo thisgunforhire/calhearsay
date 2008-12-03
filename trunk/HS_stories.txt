@@ -19,23 +19,97 @@ COMMENT
 ID | ENTRY-ID | COMMENT | TEXT | USER | ANONY?
 
 user-->category-->entry-->comment
+----------------------------------------------------------------
+(from class wiki)
+
+Google Code Project Name: calhearsay
+
+Deployed App: http://hearsay.rorclass.org
+
+ 
+
+Collaborative photo sharing and gossiping of the local community.
+
+A picture is worth 1,000 words. Stop talking and start showing!
+
+Share your story or unique occurrence in Berkeley or any campus, for that
+
+matter, to the student population.
+
+Users can upload or email in photos of campus personalities, protesters,
+
+hippies, the popular girl, or the campus jock at their finest moments.
+
+Viewers are welcome to comment with their insight or link to other
+
+relevant photos.
+
+Rank the hottest girl. The most "granola" Berkeleyan. Most awkward geek.
+
+ 
+
+Potentially, looking to offer user the opportunity to order posted photos as
+
+posters, calendars, and other paraphernalia.
+
+ 
+
+-----
 
 stories:
 
    Users:
+
 1. user can register (set name, password, and email)
+
 2. user logs-in and authenticates; has option to "remember" log-in to stay logged in for a duration of time (a week?)
-3. user can edit name, password, and email.
-4. user can destroy own identity (profile, entry, comments, etc.)
+
+3. user can view all entries (upon sign up and log-in)
+
+4. user can choose to be anonymous (for posting comments, etc.)
 
    Entry:
+
 1. user can create an entry.
+
 2. user can edit their own entry.
+
 3. user can destroy their own entry.
+
 4. user can rank an entry based on category.
 
    Comment:
+
 1. user can create a comment for an entry.
+
 2. user can edit their own comment.
+
 3. user can destroy their own comment.
+
 4. entry owner can destroy comments by other users.
+
+5. users can post anonymous comments - the anonymous user can still edit/delete his/her own comment.
+
+ 
+
+added:
+
+1. users can add tags to an entry
+
+2. users can search entries by tag
+
+3. users can add a user picture
+
+4. users can add a picture to an entry -- through a URL or upload
+
+5. top ranked users featured: user with most comments, user with most entries
+
+6. top ranked entries by category featured
+
+7: users can view density of entries/gossip by state (via map image)
+
+8. users can see how many entries and comments they've posted
+
+ 
+
+(Group 7 -- Denise Ngai, David Reichbach, Sam Zats)
