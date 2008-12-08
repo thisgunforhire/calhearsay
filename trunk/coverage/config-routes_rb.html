@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3>C0 code coverage information</h3>
-    <p>Generated on Sun Dec 07 15:33:54 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+    <p>Generated on Sun Dec 07 23:09:55 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
       </p>
     <hr/>
     <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
@@ -598,81 +598,81 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="marked1"><a name="line1"></a> 1 ActionController::Routing::Routes.draw do |map|
-</span><span class="marked0"><a name="line2"></a> 2   map.resources :tags
-</span><span class="inferred1"><a name="line3"></a> 3   
-</span><span class="inferred0"><a name="line4"></a> 4  #map.resources :rating, :member =&gt; { :rate =&gt; :post }
-</span><span class="marked1"><a name="line5"></a> 5  map.rate '/rate', :controller =&gt; 'rating', :action =&gt; 'rate'
-</span><span class="inferred0"><a name="line6"></a> 6 
-</span><span class="inferred1"><a name="line7"></a> 7 
-</span><span class="marked0"><a name="line8"></a> 8   map.logout '/logout', :controller =&gt; 'sessions', :action =&gt; 'destroy'
-</span><span class="marked1"><a name="line9"></a> 9   map.login '/login', :controller =&gt; 'sessions', :action =&gt; 'new'
-</span><span class="marked0"><a name="line10"></a>10   map.register '/register', :controller =&gt; 'users', :action =&gt; 'create'
-</span><span class="marked1"><a name="line11"></a>11   map.signup '/signup', :controller =&gt; 'users', :action =&gt; 'new'
-</span><span class="inferred0"><a name="line12"></a>12   
-</span><span class="inferred1"><a name="line13"></a>13 
-</span><span class="marked0"><a name="line14"></a>14   map.resource :session
-</span><span class="inferred1"><a name="line15"></a>15 
-</span><span class="marked0"><a name="line16"></a>16   map.resources :users do |user|
-</span><span class="marked1"><a name="line17"></a>17     user.resources :userpics
-</span><span class="inferred0"><a name="line18"></a>18   end
-</span><span class="inferred1"><a name="line19"></a>19 
-</span><span class="inferred0"><a name="line20"></a>20   
-</span><span class="marked1"><a name="line21"></a>21   map.resources :entries do |entry|
-</span><span class="marked0"><a name="line22"></a>22 	entry.resources :comments
-</span><span class="marked1"><a name="line23"></a>23         entry.resources :tags
-</span><span class="marked0"><a name="line24"></a>24         entry.resources :pics
-</span><span class="inferred1"><a name="line25"></a>25   end
-</span><span class="inferred0"><a name="line26"></a>26 
-</span><span class="marked1"><a name="line27"></a>27   map.resources :comments
-</span><span class="inferred0"><a name="line28"></a>28 
-</span><span class="marked1"><a name="line29"></a>29   map.resources :entries
-</span><span class="inferred0"><a name="line30"></a>30   
-</span><span class="marked1"><a name="line31"></a>31   map.resources :pics
-</span><span class="marked0"><a name="line32"></a>32   map.resources :userpics
-</span><span class="inferred1"><a name="line33"></a>33   # The priority is based upon order of creation: first created -&gt; highest priority.
-</span><span class="inferred0"><a name="line34"></a>34 
-</span><span class="inferred1"><a name="line35"></a>35   # Sample of regular route:
-</span><span class="inferred0"><a name="line36"></a>36   #map.connect 'entries/:id', :controller =&gt; 'entries', :action =&gt; 'view'
-</span><span class="inferred1"><a name="line37"></a>37   # Keep in mind you can assign values other than :controller and :action
-</span><span class="inferred0"><a name="line38"></a>38 
-</span><span class="inferred1"><a name="line39"></a>39   # Sample of named route:
-</span><span class="inferred0"><a name="line40"></a>40   #   map.purchase 'products/:id/purchase', :controller =&gt; 'catalog', :action =&gt; 'purchase'
-</span><span class="inferred1"><a name="line41"></a>41   # This route can be invoked with purchase_url(:id =&gt; product.id)
-</span><span class="inferred0"><a name="line42"></a>42 
-</span><span class="inferred1"><a name="line43"></a>43   # Sample resource route (maps HTTP verbs to controller actions automatically):
-</span><span class="inferred0"><a name="line44"></a>44   #   map.resources :products
-</span><span class="inferred1"><a name="line45"></a>45 
-</span><span class="inferred0"><a name="line46"></a>46   # Sample resource route with options:
-</span><span class="inferred1"><a name="line47"></a>47   #   map.resources :products, :member =&gt; { :short =&gt; :get, :toggle =&gt; :post }, :collection =&gt; { :sold =&gt; :get }
-</span><span class="inferred0"><a name="line48"></a>48 
-</span><span class="inferred1"><a name="line49"></a>49   # Sample resource route with sub-resources:
-</span><span class="inferred0"><a name="line50"></a>50   #   map.resources :products, :has_many =&gt; [ :comments, :sales ], :has_one =&gt; :seller
-</span><span class="inferred1"><a name="line51"></a>51   
-</span><span class="inferred0"><a name="line52"></a>52   # Sample resource route with more complex sub-resources
-</span><span class="inferred1"><a name="line53"></a>53   #   map.resources :products do |products|
-</span><span class="inferred0"><a name="line54"></a>54   #     products.resources :comments
-</span><span class="inferred1"><a name="line55"></a>55   #     products.resources :sales, :collection =&gt; { :recent =&gt; :get }
-</span><span class="inferred0"><a name="line56"></a>56   #   end
-</span><span class="inferred1"><a name="line57"></a>57 
-</span><span class="inferred0"><a name="line58"></a>58   # Sample resource route within a namespace:
-</span><span class="inferred1"><a name="line59"></a>59   #   map.namespace :admin do |admin|
-</span><span class="inferred0"><a name="line60"></a>60   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-</span><span class="inferred1"><a name="line61"></a>61   #     admin.resources :products
-</span><span class="inferred0"><a name="line62"></a>62   #   end
-</span><span class="inferred1"><a name="line63"></a>63 
-</span><span class="inferred0"><a name="line64"></a>64   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-</span><span class="marked1"><a name="line65"></a>65   map.root :controller =&gt; 'entries'
-</span><span class="inferred0"><a name="line66"></a>66   
-</span><span class="inferred1"><a name="line67"></a>67 
-</span><span class="inferred0"><a name="line68"></a>68   # See how all your routes lay out with &quot;rake routes&quot;
-</span><span class="inferred1"><a name="line69"></a>69 
-</span><span class="inferred0"><a name="line70"></a>70   # Install the default routes as the lowest priority.
-</span><span class="inferred1"><a name="line71"></a>71   # Note: These default routes make all actions in every controller accessible via GET requests. You should
-</span><span class="inferred0"><a name="line72"></a>72   # consider removing the them or commenting them out if you're using named routes and resources.
-</span><span class="marked1"><a name="line73"></a>73   map.connect ':controller/:action/:id'
-</span><span class="marked0"><a name="line74"></a>74   map.connect ':controller/:action/:id.:format'
-</span><span class="inferred1"><a name="line75"></a>75 end
+<pre><span class="marked0"><a name="line1"></a> 1 ActionController::Routing::Routes.draw do |map|
+</span><span class="marked1"><a name="line2"></a> 2   map.resources :tags
+</span><span class="inferred0"><a name="line3"></a> 3   
+</span><span class="inferred1"><a name="line4"></a> 4  #map.resources :rating, :member =&gt; { :rate =&gt; :post }
+</span><span class="marked0"><a name="line5"></a> 5  map.rate '/rate', :controller =&gt; 'rating', :action =&gt; 'rate'
+</span><span class="inferred1"><a name="line6"></a> 6 
+</span><span class="inferred0"><a name="line7"></a> 7 
+</span><span class="marked1"><a name="line8"></a> 8   map.logout '/logout', :controller =&gt; 'sessions', :action =&gt; 'destroy'
+</span><span class="marked0"><a name="line9"></a> 9   map.login '/login', :controller =&gt; 'sessions', :action =&gt; 'new'
+</span><span class="marked1"><a name="line10"></a>10   map.register '/register', :controller =&gt; 'users', :action =&gt; 'create'
+</span><span class="marked0"><a name="line11"></a>11   map.signup '/signup', :controller =&gt; 'users', :action =&gt; 'new'
+</span><span class="inferred1"><a name="line12"></a>12   
+</span><span class="inferred0"><a name="line13"></a>13 
+</span><span class="marked1"><a name="line14"></a>14   map.resource :session
+</span><span class="inferred0"><a name="line15"></a>15 
+</span><span class="marked1"><a name="line16"></a>16   map.resources :users do |user|
+</span><span class="marked0"><a name="line17"></a>17     user.resources :userpics
+</span><span class="inferred1"><a name="line18"></a>18   end
+</span><span class="inferred0"><a name="line19"></a>19 
+</span><span class="inferred1"><a name="line20"></a>20   
+</span><span class="marked0"><a name="line21"></a>21   map.resources :entries do |entry|
+</span><span class="marked1"><a name="line22"></a>22 	entry.resources :comments
+</span><span class="marked0"><a name="line23"></a>23         entry.resources :tags
+</span><span class="marked1"><a name="line24"></a>24         entry.resources :pics
+</span><span class="inferred0"><a name="line25"></a>25   end
+</span><span class="inferred1"><a name="line26"></a>26 
+</span><span class="marked0"><a name="line27"></a>27   map.resources :comments
+</span><span class="inferred1"><a name="line28"></a>28 
+</span><span class="marked0"><a name="line29"></a>29   map.resources :entries
+</span><span class="inferred1"><a name="line30"></a>30   
+</span><span class="marked0"><a name="line31"></a>31   map.resources :pics
+</span><span class="marked1"><a name="line32"></a>32   map.resources :userpics
+</span><span class="inferred0"><a name="line33"></a>33   # The priority is based upon order of creation: first created -&gt; highest priority.
+</span><span class="inferred1"><a name="line34"></a>34 
+</span><span class="inferred0"><a name="line35"></a>35   # Sample of regular route:
+</span><span class="inferred1"><a name="line36"></a>36   #map.connect 'entries/:id', :controller =&gt; 'entries', :action =&gt; 'view'
+</span><span class="inferred0"><a name="line37"></a>37   # Keep in mind you can assign values other than :controller and :action
+</span><span class="inferred1"><a name="line38"></a>38 
+</span><span class="inferred0"><a name="line39"></a>39   # Sample of named route:
+</span><span class="inferred1"><a name="line40"></a>40   #   map.purchase 'products/:id/purchase', :controller =&gt; 'catalog', :action =&gt; 'purchase'
+</span><span class="inferred0"><a name="line41"></a>41   # This route can be invoked with purchase_url(:id =&gt; product.id)
+</span><span class="inferred1"><a name="line42"></a>42 
+</span><span class="inferred0"><a name="line43"></a>43   # Sample resource route (maps HTTP verbs to controller actions automatically):
+</span><span class="inferred1"><a name="line44"></a>44   #   map.resources :products
+</span><span class="inferred0"><a name="line45"></a>45 
+</span><span class="inferred1"><a name="line46"></a>46   # Sample resource route with options:
+</span><span class="inferred0"><a name="line47"></a>47   #   map.resources :products, :member =&gt; { :short =&gt; :get, :toggle =&gt; :post }, :collection =&gt; { :sold =&gt; :get }
+</span><span class="inferred1"><a name="line48"></a>48 
+</span><span class="inferred0"><a name="line49"></a>49   # Sample resource route with sub-resources:
+</span><span class="inferred1"><a name="line50"></a>50   #   map.resources :products, :has_many =&gt; [ :comments, :sales ], :has_one =&gt; :seller
+</span><span class="inferred0"><a name="line51"></a>51   
+</span><span class="inferred1"><a name="line52"></a>52   # Sample resource route with more complex sub-resources
+</span><span class="inferred0"><a name="line53"></a>53   #   map.resources :products do |products|
+</span><span class="inferred1"><a name="line54"></a>54   #     products.resources :comments
+</span><span class="inferred0"><a name="line55"></a>55   #     products.resources :sales, :collection =&gt; { :recent =&gt; :get }
+</span><span class="inferred1"><a name="line56"></a>56   #   end
+</span><span class="inferred0"><a name="line57"></a>57 
+</span><span class="inferred1"><a name="line58"></a>58   # Sample resource route within a namespace:
+</span><span class="inferred0"><a name="line59"></a>59   #   map.namespace :admin do |admin|
+</span><span class="inferred1"><a name="line60"></a>60   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+</span><span class="inferred0"><a name="line61"></a>61   #     admin.resources :products
+</span><span class="inferred1"><a name="line62"></a>62   #   end
+</span><span class="inferred0"><a name="line63"></a>63 
+</span><span class="inferred1"><a name="line64"></a>64   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+</span><span class="marked0"><a name="line65"></a>65   map.root :controller =&gt; 'entries'
+</span><span class="inferred1"><a name="line66"></a>66   
+</span><span class="inferred0"><a name="line67"></a>67 
+</span><span class="inferred1"><a name="line68"></a>68   # See how all your routes lay out with &quot;rake routes&quot;
+</span><span class="inferred0"><a name="line69"></a>69 
+</span><span class="inferred1"><a name="line70"></a>70   # Install the default routes as the lowest priority.
+</span><span class="inferred0"><a name="line71"></a>71   # Note: These default routes make all actions in every controller accessible via GET requests. You should
+</span><span class="inferred1"><a name="line72"></a>72   # consider removing the them or commenting them out if you're using named routes and resources.
+</span><span class="marked0"><a name="line73"></a>73   map.connect ':controller/:action/:id'
+</span><span class="marked1"><a name="line74"></a>74   map.connect ':controller/:action/:id.:format'
+</span><span class="inferred0"><a name="line75"></a>75 end
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.2.</p>

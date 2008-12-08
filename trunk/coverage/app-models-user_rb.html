@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3>C0 code coverage information</h3>
-    <p>Generated on Sun Dec 07 15:33:52 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+    <p>Generated on Sun Dec 07 23:09:55 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
       </p>
     <hr/>
     <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
@@ -575,20 +575,20 @@ span.run100 {
         </td>
       <td class='lines_code'><tt>31</tt>
         </td>
-      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>86.7%</tt>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>100.0%</tt>
               &nbsp;</td>
-            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='87'/>
-                  <td class='uncovered' width='13'/>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='100'/>
+                  <td class='uncovered' width='0'/>
                   </tr>
                 </table>
               </td>
             </tr>
           </table>
         </td>
-      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>74.2%</tt>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>100.0%</tt>
               &nbsp;</td>
-            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='74'/>
-                  <td class='uncovered' width='26'/>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='100'/>
+                  <td class='uncovered' width='0'/>
                   </tr>
                 </table>
               </td>
@@ -640,18 +640,18 @@ span.run100 {
 </span><span class="inferred0"><a name="line40"></a>40   # This will also let us return a human error message.
 </span><span class="inferred1"><a name="line41"></a>41   #
 </span><span class="marked0"><a name="line42"></a>42   def self.authenticate(login, password)
-</span><span class="uncovered1"><a name="line43"></a>43     return nil if login.blank? || password.blank?
-</span><span class="uncovered0"><a name="line44"></a>44     u = find_by_login(login) # need to get the salt
-</span><span class="uncovered1"><a name="line45"></a>45     u &amp;&amp; u.authenticated?(password) ? u : nil
-</span><span class="uncovered0"><a name="line46"></a>46   end
+</span><span class="marked1"><a name="line43"></a>43     return nil if login.blank? || password.blank?
+</span><span class="marked0"><a name="line44"></a>44     u = find_by_login(login) # need to get the salt
+</span><span class="marked1"><a name="line45"></a>45     u &amp;&amp; u.authenticated?(password) ? u : nil
+</span><span class="inferred0"><a name="line46"></a>46   end
 </span><span class="inferred1"><a name="line47"></a>47 
 </span><span class="marked0"><a name="line48"></a>48   def login=(value)
-</span><span class="uncovered1"><a name="line49"></a>49     write_attribute :login, (value ? value.downcase : nil)
-</span><span class="uncovered0"><a name="line50"></a>50   end
+</span><span class="marked1"><a name="line49"></a>49     write_attribute :login, (value ? value.downcase : nil)
+</span><span class="marked0"><a name="line50"></a>50   end
 </span><span class="inferred1"><a name="line51"></a>51 
 </span><span class="marked0"><a name="line52"></a>52   def email=(value)
-</span><span class="uncovered1"><a name="line53"></a>53     write_attribute :email, (value ? value.downcase : nil)
-</span><span class="uncovered0"><a name="line54"></a>54   end
+</span><span class="marked1"><a name="line53"></a>53     write_attribute :email, (value ? value.downcase : nil)
+</span><span class="marked0"><a name="line54"></a>54   end
 </span><span class="inferred1"><a name="line55"></a>55 
 </span><span class="marked0"><a name="line56"></a>56   protected
 </span><span class="inferred1"><a name="line57"></a>57     
