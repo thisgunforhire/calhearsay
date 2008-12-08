@@ -1,0 +1,14 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value
+
+one:
+  id: 1
+  comment: blah blah blah
+  anon: false
+  entry_id: 953125641
+   
