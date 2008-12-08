@@ -3,8 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe EntriesController do
   fixtures :users
   #Delete this example and add some real ones
-  it "should use EntryController" do
-    controller.should be_an_instance_of(EntryController)
+  it "should use EntriesController" do
+    controller.should be_an_instance_of(EntriesController)
   end
   
   def mock_entry(stubs={})
@@ -14,6 +14,7 @@ describe EntriesController do
   describe "responding to GET index" do
 
     it "should expose all entries as @entries" do
+      login_as(:quentin)
       Entry.should_receive(:find).with(:all).and_return([mock_entry])
       get :index
       assigns[:entries].should == [mock_entry]
@@ -24,7 +25,9 @@ describe EntriesController do
   describe "responding to GET show" do
 
     it "should expose the requested entry as @entry" do
+      login_as(:quentin)
       Entry.should_receive(:find).with("37").and_return(mock_entry)
+      mock_entry.should_receive(:comments)
       get :show, :id => "37"
       assigns[:entry].should equal(mock_entry)
     end
