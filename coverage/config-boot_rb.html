@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3>C0 code coverage information</h3>
-    <p>Generated on Sun Dec 07 15:33:53 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+    <p>Generated on Sun Dec 07 23:09:55 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
       </p>
     <hr/>
     <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
@@ -598,115 +598,115 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="inferred0"><a name="line1"></a>  1 # Don't change this file!
-</span><span class="inferred1"><a name="line2"></a>  2 # Configure your app in config/environment.rb and config/environments/*.rb
-</span><span class="inferred0"><a name="line3"></a>  3 
-</span><span class="marked1"><a name="line4"></a>  4 RAILS_ROOT = &quot;#{File.dirname(__FILE__)}/..&quot; unless defined?(RAILS_ROOT)
-</span><span class="inferred0"><a name="line5"></a>  5 
-</span><span class="marked1"><a name="line6"></a>  6 module Rails
-</span><span class="marked0"><a name="line7"></a>  7   class &lt;&lt; self
-</span><span class="marked1"><a name="line8"></a>  8     def boot!
-</span><span class="marked0"><a name="line9"></a>  9       unless booted?
-</span><span class="marked1"><a name="line10"></a> 10         preinitialize
-</span><span class="marked0"><a name="line11"></a> 11         pick_boot.run
-</span><span class="inferred1"><a name="line12"></a> 12       end
-</span><span class="marked0"><a name="line13"></a> 13     end
-</span><span class="inferred1"><a name="line14"></a> 14 
-</span><span class="marked0"><a name="line15"></a> 15     def booted?
-</span><span class="marked1"><a name="line16"></a> 16       defined? Rails::Initializer
-</span><span class="marked0"><a name="line17"></a> 17     end
-</span><span class="inferred1"><a name="line18"></a> 18 
-</span><span class="marked0"><a name="line19"></a> 19     def pick_boot
-</span><span class="marked1"><a name="line20"></a> 20       (vendor_rails? ? VendorBoot : GemBoot).new
-</span><span class="marked0"><a name="line21"></a> 21     end
-</span><span class="inferred1"><a name="line22"></a> 22 
-</span><span class="marked0"><a name="line23"></a> 23     def vendor_rails?
-</span><span class="marked1"><a name="line24"></a> 24       File.exist?(&quot;#{RAILS_ROOT}/vendor/rails&quot;)
-</span><span class="marked0"><a name="line25"></a> 25     end
-</span><span class="inferred1"><a name="line26"></a> 26 
-</span><span class="marked0"><a name="line27"></a> 27     def preinitialize
-</span><span class="marked1"><a name="line28"></a> 28       load(preinitializer_path) if File.exist?(preinitializer_path)
-</span><span class="marked0"><a name="line29"></a> 29     end
-</span><span class="inferred1"><a name="line30"></a> 30 
-</span><span class="marked0"><a name="line31"></a> 31     def preinitializer_path
-</span><span class="marked1"><a name="line32"></a> 32       &quot;#{RAILS_ROOT}/config/preinitializer.rb&quot;
-</span><span class="marked0"><a name="line33"></a> 33     end
-</span><span class="inferred1"><a name="line34"></a> 34   end
-</span><span class="inferred0"><a name="line35"></a> 35 
-</span><span class="marked1"><a name="line36"></a> 36   class Boot
-</span><span class="marked0"><a name="line37"></a> 37     def run
-</span><span class="marked1"><a name="line38"></a> 38       load_initializer
-</span><span class="marked0"><a name="line39"></a> 39       Rails::Initializer.run(:set_load_path)
-</span><span class="inferred1"><a name="line40"></a> 40     end
-</span><span class="inferred0"><a name="line41"></a> 41   end
-</span><span class="inferred1"><a name="line42"></a> 42 
-</span><span class="marked0"><a name="line43"></a> 43   class VendorBoot &lt; Boot
-</span><span class="marked1"><a name="line44"></a> 44     def load_initializer
-</span><span class="uncovered0"><a name="line45"></a> 45       require &quot;#{RAILS_ROOT}/vendor/rails/railties/lib/initializer&quot;
-</span><span class="uncovered1"><a name="line46"></a> 46       Rails::Initializer.run(:install_gem_spec_stubs)
-</span><span class="uncovered0"><a name="line47"></a> 47     end
-</span><span class="uncovered1"><a name="line48"></a> 48   end
-</span><span class="inferred0"><a name="line49"></a> 49 
-</span><span class="marked1"><a name="line50"></a> 50   class GemBoot &lt; Boot
-</span><span class="marked0"><a name="line51"></a> 51     def load_initializer
-</span><span class="marked1"><a name="line52"></a> 52       self.class.load_rubygems
-</span><span class="marked0"><a name="line53"></a> 53       load_rails_gem
-</span><span class="marked1"><a name="line54"></a> 54       require 'initializer'
-</span><span class="inferred0"><a name="line55"></a> 55     end
-</span><span class="inferred1"><a name="line56"></a> 56 
-</span><span class="marked0"><a name="line57"></a> 57     def load_rails_gem
-</span><span class="marked1"><a name="line58"></a> 58       if version = self.class.gem_version
-</span><span class="marked0"><a name="line59"></a> 59         gem 'rails', version
-</span><span class="uncovered1"><a name="line60"></a> 60       else
-</span><span class="uncovered0"><a name="line61"></a> 61         gem 'rails'
-</span><span class="uncovered1"><a name="line62"></a> 62       end
-</span><span class="uncovered0"><a name="line63"></a> 63     rescue Gem::LoadError =&gt; load_error
-</span><span class="uncovered1"><a name="line64"></a> 64       $stderr.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)
-</span><span class="uncovered0"><a name="line65"></a> 65       exit 1
-</span><span class="marked1"><a name="line66"></a> 66     end
-</span><span class="inferred0"><a name="line67"></a> 67 
-</span><span class="marked1"><a name="line68"></a> 68     class &lt;&lt; self
-</span><span class="marked0"><a name="line69"></a> 69       def rubygems_version
-</span><span class="marked1"><a name="line70"></a> 70         Gem::RubyGemsVersion if defined? Gem::RubyGemsVersion
-</span><span class="marked0"><a name="line71"></a> 71       end
-</span><span class="inferred1"><a name="line72"></a> 72 
-</span><span class="marked0"><a name="line73"></a> 73       def gem_version
-</span><span class="marked1"><a name="line74"></a> 74         if defined? RAILS_GEM_VERSION
-</span><span class="marked0"><a name="line75"></a> 75           RAILS_GEM_VERSION
-</span><span class="uncovered1"><a name="line76"></a> 76         elsif ENV.include?('RAILS_GEM_VERSION')
-</span><span class="uncovered0"><a name="line77"></a> 77           ENV['RAILS_GEM_VERSION']
-</span><span class="uncovered1"><a name="line78"></a> 78         else
-</span><span class="uncovered0"><a name="line79"></a> 79           parse_gem_version(read_environment_rb)
-</span><span class="uncovered1"><a name="line80"></a> 80         end
-</span><span class="marked0"><a name="line81"></a> 81       end
-</span><span class="inferred1"><a name="line82"></a> 82 
-</span><span class="marked0"><a name="line83"></a> 83       def load_rubygems
-</span><span class="marked1"><a name="line84"></a> 84         require 'rubygems'
-</span><span class="marked0"><a name="line85"></a> 85         min_version = '1.1.1'
-</span><span class="marked1"><a name="line86"></a> 86         unless rubygems_version &gt;= min_version
-</span><span class="uncovered0"><a name="line87"></a> 87           $stderr.puts %Q(Rails requires RubyGems &gt;= #{min_version} (you have #{rubygems_version}). Please `gem update --system` and try again.)
-</span><span class="uncovered1"><a name="line88"></a> 88           exit 1
-</span><span class="uncovered0"><a name="line89"></a> 89         end
-</span><span class="uncovered1"><a name="line90"></a> 90 
-</span><span class="uncovered0"><a name="line91"></a> 91       rescue LoadError
-</span><span class="uncovered1"><a name="line92"></a> 92         $stderr.puts %Q(Rails requires RubyGems &gt;= #{min_version}. Please install RubyGems and try again: http://rubygems.rubyforge.org)
-</span><span class="uncovered0"><a name="line93"></a> 93         exit 1
-</span><span class="marked1"><a name="line94"></a> 94       end
-</span><span class="inferred0"><a name="line95"></a> 95 
-</span><span class="marked1"><a name="line96"></a> 96       def parse_gem_version(text)
-</span><span class="uncovered0"><a name="line97"></a> 97         $1 if text =~ /^[^#]*RAILS_GEM_VERSION\s*=\s*[&quot;']([!~&lt;&gt;=]*\s*[\d.]+)[&quot;']/
-</span><span class="uncovered1"><a name="line98"></a> 98       end
-</span><span class="inferred0"><a name="line99"></a> 99 
-</span><span class="marked1"><a name="line100"></a>100       private
-</span><span class="marked0"><a name="line101"></a>101         def read_environment_rb
-</span><span class="uncovered1"><a name="line102"></a>102           File.read(&quot;#{RAILS_ROOT}/config/environment.rb&quot;)
-</span><span class="uncovered0"><a name="line103"></a>103         end
-</span><span class="uncovered1"><a name="line104"></a>104     end
-</span><span class="uncovered0"><a name="line105"></a>105   end
-</span><span class="uncovered1"><a name="line106"></a>106 end
-</span><span class="inferred0"><a name="line107"></a>107 
-</span><span class="inferred1"><a name="line108"></a>108 # All that for this:
-</span><span class="marked0"><a name="line109"></a>109 Rails.boot!
+<pre><span class="inferred1"><a name="line1"></a>  1 # Don't change this file!
+</span><span class="inferred0"><a name="line2"></a>  2 # Configure your app in config/environment.rb and config/environments/*.rb
+</span><span class="inferred1"><a name="line3"></a>  3 
+</span><span class="marked0"><a name="line4"></a>  4 RAILS_ROOT = &quot;#{File.dirname(__FILE__)}/..&quot; unless defined?(RAILS_ROOT)
+</span><span class="inferred1"><a name="line5"></a>  5 
+</span><span class="marked0"><a name="line6"></a>  6 module Rails
+</span><span class="marked1"><a name="line7"></a>  7   class &lt;&lt; self
+</span><span class="marked0"><a name="line8"></a>  8     def boot!
+</span><span class="marked1"><a name="line9"></a>  9       unless booted?
+</span><span class="marked0"><a name="line10"></a> 10         preinitialize
+</span><span class="marked1"><a name="line11"></a> 11         pick_boot.run
+</span><span class="inferred0"><a name="line12"></a> 12       end
+</span><span class="marked1"><a name="line13"></a> 13     end
+</span><span class="inferred0"><a name="line14"></a> 14 
+</span><span class="marked1"><a name="line15"></a> 15     def booted?
+</span><span class="marked0"><a name="line16"></a> 16       defined? Rails::Initializer
+</span><span class="marked1"><a name="line17"></a> 17     end
+</span><span class="inferred0"><a name="line18"></a> 18 
+</span><span class="marked1"><a name="line19"></a> 19     def pick_boot
+</span><span class="marked0"><a name="line20"></a> 20       (vendor_rails? ? VendorBoot : GemBoot).new
+</span><span class="marked1"><a name="line21"></a> 21     end
+</span><span class="inferred0"><a name="line22"></a> 22 
+</span><span class="marked1"><a name="line23"></a> 23     def vendor_rails?
+</span><span class="marked0"><a name="line24"></a> 24       File.exist?(&quot;#{RAILS_ROOT}/vendor/rails&quot;)
+</span><span class="marked1"><a name="line25"></a> 25     end
+</span><span class="inferred0"><a name="line26"></a> 26 
+</span><span class="marked1"><a name="line27"></a> 27     def preinitialize
+</span><span class="marked0"><a name="line28"></a> 28       load(preinitializer_path) if File.exist?(preinitializer_path)
+</span><span class="marked1"><a name="line29"></a> 29     end
+</span><span class="inferred0"><a name="line30"></a> 30 
+</span><span class="marked1"><a name="line31"></a> 31     def preinitializer_path
+</span><span class="marked0"><a name="line32"></a> 32       &quot;#{RAILS_ROOT}/config/preinitializer.rb&quot;
+</span><span class="marked1"><a name="line33"></a> 33     end
+</span><span class="inferred0"><a name="line34"></a> 34   end
+</span><span class="inferred1"><a name="line35"></a> 35 
+</span><span class="marked0"><a name="line36"></a> 36   class Boot
+</span><span class="marked1"><a name="line37"></a> 37     def run
+</span><span class="marked0"><a name="line38"></a> 38       load_initializer
+</span><span class="marked1"><a name="line39"></a> 39       Rails::Initializer.run(:set_load_path)
+</span><span class="inferred0"><a name="line40"></a> 40     end
+</span><span class="inferred1"><a name="line41"></a> 41   end
+</span><span class="inferred0"><a name="line42"></a> 42 
+</span><span class="marked1"><a name="line43"></a> 43   class VendorBoot &lt; Boot
+</span><span class="marked0"><a name="line44"></a> 44     def load_initializer
+</span><span class="uncovered1"><a name="line45"></a> 45       require &quot;#{RAILS_ROOT}/vendor/rails/railties/lib/initializer&quot;
+</span><span class="uncovered0"><a name="line46"></a> 46       Rails::Initializer.run(:install_gem_spec_stubs)
+</span><span class="uncovered1"><a name="line47"></a> 47     end
+</span><span class="uncovered0"><a name="line48"></a> 48   end
+</span><span class="inferred1"><a name="line49"></a> 49 
+</span><span class="marked0"><a name="line50"></a> 50   class GemBoot &lt; Boot
+</span><span class="marked1"><a name="line51"></a> 51     def load_initializer
+</span><span class="marked0"><a name="line52"></a> 52       self.class.load_rubygems
+</span><span class="marked1"><a name="line53"></a> 53       load_rails_gem
+</span><span class="marked0"><a name="line54"></a> 54       require 'initializer'
+</span><span class="inferred1"><a name="line55"></a> 55     end
+</span><span class="inferred0"><a name="line56"></a> 56 
+</span><span class="marked1"><a name="line57"></a> 57     def load_rails_gem
+</span><span class="marked0"><a name="line58"></a> 58       if version = self.class.gem_version
+</span><span class="marked1"><a name="line59"></a> 59         gem 'rails', version
+</span><span class="uncovered0"><a name="line60"></a> 60       else
+</span><span class="uncovered1"><a name="line61"></a> 61         gem 'rails'
+</span><span class="uncovered0"><a name="line62"></a> 62       end
+</span><span class="uncovered1"><a name="line63"></a> 63     rescue Gem::LoadError =&gt; load_error
+</span><span class="uncovered0"><a name="line64"></a> 64       $stderr.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)
+</span><span class="uncovered1"><a name="line65"></a> 65       exit 1
+</span><span class="marked0"><a name="line66"></a> 66     end
+</span><span class="inferred1"><a name="line67"></a> 67 
+</span><span class="marked0"><a name="line68"></a> 68     class &lt;&lt; self
+</span><span class="marked1"><a name="line69"></a> 69       def rubygems_version
+</span><span class="marked0"><a name="line70"></a> 70         Gem::RubyGemsVersion if defined? Gem::RubyGemsVersion
+</span><span class="marked1"><a name="line71"></a> 71       end
+</span><span class="inferred0"><a name="line72"></a> 72 
+</span><span class="marked1"><a name="line73"></a> 73       def gem_version
+</span><span class="marked0"><a name="line74"></a> 74         if defined? RAILS_GEM_VERSION
+</span><span class="marked1"><a name="line75"></a> 75           RAILS_GEM_VERSION
+</span><span class="uncovered0"><a name="line76"></a> 76         elsif ENV.include?('RAILS_GEM_VERSION')
+</span><span class="uncovered1"><a name="line77"></a> 77           ENV['RAILS_GEM_VERSION']
+</span><span class="uncovered0"><a name="line78"></a> 78         else
+</span><span class="uncovered1"><a name="line79"></a> 79           parse_gem_version(read_environment_rb)
+</span><span class="uncovered0"><a name="line80"></a> 80         end
+</span><span class="marked1"><a name="line81"></a> 81       end
+</span><span class="inferred0"><a name="line82"></a> 82 
+</span><span class="marked1"><a name="line83"></a> 83       def load_rubygems
+</span><span class="marked0"><a name="line84"></a> 84         require 'rubygems'
+</span><span class="marked1"><a name="line85"></a> 85         min_version = '1.1.1'
+</span><span class="marked0"><a name="line86"></a> 86         unless rubygems_version &gt;= min_version
+</span><span class="uncovered1"><a name="line87"></a> 87           $stderr.puts %Q(Rails requires RubyGems &gt;= #{min_version} (you have #{rubygems_version}). Please `gem update --system` and try again.)
+</span><span class="uncovered0"><a name="line88"></a> 88           exit 1
+</span><span class="uncovered1"><a name="line89"></a> 89         end
+</span><span class="uncovered0"><a name="line90"></a> 90 
+</span><span class="uncovered1"><a name="line91"></a> 91       rescue LoadError
+</span><span class="uncovered0"><a name="line92"></a> 92         $stderr.puts %Q(Rails requires RubyGems &gt;= #{min_version}. Please install RubyGems and try again: http://rubygems.rubyforge.org)
+</span><span class="uncovered1"><a name="line93"></a> 93         exit 1
+</span><span class="marked0"><a name="line94"></a> 94       end
+</span><span class="inferred1"><a name="line95"></a> 95 
+</span><span class="marked0"><a name="line96"></a> 96       def parse_gem_version(text)
+</span><span class="uncovered1"><a name="line97"></a> 97         $1 if text =~ /^[^#]*RAILS_GEM_VERSION\s*=\s*[&quot;']([!~&lt;&gt;=]*\s*[\d.]+)[&quot;']/
+</span><span class="uncovered0"><a name="line98"></a> 98       end
+</span><span class="inferred1"><a name="line99"></a> 99 
+</span><span class="marked0"><a name="line100"></a>100       private
+</span><span class="marked1"><a name="line101"></a>101         def read_environment_rb
+</span><span class="uncovered0"><a name="line102"></a>102           File.read(&quot;#{RAILS_ROOT}/config/environment.rb&quot;)
+</span><span class="uncovered1"><a name="line103"></a>103         end
+</span><span class="uncovered0"><a name="line104"></a>104     end
+</span><span class="uncovered1"><a name="line105"></a>105   end
+</span><span class="uncovered0"><a name="line106"></a>106 end
+</span><span class="inferred1"><a name="line107"></a>107 
+</span><span class="inferred0"><a name="line108"></a>108 # All that for this:
+</span><span class="marked1"><a name="line109"></a>109 Rails.boot!
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.2.</p>

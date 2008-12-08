@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3>C0 code coverage information</h3>
-    <p>Generated on Sun Dec 07 15:33:53 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+    <p>Generated on Sun Dec 07 23:09:55 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
       </p>
     <hr/>
     <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
@@ -598,73 +598,73 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="inferred1"><a name="line1"></a> 1 # Be sure to restart your server when you modify this file
-</span><span class="inferred0"><a name="line2"></a> 2 
-</span><span class="inferred1"><a name="line3"></a> 3 # Uncomment below to force Rails into production mode when
-</span><span class="inferred0"><a name="line4"></a> 4 # you don't control web/app server and can't set it the proper way
-</span><span class="inferred1"><a name="line5"></a> 5 # ENV['RAILS_ENV'] ||= 'production'
-</span><span class="inferred0"><a name="line6"></a> 6 
-</span><span class="inferred1"><a name="line7"></a> 7 # Specifies gem version of Rails to use when vendor/rails is not present
-</span><span class="marked0"><a name="line8"></a> 8 RAILS_GEM_VERSION = '2.1.2' unless defined? RAILS_GEM_VERSION
-</span><span class="inferred1"><a name="line9"></a> 9 
-</span><span class="inferred0"><a name="line10"></a>10 # Bootstrap the Rails environment, frameworks, and default configuration
-</span><span class="marked1"><a name="line11"></a>11 require File.join(File.dirname(__FILE__), 'boot')
-</span><span class="inferred0"><a name="line12"></a>12 
-</span><span class="marked1"><a name="line13"></a>13 Rails::Initializer.run do |config|
-</span><span class="inferred0"><a name="line14"></a>14   # Settings in config/environments/* take precedence over those specified here.
-</span><span class="inferred1"><a name="line15"></a>15   # Application configuration should go into files in config/initializers
-</span><span class="inferred0"><a name="line16"></a>16   # -- all .rb files in that directory are automatically loaded.
-</span><span class="inferred1"><a name="line17"></a>17   # See Rails::Configuration for more options.
-</span><span class="inferred0"><a name="line18"></a>18 
-</span><span class="inferred1"><a name="line19"></a>19   # Skip frameworks you're not going to use. To use Rails without a database
-</span><span class="inferred0"><a name="line20"></a>20   # you must remove the Active Record framework.
-</span><span class="inferred1"><a name="line21"></a>21   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
-</span><span class="inferred0"><a name="line22"></a>22 
-</span><span class="inferred1"><a name="line23"></a>23   # Specify gems that this application depends on. 
-</span><span class="inferred0"><a name="line24"></a>24   # They can then be installed with &quot;rake gems:install&quot; on new installations.
-</span><span class="inferred1"><a name="line25"></a>25   # config.gem &quot;bj&quot;
-</span><span class="inferred0"><a name="line26"></a>26   # config.gem &quot;hpricot&quot;, :version =&gt; '0.6', :source =&gt; &quot;http://code.whytheluckystiff.net&quot;
-</span><span class="inferred1"><a name="line27"></a>27   # config.gem &quot;aws-s3&quot;, :lib =&gt; &quot;aws/s3&quot;
-</span><span class="inferred0"><a name="line28"></a>28 
-</span><span class="inferred1"><a name="line29"></a>29   # Only load the plugins named here, in the order given. By default, all plugins 
-</span><span class="inferred0"><a name="line30"></a>30   # in vendor/plugins are loaded in alphabetical order.
-</span><span class="inferred1"><a name="line31"></a>31   # :all can be used as a placeholder for all plugins not explicitly named
-</span><span class="inferred0"><a name="line32"></a>32   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-</span><span class="inferred1"><a name="line33"></a>33 
-</span><span class="inferred0"><a name="line34"></a>34   # Add additional load paths for your own custom dirs
-</span><span class="inferred1"><a name="line35"></a>35   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-</span><span class="inferred0"><a name="line36"></a>36 
-</span><span class="inferred1"><a name="line37"></a>37   # Force all environments to use the same logger level
-</span><span class="inferred0"><a name="line38"></a>38   # (by default production uses :info, the others :debug)
-</span><span class="inferred1"><a name="line39"></a>39   # config.log_level = :debug
-</span><span class="inferred0"><a name="line40"></a>40 
-</span><span class="inferred1"><a name="line41"></a>41   # Make Time.zone default to the specified zone, and make Active Record store time values
-</span><span class="inferred0"><a name="line42"></a>42   # in the database in UTC, and return them converted to the specified local zone.
-</span><span class="inferred1"><a name="line43"></a>43   # Run &quot;rake -D time&quot; for a list of tasks for finding time zone names. Comment line to use default local time.
-</span><span class="inferred0"><a name="line44"></a>44   #config.time_zone = 'UTC'
-</span><span class="inferred1"><a name="line45"></a>45 
-</span><span class="inferred0"><a name="line46"></a>46   # Your secret key for verifying cookie session data integrity.
-</span><span class="inferred1"><a name="line47"></a>47   # If you change this key, all old sessions will become invalid!
-</span><span class="inferred0"><a name="line48"></a>48   # Make sure the secret is at least 30 characters and all random, 
-</span><span class="inferred1"><a name="line49"></a>49   # no regular words or you'll be exposed to dictionary attacks.
-</span><span class="marked0"><a name="line50"></a>50   config.action_controller.session = {
-</span><span class="inferred1"><a name="line51"></a>51     :session_key =&gt; '_hearsay_session',
-</span><span class="inferred0"><a name="line52"></a>52     :secret      =&gt; '4e61a911453668c8a1397e0ecd43a38a74e7ec3d26287251406ddcc4f2df540f2af0f16d91e3a0819f821772efa0b9de8594ca351033ecdb4fd8b7f12431f60f'
-</span><span class="inferred1"><a name="line53"></a>53   }
-</span><span class="inferred0"><a name="line54"></a>54 
-</span><span class="inferred1"><a name="line55"></a>55   # Use the database for sessions instead of the cookie-based default,
-</span><span class="inferred0"><a name="line56"></a>56   # which shouldn't be used to store highly confidential information
-</span><span class="inferred1"><a name="line57"></a>57   # (create the session table with &quot;rake db:sessions:create&quot;)
-</span><span class="inferred0"><a name="line58"></a>58   # config.action_controller.session_store = :active_record_store
-</span><span class="inferred1"><a name="line59"></a>59 
-</span><span class="inferred0"><a name="line60"></a>60   # Use SQL instead of Active Record's schema dumper when creating the test database.
-</span><span class="inferred1"><a name="line61"></a>61   # This is necessary if your schema can't be completely dumped by the schema dumper,
-</span><span class="inferred0"><a name="line62"></a>62   # like if you have constraints or database-specific column types
-</span><span class="inferred1"><a name="line63"></a>63   # config.active_record.schema_format = :sql
-</span><span class="inferred0"><a name="line64"></a>64 
-</span><span class="inferred1"><a name="line65"></a>65   # Activate observers that should always be running
-</span><span class="inferred0"><a name="line66"></a>66   # config.active_record.observers = :cacher, :garbage_collector
-</span><span class="inferred1"><a name="line67"></a>67 end
+<pre><span class="inferred0"><a name="line1"></a> 1 # Be sure to restart your server when you modify this file
+</span><span class="inferred1"><a name="line2"></a> 2 
+</span><span class="inferred0"><a name="line3"></a> 3 # Uncomment below to force Rails into production mode when
+</span><span class="inferred1"><a name="line4"></a> 4 # you don't control web/app server and can't set it the proper way
+</span><span class="inferred0"><a name="line5"></a> 5 # ENV['RAILS_ENV'] ||= 'production'
+</span><span class="inferred1"><a name="line6"></a> 6 
+</span><span class="inferred0"><a name="line7"></a> 7 # Specifies gem version of Rails to use when vendor/rails is not present
+</span><span class="marked1"><a name="line8"></a> 8 RAILS_GEM_VERSION = '2.1.2' unless defined? RAILS_GEM_VERSION
+</span><span class="inferred0"><a name="line9"></a> 9 
+</span><span class="inferred1"><a name="line10"></a>10 # Bootstrap the Rails environment, frameworks, and default configuration
+</span><span class="marked0"><a name="line11"></a>11 require File.join(File.dirname(__FILE__), 'boot')
+</span><span class="inferred1"><a name="line12"></a>12 
+</span><span class="marked0"><a name="line13"></a>13 Rails::Initializer.run do |config|
+</span><span class="inferred1"><a name="line14"></a>14   # Settings in config/environments/* take precedence over those specified here.
+</span><span class="inferred0"><a name="line15"></a>15   # Application configuration should go into files in config/initializers
+</span><span class="inferred1"><a name="line16"></a>16   # -- all .rb files in that directory are automatically loaded.
+</span><span class="inferred0"><a name="line17"></a>17   # See Rails::Configuration for more options.
+</span><span class="inferred1"><a name="line18"></a>18 
+</span><span class="inferred0"><a name="line19"></a>19   # Skip frameworks you're not going to use. To use Rails without a database
+</span><span class="inferred1"><a name="line20"></a>20   # you must remove the Active Record framework.
+</span><span class="inferred0"><a name="line21"></a>21   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
+</span><span class="inferred1"><a name="line22"></a>22 
+</span><span class="inferred0"><a name="line23"></a>23   # Specify gems that this application depends on. 
+</span><span class="inferred1"><a name="line24"></a>24   # They can then be installed with &quot;rake gems:install&quot; on new installations.
+</span><span class="inferred0"><a name="line25"></a>25   # config.gem &quot;bj&quot;
+</span><span class="inferred1"><a name="line26"></a>26   # config.gem &quot;hpricot&quot;, :version =&gt; '0.6', :source =&gt; &quot;http://code.whytheluckystiff.net&quot;
+</span><span class="inferred0"><a name="line27"></a>27   # config.gem &quot;aws-s3&quot;, :lib =&gt; &quot;aws/s3&quot;
+</span><span class="inferred1"><a name="line28"></a>28 
+</span><span class="inferred0"><a name="line29"></a>29   # Only load the plugins named here, in the order given. By default, all plugins 
+</span><span class="inferred1"><a name="line30"></a>30   # in vendor/plugins are loaded in alphabetical order.
+</span><span class="inferred0"><a name="line31"></a>31   # :all can be used as a placeholder for all plugins not explicitly named
+</span><span class="inferred1"><a name="line32"></a>32   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+</span><span class="inferred0"><a name="line33"></a>33 
+</span><span class="inferred1"><a name="line34"></a>34   # Add additional load paths for your own custom dirs
+</span><span class="inferred0"><a name="line35"></a>35   # config.load_paths += %W( #{RAILS_ROOT}/extras )
+</span><span class="inferred1"><a name="line36"></a>36 
+</span><span class="inferred0"><a name="line37"></a>37   # Force all environments to use the same logger level
+</span><span class="inferred1"><a name="line38"></a>38   # (by default production uses :info, the others :debug)
+</span><span class="inferred0"><a name="line39"></a>39   # config.log_level = :debug
+</span><span class="inferred1"><a name="line40"></a>40 
+</span><span class="inferred0"><a name="line41"></a>41   # Make Time.zone default to the specified zone, and make Active Record store time values
+</span><span class="inferred1"><a name="line42"></a>42   # in the database in UTC, and return them converted to the specified local zone.
+</span><span class="inferred0"><a name="line43"></a>43   # Run &quot;rake -D time&quot; for a list of tasks for finding time zone names. Comment line to use default local time.
+</span><span class="inferred1"><a name="line44"></a>44   #config.time_zone = 'UTC'
+</span><span class="inferred0"><a name="line45"></a>45 
+</span><span class="inferred1"><a name="line46"></a>46   # Your secret key for verifying cookie session data integrity.
+</span><span class="inferred0"><a name="line47"></a>47   # If you change this key, all old sessions will become invalid!
+</span><span class="inferred1"><a name="line48"></a>48   # Make sure the secret is at least 30 characters and all random, 
+</span><span class="inferred0"><a name="line49"></a>49   # no regular words or you'll be exposed to dictionary attacks.
+</span><span class="marked1"><a name="line50"></a>50   config.action_controller.session = {
+</span><span class="inferred0"><a name="line51"></a>51     :session_key =&gt; '_hearsay_session',
+</span><span class="inferred1"><a name="line52"></a>52     :secret      =&gt; '4e61a911453668c8a1397e0ecd43a38a74e7ec3d26287251406ddcc4f2df540f2af0f16d91e3a0819f821772efa0b9de8594ca351033ecdb4fd8b7f12431f60f'
+</span><span class="inferred0"><a name="line53"></a>53   }
+</span><span class="inferred1"><a name="line54"></a>54 
+</span><span class="inferred0"><a name="line55"></a>55   # Use the database for sessions instead of the cookie-based default,
+</span><span class="inferred1"><a name="line56"></a>56   # which shouldn't be used to store highly confidential information
+</span><span class="inferred0"><a name="line57"></a>57   # (create the session table with &quot;rake db:sessions:create&quot;)
+</span><span class="inferred1"><a name="line58"></a>58   # config.action_controller.session_store = :active_record_store
+</span><span class="inferred0"><a name="line59"></a>59 
+</span><span class="inferred1"><a name="line60"></a>60   # Use SQL instead of Active Record's schema dumper when creating the test database.
+</span><span class="inferred0"><a name="line61"></a>61   # This is necessary if your schema can't be completely dumped by the schema dumper,
+</span><span class="inferred1"><a name="line62"></a>62   # like if you have constraints or database-specific column types
+</span><span class="inferred0"><a name="line63"></a>63   # config.active_record.schema_format = :sql
+</span><span class="inferred1"><a name="line64"></a>64 
+</span><span class="inferred0"><a name="line65"></a>65   # Activate observers that should always be running
+</span><span class="inferred1"><a name="line66"></a>66   # config.active_record.observers = :cacher, :garbage_collector
+</span><span class="inferred0"><a name="line67"></a>67 end
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.2.</p>

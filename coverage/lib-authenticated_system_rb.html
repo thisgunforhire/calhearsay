@@ -553,7 +553,7 @@ span.run100 {
 </style>
     </head>
   <body><h3>C0 code coverage information</h3>
-    <p>Generated on Sun Dec 07 15:33:55 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+    <p>Generated on Sun Dec 07 23:09:56 -0800 2008 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
       </p>
     <hr/>
     <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
@@ -598,218 +598,218 @@ span.run100 {
       </tr>
     </tbody>
   </table>
-<pre><span class="marked0"><a name="line1"></a>  1 module AuthenticatedSystem
-</span><span class="marked1"><a name="line2"></a>  2   protected
-</span><span class="inferred0"><a name="line3"></a>  3     # Returns true or false if the user is logged in.
-</span><span class="inferred1"><a name="line4"></a>  4     # Preloads @current_user with the user model if they're logged in.
-</span><span class="marked0"><a name="line5"></a>  5     def logged_in?
-</span><span class="uncovered1"><a name="line6"></a>  6       !!current_user
-</span><span class="uncovered0"><a name="line7"></a>  7     end
-</span><span class="inferred1"><a name="line8"></a>  8 
-</span><span class="inferred0"><a name="line9"></a>  9     # Accesses the current user from the session.
-</span><span class="inferred1"><a name="line10"></a> 10     # Future calls avoid the database because nil is not equal to false.
-</span><span class="marked0"><a name="line11"></a> 11     def current_user
-</span><span class="uncovered1"><a name="line12"></a> 12       @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie) unless @current_user == false
-</span><span class="uncovered0"><a name="line13"></a> 13     end
-</span><span class="inferred1"><a name="line14"></a> 14 
-</span><span class="inferred0"><a name="line15"></a> 15     # Store the given user id in the session.
-</span><span class="marked1"><a name="line16"></a> 16     def current_user=(new_user)
-</span><span class="uncovered0"><a name="line17"></a> 17       session[:user_id] = new_user ? new_user.id : nil
-</span><span class="uncovered1"><a name="line18"></a> 18       @current_user = new_user || false
-</span><span class="uncovered0"><a name="line19"></a> 19     end
-</span><span class="inferred1"><a name="line20"></a> 20 
-</span><span class="inferred0"><a name="line21"></a> 21     # Check if the user is authorized
-</span><span class="inferred1"><a name="line22"></a> 22     #
-</span><span class="inferred0"><a name="line23"></a> 23     # Override this method in your controllers if you want to restrict access
-</span><span class="inferred1"><a name="line24"></a> 24     # to only a few actions or if you want to check if the user
-</span><span class="inferred0"><a name="line25"></a> 25     # has the correct rights.
-</span><span class="inferred1"><a name="line26"></a> 26     #
-</span><span class="inferred0"><a name="line27"></a> 27     # Example:
-</span><span class="inferred1"><a name="line28"></a> 28     #
-</span><span class="inferred0"><a name="line29"></a> 29     #  # only allow nonbobs
-</span><span class="inferred1"><a name="line30"></a> 30     #  def authorized?
-</span><span class="inferred0"><a name="line31"></a> 31     #    current_user.login != &quot;bob&quot;
-</span><span class="inferred1"><a name="line32"></a> 32     #  end
-</span><span class="inferred0"><a name="line33"></a> 33     #
-</span><span class="marked1"><a name="line34"></a> 34     def authorized?(action = action_name, resource = nil)
-</span><span class="uncovered0"><a name="line35"></a> 35       logged_in?
-</span><span class="uncovered1"><a name="line36"></a> 36     end
-</span><span class="inferred0"><a name="line37"></a> 37 
-</span><span class="inferred1"><a name="line38"></a> 38     # Filter method to enforce a login requirement.
-</span><span class="inferred0"><a name="line39"></a> 39     #
-</span><span class="inferred1"><a name="line40"></a> 40     # To require logins for all actions, use this in your controllers:
-</span><span class="inferred0"><a name="line41"></a> 41     #
-</span><span class="inferred1"><a name="line42"></a> 42     #   before_filter :login_required
-</span><span class="inferred0"><a name="line43"></a> 43     #
-</span><span class="inferred1"><a name="line44"></a> 44     # To require logins for specific actions, use this in your controllers:
-</span><span class="inferred0"><a name="line45"></a> 45     #
-</span><span class="inferred1"><a name="line46"></a> 46     #   before_filter :login_required, :only =&gt; [ :edit, :update ]
-</span><span class="inferred0"><a name="line47"></a> 47     #
-</span><span class="inferred1"><a name="line48"></a> 48     # To skip this in a subclassed controller:
-</span><span class="inferred0"><a name="line49"></a> 49     #
-</span><span class="inferred1"><a name="line50"></a> 50     #   skip_before_filter :login_required
-</span><span class="inferred0"><a name="line51"></a> 51     #
-</span><span class="marked1"><a name="line52"></a> 52     def login_required
-</span><span class="uncovered0"><a name="line53"></a> 53       authorized? || access_denied
-</span><span class="uncovered1"><a name="line54"></a> 54     end
-</span><span class="inferred0"><a name="line55"></a> 55 
-</span><span class="inferred1"><a name="line56"></a> 56     # Redirect as appropriate when an access request fails.
-</span><span class="inferred0"><a name="line57"></a> 57     #
-</span><span class="inferred1"><a name="line58"></a> 58     # The default action is to redirect to the login screen.
-</span><span class="inferred0"><a name="line59"></a> 59     #
-</span><span class="inferred1"><a name="line60"></a> 60     # Override this method in your controllers if you want to have special
-</span><span class="inferred0"><a name="line61"></a> 61     # behavior in case the user is not authorized
-</span><span class="inferred1"><a name="line62"></a> 62     # to access the requested action.  For example, a popup window might
-</span><span class="inferred0"><a name="line63"></a> 63     # simply close itself.
-</span><span class="inferred1"><a name="line64"></a> 64   
-</span><span class="inferred0"><a name="line65"></a> 65 #old
-</span><span class="inferred1"><a name="line66"></a> 66 #    def access_denied
-</span><span class="inferred0"><a name="line67"></a> 67   #    respond_to do |format|
-</span><span class="inferred1"><a name="line68"></a> 68     #    format.html do
-</span><span class="inferred0"><a name="line69"></a> 69       #    store_location
-</span><span class="inferred1"><a name="line70"></a> 70         #  redirect_to new_session_path
-</span><span class="inferred0"><a name="line71"></a> 71         #end
-</span><span class="inferred1"><a name="line72"></a> 72      
-</span><span class="inferred0"><a name="line73"></a> 73         # format.any doesn't work in rails version &lt; http://dev.rubyonrails.org/changeset/8987
-</span><span class="inferred1"><a name="line74"></a> 74         # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
-</span><span class="inferred0"><a name="line75"></a> 75         # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
-</span><span class="inferred1"><a name="line76"></a> 76         # for a workaround.)
-</span><span class="inferred0"><a name="line77"></a> 77         #format.any(:json, :xml) do
-</span><span class="inferred1"><a name="line78"></a> 78          # request_http_basic_authentication 'Web Password'
-</span><span class="inferred0"><a name="line79"></a> 79         #end
-</span><span class="inferred1"><a name="line80"></a> 80       #end
-</span><span class="inferred0"><a name="line81"></a> 81     #end
-</span><span class="inferred1"><a name="line82"></a> 82 
-</span><span class="inferred0"><a name="line83"></a> 83     
-</span><span class="marked1"><a name="line84"></a> 84    def access_denied
-</span><span class="uncovered0"><a name="line85"></a> 85       respond_to do |format|
-</span><span class="uncovered1"><a name="line86"></a> 86         format.html do
-</span><span class="uncovered0"><a name="line87"></a> 87           store_location
-</span><span class="uncovered1"><a name="line88"></a> 88           redirect_to new_session_path
-</span><span class="uncovered0"><a name="line89"></a> 89         end
-</span><span class="uncovered1"><a name="line90"></a> 90      
-</span><span class="uncovered0"><a name="line91"></a> 91         # format.any doesn't work in rails version &lt; http://dev.rubyonrails.org/changeset/8987
-</span><span class="uncovered1"><a name="line92"></a> 92         # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
-</span><span class="uncovered0"><a name="line93"></a> 93         # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
-</span><span class="uncovered1"><a name="line94"></a> 94         # for a workaround.)
-</span><span class="uncovered0"><a name="line95"></a> 95         format.any(:json, :xml) do
-</span><span class="uncovered1"><a name="line96"></a> 96           request_http_basic_authentication 'Web Password'
-</span><span class="uncovered0"><a name="line97"></a> 97         end
-</span><span class="uncovered1"><a name="line98"></a> 98       end
-</span><span class="uncovered0"><a name="line99"></a> 99     end
-</span><span class="inferred1"><a name="line100"></a>100     
-</span><span class="inferred0"><a name="line101"></a>101     
-</span><span class="inferred1"><a name="line102"></a>102     
-</span><span class="inferred0"><a name="line103"></a>103     # Store the URI of the current request in the session.
-</span><span class="inferred1"><a name="line104"></a>104     #
-</span><span class="inferred0"><a name="line105"></a>105     # We can return to this location by calling #redirect_back_or_default.
-</span><span class="marked1"><a name="line106"></a>106     def store_location
-</span><span class="uncovered0"><a name="line107"></a>107       session[:return_to] = request.request_uri
-</span><span class="uncovered1"><a name="line108"></a>108     end
-</span><span class="inferred0"><a name="line109"></a>109 
-</span><span class="inferred1"><a name="line110"></a>110     # Redirect to the URI stored by the most recent store_location call or
-</span><span class="inferred0"><a name="line111"></a>111     # to the passed default.  Set an appropriately modified
-</span><span class="inferred1"><a name="line112"></a>112     #   after_filter :store_location, :only =&gt; [:index, :new, :show, :edit]
-</span><span class="inferred0"><a name="line113"></a>113     # for any controller you want to be bounce-backable.
-</span><span class="marked1"><a name="line114"></a>114     def redirect_back_or_default(default)
-</span><span class="uncovered0"><a name="line115"></a>115       redirect_to(session[:return_to] || default)
-</span><span class="uncovered1"><a name="line116"></a>116       session[:return_to] = nil
-</span><span class="uncovered0"><a name="line117"></a>117     end
-</span><span class="inferred1"><a name="line118"></a>118 
-</span><span class="inferred0"><a name="line119"></a>119     # Inclusion hook to make #current_user and #logged_in?
-</span><span class="inferred1"><a name="line120"></a>120     # available as ActionView helper methods.
-</span><span class="marked0"><a name="line121"></a>121     def self.included(base)
-</span><span class="marked1"><a name="line122"></a>122       base.send :helper_method, :current_user, :logged_in?, :authorized? if base.respond_to? :helper_method
-</span><span class="marked0"><a name="line123"></a>123     end
-</span><span class="inferred1"><a name="line124"></a>124 
-</span><span class="inferred0"><a name="line125"></a>125     #
-</span><span class="inferred1"><a name="line126"></a>126     # Login
-</span><span class="inferred0"><a name="line127"></a>127     #
-</span><span class="inferred1"><a name="line128"></a>128 
-</span><span class="inferred0"><a name="line129"></a>129     # Called from #current_user.  First attempt to login by the user id stored in the session.
-</span><span class="marked1"><a name="line130"></a>130     def login_from_session
-</span><span class="uncovered0"><a name="line131"></a>131       self.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
-</span><span class="uncovered1"><a name="line132"></a>132     end
-</span><span class="inferred0"><a name="line133"></a>133 
-</span><span class="inferred1"><a name="line134"></a>134     # Called from #current_user.  Now, attempt to login by basic authentication information.
-</span><span class="marked0"><a name="line135"></a>135     def login_from_basic_auth
-</span><span class="uncovered1"><a name="line136"></a>136       authenticate_with_http_basic do |login, password|
-</span><span class="uncovered0"><a name="line137"></a>137         self.current_user = User.authenticate(login, password)
-</span><span class="uncovered1"><a name="line138"></a>138       end
-</span><span class="uncovered0"><a name="line139"></a>139     end
-</span><span class="inferred1"><a name="line140"></a>140     
-</span><span class="inferred0"><a name="line141"></a>141     #
-</span><span class="inferred1"><a name="line142"></a>142     # Logout
-</span><span class="inferred0"><a name="line143"></a>143     #
-</span><span class="inferred1"><a name="line144"></a>144 
-</span><span class="inferred0"><a name="line145"></a>145     # Called from #current_user.  Finaly, attempt to login by an expiring token in the cookie.
-</span><span class="inferred1"><a name="line146"></a>146     # for the paranoid: we _should_ be storing user_token = hash(cookie_token, request IP)
-</span><span class="marked0"><a name="line147"></a>147     def login_from_cookie
-</span><span class="uncovered1"><a name="line148"></a>148       user = cookies[:auth_token] &amp;&amp; User.find_by_remember_token(cookies[:auth_token])
-</span><span class="uncovered0"><a name="line149"></a>149       if user &amp;&amp; user.remember_token?
-</span><span class="uncovered1"><a name="line150"></a>150         self.current_user = user
-</span><span class="uncovered0"><a name="line151"></a>151         handle_remember_cookie! false # freshen cookie token (keeping date)
-</span><span class="uncovered1"><a name="line152"></a>152         self.current_user
-</span><span class="uncovered0"><a name="line153"></a>153       end
-</span><span class="uncovered1"><a name="line154"></a>154     end
-</span><span class="inferred0"><a name="line155"></a>155 
-</span><span class="inferred1"><a name="line156"></a>156     # This is ususally what you want; resetting the session willy-nilly wreaks
-</span><span class="inferred0"><a name="line157"></a>157     # havoc with forgery protection, and is only strictly necessary on login.
-</span><span class="inferred1"><a name="line158"></a>158     # However, **all session state variables should be unset here**.
-</span><span class="marked0"><a name="line159"></a>159     def logout_keeping_session!
-</span><span class="uncovered1"><a name="line160"></a>160       # Kill server-side auth cookie
-</span><span class="uncovered0"><a name="line161"></a>161       @current_user.forget_me if @current_user.is_a? User
-</span><span class="uncovered1"><a name="line162"></a>162       @current_user = false     # not logged in, and don't do it for me
-</span><span class="uncovered0"><a name="line163"></a>163       kill_remember_cookie!     # Kill client-side auth cookie
-</span><span class="uncovered1"><a name="line164"></a>164       session[:user_id] = nil   # keeps the session but kill our variable
-</span><span class="uncovered0"><a name="line165"></a>165       # explicitly kill any other session variables you set
-</span><span class="uncovered1"><a name="line166"></a>166     end
-</span><span class="inferred0"><a name="line167"></a>167 
-</span><span class="inferred1"><a name="line168"></a>168     # The session should only be reset at the tail end of a form POST --
-</span><span class="inferred0"><a name="line169"></a>169     # otherwise the request forgery protection fails. It's only really necessary
-</span><span class="inferred1"><a name="line170"></a>170     # when you cross quarantine (logged-out to logged-in).
-</span><span class="marked0"><a name="line171"></a>171     def logout_killing_session!
-</span><span class="uncovered1"><a name="line172"></a>172       logout_keeping_session!
-</span><span class="uncovered0"><a name="line173"></a>173       reset_session
-</span><span class="uncovered1"><a name="line174"></a>174     end
-</span><span class="inferred0"><a name="line175"></a>175     
-</span><span class="inferred1"><a name="line176"></a>176     #
-</span><span class="inferred0"><a name="line177"></a>177     # Remember_me Tokens
-</span><span class="inferred1"><a name="line178"></a>178     #
-</span><span class="inferred0"><a name="line179"></a>179     # Cookies shouldn't be allowed to persist past their freshness date,
-</span><span class="inferred1"><a name="line180"></a>180     # and they should be changed at each login
-</span><span class="inferred0"><a name="line181"></a>181 
-</span><span class="inferred1"><a name="line182"></a>182     # Cookies shouldn't be allowed to persist past their freshness date,
-</span><span class="inferred0"><a name="line183"></a>183     # and they should be changed at each login
-</span><span class="inferred1"><a name="line184"></a>184 
-</span><span class="marked0"><a name="line185"></a>185     def valid_remember_cookie?
-</span><span class="uncovered1"><a name="line186"></a>186       return nil unless @current_user
-</span><span class="uncovered0"><a name="line187"></a>187       (@current_user.remember_token?) &amp;&amp; 
-</span><span class="uncovered1"><a name="line188"></a>188         (cookies[:auth_token] == @current_user.remember_token)
-</span><span class="uncovered0"><a name="line189"></a>189     end
-</span><span class="inferred1"><a name="line190"></a>190     
-</span><span class="inferred0"><a name="line191"></a>191     # Refresh the cookie auth token if it exists, create it otherwise
-</span><span class="marked1"><a name="line192"></a>192     def handle_remember_cookie!(new_cookie_flag)
-</span><span class="uncovered0"><a name="line193"></a>193       return unless @current_user
-</span><span class="uncovered1"><a name="line194"></a>194       case
-</span><span class="uncovered0"><a name="line195"></a>195       when valid_remember_cookie? then @current_user.refresh_token # keeping same expiry date
-</span><span class="uncovered1"><a name="line196"></a>196       when new_cookie_flag        then @current_user.remember_me 
-</span><span class="uncovered0"><a name="line197"></a>197       else                             @current_user.forget_me
-</span><span class="uncovered1"><a name="line198"></a>198       end
-</span><span class="uncovered0"><a name="line199"></a>199       send_remember_cookie!
-</span><span class="uncovered1"><a name="line200"></a>200     end
-</span><span class="inferred0"><a name="line201"></a>201   
-</span><span class="marked1"><a name="line202"></a>202     def kill_remember_cookie!
-</span><span class="uncovered0"><a name="line203"></a>203       cookies.delete :auth_token
-</span><span class="uncovered1"><a name="line204"></a>204     end
-</span><span class="inferred0"><a name="line205"></a>205     
-</span><span class="marked1"><a name="line206"></a>206     def send_remember_cookie!
-</span><span class="uncovered0"><a name="line207"></a>207       cookies[:auth_token] = {
-</span><span class="uncovered1"><a name="line208"></a>208         :value   =&gt; @current_user.remember_token,
-</span><span class="uncovered0"><a name="line209"></a>209         :expires =&gt; @current_user.remember_token_expires_at }
-</span><span class="uncovered1"><a name="line210"></a>210     end
-</span><span class="uncovered0"><a name="line211"></a>211 
-</span><span class="uncovered1"><a name="line212"></a>212 end
+<pre><span class="marked1"><a name="line1"></a>  1 module AuthenticatedSystem
+</span><span class="marked0"><a name="line2"></a>  2   protected
+</span><span class="inferred1"><a name="line3"></a>  3     # Returns true or false if the user is logged in.
+</span><span class="inferred0"><a name="line4"></a>  4     # Preloads @current_user with the user model if they're logged in.
+</span><span class="marked1"><a name="line5"></a>  5     def logged_in?
+</span><span class="uncovered0"><a name="line6"></a>  6       !!current_user
+</span><span class="uncovered1"><a name="line7"></a>  7     end
+</span><span class="inferred0"><a name="line8"></a>  8 
+</span><span class="inferred1"><a name="line9"></a>  9     # Accesses the current user from the session.
+</span><span class="inferred0"><a name="line10"></a> 10     # Future calls avoid the database because nil is not equal to false.
+</span><span class="marked1"><a name="line11"></a> 11     def current_user
+</span><span class="uncovered0"><a name="line12"></a> 12       @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie) unless @current_user == false
+</span><span class="uncovered1"><a name="line13"></a> 13     end
+</span><span class="inferred0"><a name="line14"></a> 14 
+</span><span class="inferred1"><a name="line15"></a> 15     # Store the given user id in the session.
+</span><span class="marked0"><a name="line16"></a> 16     def current_user=(new_user)
+</span><span class="uncovered1"><a name="line17"></a> 17       session[:user_id] = new_user ? new_user.id : nil
+</span><span class="uncovered0"><a name="line18"></a> 18       @current_user = new_user || false
+</span><span class="uncovered1"><a name="line19"></a> 19     end
+</span><span class="inferred0"><a name="line20"></a> 20 
+</span><span class="inferred1"><a name="line21"></a> 21     # Check if the user is authorized
+</span><span class="inferred0"><a name="line22"></a> 22     #
+</span><span class="inferred1"><a name="line23"></a> 23     # Override this method in your controllers if you want to restrict access
+</span><span class="inferred0"><a name="line24"></a> 24     # to only a few actions or if you want to check if the user
+</span><span class="inferred1"><a name="line25"></a> 25     # has the correct rights.
+</span><span class="inferred0"><a name="line26"></a> 26     #
+</span><span class="inferred1"><a name="line27"></a> 27     # Example:
+</span><span class="inferred0"><a name="line28"></a> 28     #
+</span><span class="inferred1"><a name="line29"></a> 29     #  # only allow nonbobs
+</span><span class="inferred0"><a name="line30"></a> 30     #  def authorized?
+</span><span class="inferred1"><a name="line31"></a> 31     #    current_user.login != &quot;bob&quot;
+</span><span class="inferred0"><a name="line32"></a> 32     #  end
+</span><span class="inferred1"><a name="line33"></a> 33     #
+</span><span class="marked0"><a name="line34"></a> 34     def authorized?(action = action_name, resource = nil)
+</span><span class="uncovered1"><a name="line35"></a> 35       logged_in?
+</span><span class="uncovered0"><a name="line36"></a> 36     end
+</span><span class="inferred1"><a name="line37"></a> 37 
+</span><span class="inferred0"><a name="line38"></a> 38     # Filter method to enforce a login requirement.
+</span><span class="inferred1"><a name="line39"></a> 39     #
+</span><span class="inferred0"><a name="line40"></a> 40     # To require logins for all actions, use this in your controllers:
+</span><span class="inferred1"><a name="line41"></a> 41     #
+</span><span class="inferred0"><a name="line42"></a> 42     #   before_filter :login_required
+</span><span class="inferred1"><a name="line43"></a> 43     #
+</span><span class="inferred0"><a name="line44"></a> 44     # To require logins for specific actions, use this in your controllers:
+</span><span class="inferred1"><a name="line45"></a> 45     #
+</span><span class="inferred0"><a name="line46"></a> 46     #   before_filter :login_required, :only =&gt; [ :edit, :update ]
+</span><span class="inferred1"><a name="line47"></a> 47     #
+</span><span class="inferred0"><a name="line48"></a> 48     # To skip this in a subclassed controller:
+</span><span class="inferred1"><a name="line49"></a> 49     #
+</span><span class="inferred0"><a name="line50"></a> 50     #   skip_before_filter :login_required
+</span><span class="inferred1"><a name="line51"></a> 51     #
+</span><span class="marked0"><a name="line52"></a> 52     def login_required
+</span><span class="uncovered1"><a name="line53"></a> 53       authorized? || access_denied
+</span><span class="uncovered0"><a name="line54"></a> 54     end
+</span><span class="inferred1"><a name="line55"></a> 55 
+</span><span class="inferred0"><a name="line56"></a> 56     # Redirect as appropriate when an access request fails.
+</span><span class="inferred1"><a name="line57"></a> 57     #
+</span><span class="inferred0"><a name="line58"></a> 58     # The default action is to redirect to the login screen.
+</span><span class="inferred1"><a name="line59"></a> 59     #
+</span><span class="inferred0"><a name="line60"></a> 60     # Override this method in your controllers if you want to have special
+</span><span class="inferred1"><a name="line61"></a> 61     # behavior in case the user is not authorized
+</span><span class="inferred0"><a name="line62"></a> 62     # to access the requested action.  For example, a popup window might
+</span><span class="inferred1"><a name="line63"></a> 63     # simply close itself.
+</span><span class="inferred0"><a name="line64"></a> 64   
+</span><span class="inferred1"><a name="line65"></a> 65 #old
+</span><span class="inferred0"><a name="line66"></a> 66 #    def access_denied
+</span><span class="inferred1"><a name="line67"></a> 67   #    respond_to do |format|
+</span><span class="inferred0"><a name="line68"></a> 68     #    format.html do
+</span><span class="inferred1"><a name="line69"></a> 69       #    store_location
+</span><span class="inferred0"><a name="line70"></a> 70         #  redirect_to new_session_path
+</span><span class="inferred1"><a name="line71"></a> 71         #end
+</span><span class="inferred0"><a name="line72"></a> 72      
+</span><span class="inferred1"><a name="line73"></a> 73         # format.any doesn't work in rails version &lt; http://dev.rubyonrails.org/changeset/8987
+</span><span class="inferred0"><a name="line74"></a> 74         # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
+</span><span class="inferred1"><a name="line75"></a> 75         # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
+</span><span class="inferred0"><a name="line76"></a> 76         # for a workaround.)
+</span><span class="inferred1"><a name="line77"></a> 77         #format.any(:json, :xml) do
+</span><span class="inferred0"><a name="line78"></a> 78          # request_http_basic_authentication 'Web Password'
+</span><span class="inferred1"><a name="line79"></a> 79         #end
+</span><span class="inferred0"><a name="line80"></a> 80       #end
+</span><span class="inferred1"><a name="line81"></a> 81     #end
+</span><span class="inferred0"><a name="line82"></a> 82 
+</span><span class="inferred1"><a name="line83"></a> 83     
+</span><span class="marked0"><a name="line84"></a> 84    def access_denied
+</span><span class="uncovered1"><a name="line85"></a> 85       respond_to do |format|
+</span><span class="uncovered0"><a name="line86"></a> 86         format.html do
+</span><span class="uncovered1"><a name="line87"></a> 87           store_location
+</span><span class="uncovered0"><a name="line88"></a> 88           redirect_to new_session_path
+</span><span class="uncovered1"><a name="line89"></a> 89         end
+</span><span class="uncovered0"><a name="line90"></a> 90      
+</span><span class="uncovered1"><a name="line91"></a> 91         # format.any doesn't work in rails version &lt; http://dev.rubyonrails.org/changeset/8987
+</span><span class="uncovered0"><a name="line92"></a> 92         # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
+</span><span class="uncovered1"><a name="line93"></a> 93         # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
+</span><span class="uncovered0"><a name="line94"></a> 94         # for a workaround.)
+</span><span class="uncovered1"><a name="line95"></a> 95         format.any(:json, :xml) do
+</span><span class="uncovered0"><a name="line96"></a> 96           request_http_basic_authentication 'Web Password'
+</span><span class="uncovered1"><a name="line97"></a> 97         end
+</span><span class="uncovered0"><a name="line98"></a> 98       end
+</span><span class="uncovered1"><a name="line99"></a> 99     end
+</span><span class="inferred0"><a name="line100"></a>100     
+</span><span class="inferred1"><a name="line101"></a>101     
+</span><span class="inferred0"><a name="line102"></a>102     
+</span><span class="inferred1"><a name="line103"></a>103     # Store the URI of the current request in the session.
+</span><span class="inferred0"><a name="line104"></a>104     #
+</span><span class="inferred1"><a name="line105"></a>105     # We can return to this location by calling #redirect_back_or_default.
+</span><span class="marked0"><a name="line106"></a>106     def store_location
+</span><span class="uncovered1"><a name="line107"></a>107       session[:return_to] = request.request_uri
+</span><span class="uncovered0"><a name="line108"></a>108     end
+</span><span class="inferred1"><a name="line109"></a>109 
+</span><span class="inferred0"><a name="line110"></a>110     # Redirect to the URI stored by the most recent store_location call or
+</span><span class="inferred1"><a name="line111"></a>111     # to the passed default.  Set an appropriately modified
+</span><span class="inferred0"><a name="line112"></a>112     #   after_filter :store_location, :only =&gt; [:index, :new, :show, :edit]
+</span><span class="inferred1"><a name="line113"></a>113     # for any controller you want to be bounce-backable.
+</span><span class="marked0"><a name="line114"></a>114     def redirect_back_or_default(default)
+</span><span class="uncovered1"><a name="line115"></a>115       redirect_to(session[:return_to] || default)
+</span><span class="uncovered0"><a name="line116"></a>116       session[:return_to] = nil
+</span><span class="uncovered1"><a name="line117"></a>117     end
+</span><span class="inferred0"><a name="line118"></a>118 
+</span><span class="inferred1"><a name="line119"></a>119     # Inclusion hook to make #current_user and #logged_in?
+</span><span class="inferred0"><a name="line120"></a>120     # available as ActionView helper methods.
+</span><span class="marked1"><a name="line121"></a>121     def self.included(base)
+</span><span class="marked0"><a name="line122"></a>122       base.send :helper_method, :current_user, :logged_in?, :authorized? if base.respond_to? :helper_method
+</span><span class="marked1"><a name="line123"></a>123     end
+</span><span class="inferred0"><a name="line124"></a>124 
+</span><span class="inferred1"><a name="line125"></a>125     #
+</span><span class="inferred0"><a name="line126"></a>126     # Login
+</span><span class="inferred1"><a name="line127"></a>127     #
+</span><span class="inferred0"><a name="line128"></a>128 
+</span><span class="inferred1"><a name="line129"></a>129     # Called from #current_user.  First attempt to login by the user id stored in the session.
+</span><span class="marked0"><a name="line130"></a>130     def login_from_session
+</span><span class="uncovered1"><a name="line131"></a>131       self.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
+</span><span class="uncovered0"><a name="line132"></a>132     end
+</span><span class="inferred1"><a name="line133"></a>133 
+</span><span class="inferred0"><a name="line134"></a>134     # Called from #current_user.  Now, attempt to login by basic authentication information.
+</span><span class="marked1"><a name="line135"></a>135     def login_from_basic_auth
+</span><span class="uncovered0"><a name="line136"></a>136       authenticate_with_http_basic do |login, password|
+</span><span class="uncovered1"><a name="line137"></a>137         self.current_user = User.authenticate(login, password)
+</span><span class="uncovered0"><a name="line138"></a>138       end
+</span><span class="uncovered1"><a name="line139"></a>139     end
+</span><span class="inferred0"><a name="line140"></a>140     
+</span><span class="inferred1"><a name="line141"></a>141     #
+</span><span class="inferred0"><a name="line142"></a>142     # Logout
+</span><span class="inferred1"><a name="line143"></a>143     #
+</span><span class="inferred0"><a name="line144"></a>144 
+</span><span class="inferred1"><a name="line145"></a>145     # Called from #current_user.  Finaly, attempt to login by an expiring token in the cookie.
+</span><span class="inferred0"><a name="line146"></a>146     # for the paranoid: we _should_ be storing user_token = hash(cookie_token, request IP)
+</span><span class="marked1"><a name="line147"></a>147     def login_from_cookie
+</span><span class="uncovered0"><a name="line148"></a>148       user = cookies[:auth_token] &amp;&amp; User.find_by_remember_token(cookies[:auth_token])
+</span><span class="uncovered1"><a name="line149"></a>149       if user &amp;&amp; user.remember_token?
+</span><span class="uncovered0"><a name="line150"></a>150         self.current_user = user
+</span><span class="uncovered1"><a name="line151"></a>151         handle_remember_cookie! false # freshen cookie token (keeping date)
+</span><span class="uncovered0"><a name="line152"></a>152         self.current_user
+</span><span class="uncovered1"><a name="line153"></a>153       end
+</span><span class="uncovered0"><a name="line154"></a>154     end
+</span><span class="inferred1"><a name="line155"></a>155 
+</span><span class="inferred0"><a name="line156"></a>156     # This is ususally what you want; resetting the session willy-nilly wreaks
+</span><span class="inferred1"><a name="line157"></a>157     # havoc with forgery protection, and is only strictly necessary on login.
+</span><span class="inferred0"><a name="line158"></a>158     # However, **all session state variables should be unset here**.
+</span><span class="marked1"><a name="line159"></a>159     def logout_keeping_session!
+</span><span class="uncovered0"><a name="line160"></a>160       # Kill server-side auth cookie
+</span><span class="uncovered1"><a name="line161"></a>161       @current_user.forget_me if @current_user.is_a? User
+</span><span class="uncovered0"><a name="line162"></a>162       @current_user = false     # not logged in, and don't do it for me
+</span><span class="uncovered1"><a name="line163"></a>163       kill_remember_cookie!     # Kill client-side auth cookie
+</span><span class="uncovered0"><a name="line164"></a>164       session[:user_id] = nil   # keeps the session but kill our variable
+</span><span class="uncovered1"><a name="line165"></a>165       # explicitly kill any other session variables you set
+</span><span class="uncovered0"><a name="line166"></a>166     end
+</span><span class="inferred1"><a name="line167"></a>167 
+</span><span class="inferred0"><a name="line168"></a>168     # The session should only be reset at the tail end of a form POST --
+</span><span class="inferred1"><a name="line169"></a>169     # otherwise the request forgery protection fails. It's only really necessary
+</span><span class="inferred0"><a name="line170"></a>170     # when you cross quarantine (logged-out to logged-in).
+</span><span class="marked1"><a name="line171"></a>171     def logout_killing_session!
+</span><span class="uncovered0"><a name="line172"></a>172       logout_keeping_session!
+</span><span class="uncovered1"><a name="line173"></a>173       reset_session
+</span><span class="uncovered0"><a name="line174"></a>174     end
+</span><span class="inferred1"><a name="line175"></a>175     
+</span><span class="inferred0"><a name="line176"></a>176     #
+</span><span class="inferred1"><a name="line177"></a>177     # Remember_me Tokens
+</span><span class="inferred0"><a name="line178"></a>178     #
+</span><span class="inferred1"><a name="line179"></a>179     # Cookies shouldn't be allowed to persist past their freshness date,
+</span><span class="inferred0"><a name="line180"></a>180     # and they should be changed at each login
+</span><span class="inferred1"><a name="line181"></a>181 
+</span><span class="inferred0"><a name="line182"></a>182     # Cookies shouldn't be allowed to persist past their freshness date,
+</span><span class="inferred1"><a name="line183"></a>183     # and they should be changed at each login
+</span><span class="inferred0"><a name="line184"></a>184 
+</span><span class="marked1"><a name="line185"></a>185     def valid_remember_cookie?
+</span><span class="uncovered0"><a name="line186"></a>186       return nil unless @current_user
+</span><span class="uncovered1"><a name="line187"></a>187       (@current_user.remember_token?) &amp;&amp; 
+</span><span class="uncovered0"><a name="line188"></a>188         (cookies[:auth_token] == @current_user.remember_token)
+</span><span class="uncovered1"><a name="line189"></a>189     end
+</span><span class="inferred0"><a name="line190"></a>190     
+</span><span class="inferred1"><a name="line191"></a>191     # Refresh the cookie auth token if it exists, create it otherwise
+</span><span class="marked0"><a name="line192"></a>192     def handle_remember_cookie!(new_cookie_flag)
+</span><span class="uncovered1"><a name="line193"></a>193       return unless @current_user
+</span><span class="uncovered0"><a name="line194"></a>194       case
+</span><span class="uncovered1"><a name="line195"></a>195       when valid_remember_cookie? then @current_user.refresh_token # keeping same expiry date
+</span><span class="uncovered0"><a name="line196"></a>196       when new_cookie_flag        then @current_user.remember_me 
+</span><span class="uncovered1"><a name="line197"></a>197       else                             @current_user.forget_me
+</span><span class="uncovered0"><a name="line198"></a>198       end
+</span><span class="uncovered1"><a name="line199"></a>199       send_remember_cookie!
+</span><span class="uncovered0"><a name="line200"></a>200     end
+</span><span class="inferred1"><a name="line201"></a>201   
+</span><span class="marked0"><a name="line202"></a>202     def kill_remember_cookie!
+</span><span class="uncovered1"><a name="line203"></a>203       cookies.delete :auth_token
+</span><span class="uncovered0"><a name="line204"></a>204     end
+</span><span class="inferred1"><a name="line205"></a>205     
+</span><span class="marked0"><a name="line206"></a>206     def send_remember_cookie!
+</span><span class="uncovered1"><a name="line207"></a>207       cookies[:auth_token] = {
+</span><span class="uncovered0"><a name="line208"></a>208         :value   =&gt; @current_user.remember_token,
+</span><span class="uncovered1"><a name="line209"></a>209         :expires =&gt; @current_user.remember_token_expires_at }
+</span><span class="uncovered0"><a name="line210"></a>210     end
+</span><span class="uncovered1"><a name="line211"></a>211 
+</span><span class="uncovered0"><a name="line212"></a>212 end
 </span></pre><hr/>
     <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
    version 0.8.1.2.</p>

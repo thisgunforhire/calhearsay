@@ -1,3 +1,5 @@
+# rcov does not like the login_as method; however, this is necessary for our rspecs to pass. a user must be logged in.
+
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe EntriesController do
