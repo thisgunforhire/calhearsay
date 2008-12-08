@@ -28,6 +28,9 @@ describe EntriesController do
       login_as(:quentin)
       Entry.should_receive(:find).with("37").and_return(mock_entry)
       mock_entry.should_receive(:comments)
+      mock_entry.should_receive(:tags)
+      mock_entry.should_receive(:user)
+      mock_entry.should_receive(:pic)
       get :show, :id => "37"
       assigns[:entry].should equal(mock_entry)
     end

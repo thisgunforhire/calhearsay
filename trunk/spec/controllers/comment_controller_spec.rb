@@ -7,8 +7,8 @@ describe CommentsController do
     @mock_comment ||= mock_model(Comment, stubs)
   end
   
-  def mock_event(stubs={})
-    @mock_event ||= mock_model(Event, stubs)
+  def mock_entry(stubs={})
+    @mock_entry ||= mock_model(Entry, stubs)
   end
 
 
@@ -21,13 +21,14 @@ describe CommentsController do
     it "should expose a new comment as @comment when logged in" do
       login_as(:quentin)
       Comment.should_receive(:new).and_return(mock_comment)
-      Event.should_receive(:find).with("31").and_return(mock_event)
-      get :new, :event_id => "31"
+      #mock_comment.should_receive(:entry)
+      Entry.should_receive(:find).with("31").and_return(mock_entry)
+      get :new, :entry_id => "31"
       assigns[:comment].should equal(mock_comment)
     end
 
     it "should not be allowed if not logged in" do
-      get :new, :event_id => "31"
+      get :new, :entry_id => "31"
       response.should redirect_to(new_session_url)
     end
   end
