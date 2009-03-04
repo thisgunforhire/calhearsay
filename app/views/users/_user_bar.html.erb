@@ -1,7 +1,10 @@
 <div align="center">
 <% if logged_in? -%>
-  <div id="user-bar-greeting">Logged in as <%#= link_to_current_user :content_method => :login %><b><%= current_user.login %></b></div>
+  <div id="user-bar-greeting">Logged in as <%#= link_to_current_user :content_method => :login %><b><%#= current_user.login %></b></div>
   <% @user = User.find(current_user.id) %>
+  
+  <%= link_to h(@user.login), @user %>
+  
   <p align="left"><subs>entries posted: <%=@user.entry_count%>
   comments posted: <%=@user.comment_count%>
   </subs></p>
@@ -36,7 +39,7 @@
           <img src="../../../images/smiley.jpg" border="1">
         <%end%>
         <br>
-        <b><%= user.login %></b>
+        <b><%= link_to h(user.login), user %></b>
         </p>
       <%end%>
       <%if user.comment_count == @u_com%>
@@ -49,7 +52,7 @@
           <img src="../../../images/smiley.jpg" >
         <%end%>
         <br>
-        <b><%= user.login %></b>
+        <b><%= link_to h(user.login), user %></b>
         </p>
       <%end%>
     <%end%>  

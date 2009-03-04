@@ -1,7 +1,7 @@
 /* Global styles for layout of site*/
 /* START:notice */
 body {
-	background: #EE82EE;
+	background: lightblue; /*#EE82EE*/
 	font: 100% century gothic, sans-serif;
 }
 a {

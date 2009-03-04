@@ -14,6 +14,18 @@ class TagsController < ApplicationController
       format.xml  { render :xml => @tags }
     end
   end
+  
+  def entrySearch    
+    session[:query] = params[:query].strip if params[:query]
+    
+    if session[:query] and request.xhr?
+      @articles1 = Entry.find(:all, :conditions => ["title LIKE ?", "%#{session[:query]}%"])
+      @articles2 = Tag.find(:all, :conditions => ["tag LIKE ?", "%#{session[:query]}%"])     
+      #render :partial => "tags/searchresults", :layout => false, :locals => {:searchresults => @articles2}
+      render :partial => "tags/entryresults", :layout => false, :locals => {:searchresults => @articles1, :searchresults2 => @articles2} 
+    end
+  end
+
 
   # GET /tags/1
   # GET /tags/1.xml
@@ -21,6 +33,7 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
 	  @entry = Entry.find(params[:entry_id])
     @user = @tag.user
+    #@search = Tag.find(:first, :conditions => ["tag => ?", :query])
     #@tag.entry = @entry
     #@tag.user = current_user
 

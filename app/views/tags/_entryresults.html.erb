@@ -1,0 +1,58 @@
+<% elist = Entry.find(:all) %>
+
+<% if searchresults2.length == 0 %>
+  <% if searchresults.length == 0 %>
+	  <p>Sorry! No articles found...</p>
+  <% end %>
+<% end %>
+
+<% if params[:query] == "" %>
+    <p>You must enter a search term.</p>
+<% end %>
+
+<% if params[:query] != "" %>
+
+<% if searchresults2.length != 0 %>
+
+
+  <% i = 0 %>
+	<% for tag in searchresults2 %>
+    
+    <% for entry in elist %>
+      <% for t in entry.tags %>
+        <% if t.tag == tag.tag %>
+          <% if i == 0 %>
+            Related Tags:  
+            <p align=center><%= link_to h(tag.tag), entry_tag_url(entry,tag) %></p>
+            <% i = 1 %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<% end %>
+
+<!--######################################################################-->
+
+<% if searchresults.length != 0 %>
+
+Related Entries:
+<p align=center>	
+	<% for entry in searchresults %>
+      <% if entry.picture != '' %>
+        <%= link_to image_tag(entry.picture, :width => 100), entry %> 
+      <% else %>
+        <% if entry.pic.filename != nil %>
+          <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
+        <%else%>
+          <img src="../../../images/holder.jpg">
+        <% end %>
+      <% end %><br/>
+  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
+  <% end %>
+</p>
+
+<% end %>
+
+<% end %>
