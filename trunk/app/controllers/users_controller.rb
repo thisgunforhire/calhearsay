@@ -2,8 +2,17 @@ class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
   
+  def show
+    #@entries = Entry.find(:all)
+    @user = User.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
 
-  # render new.rhtml
+ # render new.rhtml
   def new
     @user = User.new
      respond_to do |format|

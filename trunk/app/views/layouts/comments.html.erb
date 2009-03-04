@@ -28,9 +28,21 @@
       <%= render :partial => 'users/user_bar' %>
       </div>
        <div id="right">
-       <%= render :partial => 'entries/top_ranked'%>
+      <p1>Quick Search</p1><br>
+     <%= text_field_tag("query", params[:query], :autocomplete => "off" ) %>
+    
+    <%= observe_field 'query',  :frequency => 2,
+								:update => "search_results",								
+								:url => {:controller => "tags", :action => "entrySearch"},
+								:with => "query" %>
+                
+  <div id="search_results">
+     (type in the box to search by entry title or tag)
+  </div>
        <hr>
-       <%= render :partial => 'entries/archive'%>
+       <%= render :partial => 'entries/top_ranked'%>
+       <!--<hr>
+       <%= render :partial => 'entries/archive'%>-->
       </div>
       <div id="main">
    <!--   
