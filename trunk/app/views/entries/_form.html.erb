@@ -87,6 +87,16 @@
     <option value="hot">hot</option>
     <option value="other">other</option>
 </select>
+    
+    <%= observe_field 'entry_category',  :frequency => 2,
+								:update => "category_other",								
+								:url => {:controller => "entries", :action => "categoryOther"},
+								:with => "entry_category" %>
+                
+    <div id="category_other">
+     <subs>If you don't see the category you want yet, <%= link_to h("select other"), current_user %></subs>
+    </div>
+    
     <!--<%= f.text_field :category %>-->
   </p>
   <p>

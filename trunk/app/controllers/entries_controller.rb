@@ -3,6 +3,17 @@ class EntriesController < ApplicationController
   #before_filter :check_user, :only => [:destroy, :update, :edit]
   # GET /entries
   # GET /entries.xml
+  
+  
+  def categoryOther    
+    if params[:entry_category] == ""
+      render :partial => "entries/empty"
+    else
+      render :partial => params[:entry_category]
+    end
+  end
+  
+  
   def index
     @entries = Entry.find(:all)
 
