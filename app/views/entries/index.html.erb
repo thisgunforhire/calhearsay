@@ -51,7 +51,7 @@
   <% i=0 %>
 	<% for tag in entry.tags %>
   <% if i < 3 %>
-		 <%= link_to h(tag.tag), entry_tag_url(entry,tag) %>
+		 : <%= link_to h(tag.tag), entry_tag_url(entry,tag) %>
      <% i += 1 %>
   <% end %>   
 	<% end %>
