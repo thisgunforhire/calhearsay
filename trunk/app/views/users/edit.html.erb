@@ -1,10 +1,10 @@
-<h1>Sign up!</h1>
+<h1>Edit Your Profile!</h1>
 <p>
 <% @user.password = @user.password_confirmation = nil %>
 </p>
 <% form_for :user, :html =>{ :multipart => true}, :url => users_path do |f| -%>
   <%= f.error_messages %>
 
-  <%= render :partial => "form", :locals => { :f => f, :label_text => "Sign Up!"} %>
+  <%= render :partial => "form", :locals => { :f => f, :label_text => "Update!"} %>
 
 <% end %>

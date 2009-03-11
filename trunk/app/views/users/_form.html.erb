@@ -1,0 +1,16 @@
+<p>Desired <%= f.label :login %> Name <%= f.text_field :login %></p>
+
+<p><%= f.label :email %> <%= f.text_field :email %></p>
+
+<p><%= f.label :password %> <%= f.password_field :password %>
+<br><subs>(Must be at least 6 digits.)</subs>
+</p>
+
+<p><%= label_tag 'password_confirmation', 'Confirm Password' %> <%= f.password_field :password_confirmation %></p>
+
+<p>Upload a user icon (<i>Optional</i>): <%= file_field_tag 'user_pic' %>
+<br><sup>(Please resize/crop icon to 100x100 pixels before uploading)</sup>
+</p>
+
+<p><%= f.submit label_text %>  <input type="reset" value="Do over!"></p>
+
