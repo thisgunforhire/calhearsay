@@ -4,7 +4,6 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.xml
   
-  
   def categoryOther    
     if params[:entry_category] == ""
       render :partial => "entries/empty"
@@ -45,8 +44,6 @@ class EntriesController < ApplicationController
   # GET /entries/new.xml
   def new
     @entry = Entry.new
-    
-   
     
     respond_to do |format|
       format.html # new.html.erb

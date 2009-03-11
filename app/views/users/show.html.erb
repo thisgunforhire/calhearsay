@@ -15,5 +15,11 @@
     <%else%>
       <img src="../../../images/smiley.jpg" border="1">
     <%end%>
+    
+<% if current_user.id == @user.id %>  
+  <%= link_to 'edit user', edit_user_path(@user) %>
+<% end %>
+  
   </p>
+  <script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script><script>if (WIDGETBOX) WIDGETBOX.renderWidget('38ee4533-7886-4036-b24c-752d06486ef3');</script><noscript>Get the <a href="http://www.widgetbox.com/widget/facebooksupermario">Super Mario Game</a> widget and many other <a href="http://www.widgetbox.com/">great free widgets</a> at <a href="http://www.widgetbox.com">Widgetbox</a>!</noscript>
 </div>

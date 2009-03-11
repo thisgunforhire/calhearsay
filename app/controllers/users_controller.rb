@@ -18,21 +18,37 @@ class UsersController < ApplicationController
      respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user }
-    end
+     end
   end
  
+  # GET /entries/1/edit
+  def edit
+    @user ||= User.find(params[:id])
+  end
+
+  # PUT /entries/1
+  # PUT /entries/1.xml
+  def update
+    @user ||= User.find(params[:id])
+    
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'User was successfully updated.'
+        format.html { redirect_to(@user) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
     @user.userpic = Userpic.new(:uploaded_data => params[:user_pic])
     @user.entry_count = 0
     @user.comment_count = 0
-    if @user.login == 'david'
-      @user.entry_count = 1
-    end
-    if @user.login == 'denise'
-      @user.comment_count = 1
-    end
     
     success = @user && @user.save
     if success && @user.errors.empty?
