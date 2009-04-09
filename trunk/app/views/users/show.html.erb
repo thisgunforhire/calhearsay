@@ -20,7 +20,7 @@
 <% if current_user.id == @user.id %>  
   <%#= render :partial => "users/games" %>
   <%= link_to 'edit user', edit_user_path(@user) %>
-  <p>
+  <!--<p>
     <%= label_tag 'Select' %> <select name="Page Select" id="page_select">
     <option value="">[select a type]</option>
     <option value="games">games</option>
@@ -36,7 +36,7 @@
 								:url => {:controller => "users", :action => "pageSelect"},
 								:with => "pageType" %>
     
-  </p>
+  </p>-->
 <% end %>
   
 </div>
