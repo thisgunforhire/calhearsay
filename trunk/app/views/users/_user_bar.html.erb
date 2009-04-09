@@ -59,22 +59,20 @@
 <% else -%>
 
   <% form_tag session_path do -%>
-    <p align="center"><%= label_tag 'login' %><br />
-    <%= text_field_tag 'login', @login %></p>
-
-    <p align="center"><%= label_tag 'password' %><br/>
-    <%= password_field_tag 'password', nil %></p>
 
 
-    <p align="center"><%= label_tag 'remember_me', 'Remember me' %>
-    <%= check_box_tag 'remember_me', '1', @remember_me %></p>
+<table border="0"><tr><td><%= label_tag 'login' %></td><td><%= text_field_tag 'login', @login %></td></tr>
 
-
-    <p align="center"><%= submit_tag 'Log in' %></p>
+    <tr><td><%= label_tag 'password' %></td><td><%= password_field_tag 'password', nil %></td></tr>
+<tr><td><%= label_tag 'remember_me', 'Remember me' %></td><td><%= check_box_tag 'remember_me', '1', @remember_me %></td></tr>
+<tr><td></td><td><table border="0"><tr><td><%= submit_tag 'Log in' %></td><td> <%= link_to (button_to("Sign up!")), signup_path(:anchor => 'signup'), { :title => "Create an account" } %></td></tr></table></td></tr>
+</table>
+  </form>  <!--<div id="user-bar-greeting"><a href="/login" style="border: none;" title="127.0.0.1">Not logged in</a></div>-->
+  
   <% end -%>
   <!--<div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></div>-->
   <div id="user-bar-action"  ><!--<%= link_to "Log in",  login_path,  { :title => "Log in" } %> /-->
-                               <%= link_to "Sign up", signup_path(:anchor => 'signup'), { :title => "Create an account" } %></div>
+                               </div>
 <% end -%>
 </div>
 
