@@ -1,10 +1,12 @@
 <h1>Edit Your Profile!</h1>
 <p>
 <% @user.password = @user.password_confirmation = nil %>
+<% @upicform = "edit" %>
 </p>
-<% form_for :user, :html =>{ :multipart => true}, :url => users_path do |f| -%>
+<% form_for( @user, :html =>{ :multipart => true} ) do |f| -%>
   <%= f.error_messages %>
 
   <%= render :partial => "form", :locals => { :f => f, :label_text => "Update!"} %>
 
 <% end %>
+<%= link_to 'back to entries', entries_path %>
