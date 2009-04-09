@@ -36,6 +36,7 @@
       </div>
 
       <div id="main">
+      <% if !logged_in? %>
 	<div id="prebox">
 	<p><p1><%= flash[:notice] %><%= flash[:error] %></p1></p>
 		<p>A picture is worth 1,000 words. Stop talking and start showing!</p>
@@ -47,9 +48,12 @@
 		<p>Rank the hottest girl. The most "granola" Berkeleyan. Most awkward geek.</p>
     <p>So what are you waiting for? Start posting! There's nothing to feel guilty about -- it's all <b>hearsay!</b></p>
         </div>
+        <% end %>
 	<div id="entries">
-	  <p>You must log in to <a href="../entries">view the posts</a>. If you do not have a log in and password yet, please sign up!</p>
+  <% if !logged_in? %>
+	  <p>You must log in to <%= link_to 'view the posts', entries_path %>. If you do not have a log in and password yet, please sign up!</p>
   <a name="signup"></a>
+      <% end %>
   <%= yield %>
 		
 	</div>
