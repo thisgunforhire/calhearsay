@@ -13,16 +13,86 @@
 <%= javascript_include_tag :defaults %>
 </head>
 <body id="entry">
+
+
+<div id="sideofbanner">
+<%= render :partial => 'users/user_bar' %>
+  <div id="user-bar-action"  ><!--<a href="/login" title="Log in">Log in</a> /-->
+                               </div>
+</div>                               
+
+
   <div id="banner">
+     <img src="../images/hearsaybubble.png">
    </div>
-  <p>
+   
+  
+  
   <div id="columns">
     <div id="shadowed-border" class="sb">
+  
+<div id="logininfo">  
+    <font color="#ffffff">
+about | entries | archive | categories | search | faq | contact us</font>
+</div>
+    
       <div id="side">
+      
+      <div class="rounded-box-side">
+    <!-- Corners -->
+    <div class="top-left-corner">
+        <div class="top-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-left-corner">
+        <div class="bottom-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="top-right-corner">
+        <div class="top-right-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-right-corner">
+        <div class="bottom-right-inside">
+            &bull;
+        </div>
+    </div>
+    <!-- Content -->
+      
       <div align="center"><h1>welcome!</h1>
-        <%= render :partial => 'users/user_bar' %>
+        
        </div></div>
+       </div>
+       
+       
     <div id="right">
+    
+     <div class="rounded-box-right">
+    <!-- Corners -->
+    <div class="top-left-corner">
+        <div class="top-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-left-corner">
+        <div class="bottom-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="top-right-corner">
+        <div class="top-right-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-right-corner">
+        <div class="bottom-right-inside">
+            &bull;
+        </div>
+    </div>
+    
        <div align="center"><h1>meet the developers</h1>
        <p><img src="../images/david.jpg" class="img-border"><br>
        david</p>
@@ -32,12 +102,37 @@
        
        </p>
        </div>
-
+</div>
       </div>
 
       <div id="main">
       <% if !logged_in? %>
 	<div id="prebox">
+  
+   <div class="rounded-box-prebox">
+    <!-- Corners -->
+    <div class="top-left-corner">
+        <div class="top-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-left-corner">
+        <div class="bottom-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="top-right-corner">
+        <div class="top-right-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-right-corner">
+        <div class="bottom-right-inside">
+            &bull;
+        </div>
+    </div>
+    
+  
 	<p><p1><%= flash[:notice] %><%= flash[:error] %></p1></p>
 		<p>A picture is worth 1,000 words. Stop talking and start showing!</p>
 
@@ -47,16 +142,40 @@
 
 		<p>Rank the hottest girl. The most "granola" Berkeleyan. Most awkward geek.</p>
     <p>So what are you waiting for? Start posting! There's nothing to feel guilty about -- it's all <b>hearsay!</b></p>
-        </div>
+        </div></div>
         <% end %>
+        
 	<div id="entries">
+  
+    <div class="rounded-box-entries">
+    <!-- Corners -->
+    <div class="top-left-corner">
+        <div class="top-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-left-corner">
+        <div class="bottom-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="top-right-corner">
+        <div class="top-right-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-right-corner">
+        <div class="bottom-right-inside">
+            &bull;
+        </div>
+    </div>
   <% if !logged_in? %>
 	  <p>You must log in to <%= link_to 'view the posts', entries_path %>. If you do not have a log in and password yet, please sign up!</p>
   <a name="signup"></a>
       <% end %>
   <%= yield %>
 		
-	</div>
+	</div></div>
       </div>
      
     </div>
