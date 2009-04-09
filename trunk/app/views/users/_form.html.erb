@@ -1,15 +1,25 @@
-<p>Desired <%= f.label :login %> Name <%= f.text_field :login %></p>
+<p><c1>Desired <%= f.label :login %> Name</c1> <%= f.text_field :login %></p>
 
-<p><%= f.label :email %> <%= f.text_field :email %></p>
+<p><c1><%= f.label :email %></c1> <%= f.text_field :email %></p>
 
-<p><%= f.label :password %> <%= f.password_field :password %>
+<p><c1><%= f.label :password %></c1> <%= f.password_field :password %>
 <br><subs>(Must be at least 6 digits.)</subs>
 </p>
 
-<p><%= label_tag 'password_confirmation', 'Confirm Password' %> <%= f.password_field :password_confirmation %></p>
+<p><c1><%= label_tag 'password_confirmation', 'Confirm Password' %></c1> <%= f.password_field :password_confirmation %></p>
 <% if @upicform == "new" %>
-  <p>Upload a user icon (<i>Optional</i>): <%= file_field_tag 'user_pic' %>
+  <p><c1>Upload a user icon</c1> (<i>Optional</i>): <%= file_field_tag 'user_pic' %>
   </p>
+<% end %>
+<% if @upicform == "edit" %>
+
+  <p><c1><%= f.label :name %></c1> <%= f.text_field :name %></p>
+  <p><c1><%= f.label :age %></c1> <%= f.text_field :age %></p>
+  <p><c1><%= f.label :dob %></c1> <%= f.text_field :dob %></p>
+  <p><c1><%= f.label :aim %></c1> <%= f.text_field :aim %></p>
+  <p><c1><%= f.label :interests %></c1> <br> <%= f.text_area :interests %></p>
+  <p><c1><%= f.label :about_me %></c1> <br> <%= f.text_area :about_me %></p>
+
 <% end %>
 
 <p><%= f.submit label_text %>  <input type="reset" value="Do over!"></p>

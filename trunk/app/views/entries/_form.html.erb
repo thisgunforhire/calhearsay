@@ -1,8 +1,8 @@
   <p>
-    <%= f.label :title %> <%= f.text_field :title %>
+    <c1><%= f.label :title %></c1> <%= f.text_field :title %>
   </p>
   <p>
-    <label for="entry_description">Description/Content</label>
+    <label for="entry_description"><c1>Description/Content</c1></label>
     <br><%= f.text_area :description %><!--<textarea cols="60" rows="10" id="entry_description" name="entry[description]"></textarea>-->
     <%#= f.label :description %> <%#= f.text_area :description %>
   </p>
@@ -11,7 +11,7 @@
     <%#= f.label :picture %>
       <table border="0">
       <tr>Insert an image from a URL or upload your own photo (<i>Optional</i>)</tr>
-      <tr><td padding="4">Image from URL (http://...)</td><td> &nbsp; </td><td padding="4">Upload an image</td></tr>
+      <tr><td padding="4"><c1>Image from URL (http://...)</c1></td><td> &nbsp; </td><td padding="4"><c1>Upload an image</c1></td></tr>
       <tr><td><%= f.text_field :picture %></td><td> &nbsp; </td>
       <td><%= file_field_tag 'entry_pic' %></td>
       </tr>
@@ -23,7 +23,7 @@
     
   </p>  
   <p>
-    <%= f.label :state %> <select name="entry[state]" id="entry_state">
+    <c1><%= f.label :state %></c1> <select name="entry[state]" id="entry_state">
     <option value="">[select a state]</option>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -79,7 +79,7 @@
     <br><subs>This is the state in which your entry topic takes place. (For example, if your entry is about a bum sighting in New York, you would select 'New York'.)</subs>
   </p>
   <p>
-    <%= f.label :category %> <select name="entry[category]" id="entry_category">
+    <c1><%= f.label :category %></c1> <select name="entry[category]" id="entry_category">
     <option value="">[select a category]</option>
     <option value="hos">hos</option>
     <option value="bums">bums</option>

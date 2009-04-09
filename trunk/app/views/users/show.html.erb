@@ -1,14 +1,15 @@
-<div align="center">
-
-  <%= link_to h(@user.login), @user %>
+<div align="left">
+<p>
+  <c1>Login:</c1><%= link_to h(@user.login), @user %>
   <br>
-  <%= @user.email %>
+  <c1>Email:</c1><%= @user.email %>
   <br>
   
   <p align="left"><subs>entries posted: <%=@user.entry_count%>
   comments posted: <%=@user.comment_count%>
   </subs></p>
 
+<div align="center">
   <p>
     <%if @user.userpic.filename != nil%>
       <img src="<%= @user.userpic.public_filename %>" border="1">
@@ -16,27 +17,19 @@
       <img src="../../../images/smiley.jpg" border="1">
     <%end%>
   </p>
-    
-<% if current_user.id == @user.id %>  
-  <%#= render :partial => "users/games" %>
-  <%= link_to 'edit user', edit_user_path(@user) %>
-  <!--<p>
-    <%= label_tag 'Select' %> <select name="Page Select" id="page_select">
-    <option value="">[select a type]</option>
-    <option value="games">games</option>
-    </select>
-    
-                
-    <div id="select_page">
-     <subs>lalala</subs>
-    </div>
-    
-    <%= observe_field 'page_select',  :frequency => 2,
-								:update => "select_page",								
-								:url => {:controller => "users", :action => "pageSelect"},
-								:with => "pageType" %>
-    
-  </p>-->
-<% end %>
+</div>
   
+  <c1>Name:</c1><%=h @user.name %><br>
+  <c1>Age:</c1><%=h @user.age %><br>
+  <c1>Date of Birth:</c1><%=h @user.dob %><br>
+  <c1>Screen Name:</c1><%=h @user.aim %><br>
+  <c1>Interests:</c1><%=h @user.interests %><br>
+  <c1>About Me:</c1><%=h @user.about_me %><br>
+    <br>
+<% if current_user.id == @user.id %>  
+  <%= link_to 'edit user', edit_user_path(@user) %> |
+<% end %>
+  <%= link_to 'back to entries', entries_path %>
+</p>
+<br>&nbsp;
 </div>
