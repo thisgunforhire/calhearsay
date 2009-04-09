@@ -2,6 +2,14 @@ class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
   
+  def pageSelect    
+    if params[:pageType] == ""
+      render :partial => "users/empty"
+    else
+      render :partial => params[:pageType]
+    end
+  end
+  
   def show
     #@entries = Entry.find(:all)
     @user = User.find(params[:id])

@@ -7,10 +7,10 @@
 </p>
 
 <p><%= label_tag 'password_confirmation', 'Confirm Password' %> <%= f.password_field :password_confirmation %></p>
-
-<p>Upload a user icon (<i>Optional</i>): <%= file_field_tag 'user_pic' %>
-<br><sup>(Please resize/crop icon to 100x100 pixels before uploading)</sup>
-</p>
+<% if @upicform == "new" %>
+  <p>Upload a user icon (<i>Optional</i>): <%= file_field_tag 'user_pic' %>
+  </p>
+<% end %>
 
 <p><%= f.submit label_text %>  <input type="reset" value="Do over!"></p>
 

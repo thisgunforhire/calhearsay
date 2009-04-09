@@ -6,17 +6,18 @@
     <br><%= f.text_area :description %><!--<textarea cols="60" rows="10" id="entry_description" name="entry[description]"></textarea>-->
     <%#= f.label :description %> <%#= f.text_area :description %>
   </p>
-  <p>
+  <% if @epicform == "new" %>
+    <p>
     <%#= f.label :picture %>
-    
-    <table border="0">
-    <tr>Insert an image from a URL or upload your own photo (<i>Optional</i>)</tr>
-    <tr><td padding="4">Image from URL (http://...)</td><td> &nbsp; </td><td padding="4">Upload an image</td></tr>
-    <tr><td><%= f.text_field :picture %></td><td> &nbsp; </td>
-    <td><%= file_field_tag 'entry_pic' %></td>
-    </tr>
-    </table>
-  </p>
+      <table border="0">
+      <tr>Insert an image from a URL or upload your own photo (<i>Optional</i>)</tr>
+      <tr><td padding="4">Image from URL (http://...)</td><td> &nbsp; </td><td padding="4">Upload an image</td></tr>
+      <tr><td><%= f.text_field :picture %></td><td> &nbsp; </td>
+      <td><%= file_field_tag 'entry_pic' %></td>
+      </tr>
+      </table>
+    </p>
+  <% end %>
   <p>
   <%#= f.label :pic %>
     

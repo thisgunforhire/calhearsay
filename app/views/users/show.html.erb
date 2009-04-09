@@ -15,11 +15,28 @@
     <%else%>
       <img src="../../../images/smiley.jpg" border="1">
     <%end%>
+  </p>
     
 <% if current_user.id == @user.id %>  
+  <%#= render :partial => "users/games" %>
   <%= link_to 'edit user', edit_user_path(@user) %>
+  <p>
+    <%= label_tag 'Select' %> <select name="Page Select" id="page_select">
+    <option value="">[select a type]</option>
+    <option value="games">games</option>
+    </select>
+    
+                
+    <div id="select_page">
+     <subs>lalala</subs>
+    </div>
+    
+    <%= observe_field 'page_select',  :frequency => 2,
+								:update => "select_page",								
+								:url => {:controller => "users", :action => "pageSelect"},
+								:with => "pageType" %>
+    
+  </p>
 <% end %>
   
-  </p>
-  <script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script><script>if (WIDGETBOX) WIDGETBOX.renderWidget('38ee4533-7886-4036-b24c-752d06486ef3');</script><noscript>Get the <a href="http://www.widgetbox.com/widget/facebooksupermario">Super Mario Game</a> widget and many other <a href="http://www.widgetbox.com/">great free widgets</a> at <a href="http://www.widgetbox.com">Widgetbox</a>!</noscript>
 </div>

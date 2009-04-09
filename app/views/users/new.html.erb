@@ -1,6 +1,7 @@
 <h1>Sign up!</h1>
 <p>
 <% @user.password = @user.password_confirmation = nil %>
+<% @upicform = "new" %>
 </p>
 <% form_for :user, :html =>{ :multipart => true}, :url => users_path do |f| -%>
   <%= f.error_messages %>
