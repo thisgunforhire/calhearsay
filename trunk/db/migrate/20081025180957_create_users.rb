@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :interests
       t.text :about_me
       t.string :aim
+      t.string :website
       
       t.column :salt,                      :string, :limit => 40
       t.column :created_at,                :datetime

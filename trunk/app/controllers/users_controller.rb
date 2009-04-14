@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
   
-  def pageSelect    
-    if params[:pageType] == ""
-      render :partial => "users/empty"
-    else
-      render :partial => params[:pageType]
-    end
-  end
+  #def pageSelect    
+  #  if params[:pageType] == ""
+  #    render :partial => "users/empty"
+  #  else
+  #    render :partial => params[:pageType]
+  #  end
+  #end
   
   def show
     #@entries = Entry.find(:all)
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       self.current_user = @user # !! now logged in
-      redirect_back_or_default('/entries/')
+      redirect_back_or_default('/entries/')#change this line to redirect to user edit instead of entries :-)
       flash[:notice] = "Thanks for signing up!"
     else
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact the webmaster."
