@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect 'entries/archive', :controller => 'entries', :action => 'archive'
+  
   map.resources :tags
   
- #map.resources :rating, :member => { :rate => :post }
- map.rate '/rate', :controller => 'rating', :action => 'rate'
+  #map.resources :rating, :member => { :rate => :post }
+  map.rate '/rate', :controller => 'rating', :action => 'rate'
 
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -30,6 +32,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :pics
   map.resources :userpics
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
