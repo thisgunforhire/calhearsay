@@ -21,6 +21,15 @@ class EntriesController < ApplicationController
       format.xml  { render :xml => @entries }
     end
   end
+  
+  def archive
+    @entries = Entry.find(:all)
+
+    respond_to do |format|
+      format.html #index.html.erb
+      format.xml  { render :xml => @entries }
+    end
+  end
 
   # GET /entries/1
   # GET /entries/1.xml
@@ -39,7 +48,8 @@ class EntriesController < ApplicationController
       format.xml  { render :xml => @entry }
     end
   end
-
+    
+  
   # GET /entries/new
   # GET /entries/new.xml
   def new
