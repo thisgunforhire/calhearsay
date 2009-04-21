@@ -5,15 +5,17 @@
 
   <div id="user-bar-greeting">hello,   <% @user = User.find(current_user.id) %>
   
-  <%= link_to h(@user.login), @user %>! <%#= link_to_current_user :content_method => :login %><b><%#= current_user.login %></b> (<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)
+  <%= link_to h(@user.login), @user %>! </b> (<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)
 
   
 
   <p>
   <%if @user.userpic.filename != nil%>
-  <img width="100" src="<%= @user.userpic.public_filename %>" border="1">
+  <%= link_to image_tag(@user.userpic.public_filename, :alt => 'foo', :border => '1'), @user %><%#= image_tag @user.userpic.public_filename, :alt => 'foo' %>
+  <!--<img width="100" src="<%= @user.userpic.public_filename %>" border="1">-->
   <%else%>
-  <img src="../../../images/smiley.jpg" border="1">
+  <%= link_to image_tag("smiley.jpg", :alt => 'foo', :border => '0'), @user  %>
+    
   <%end%></p>
   </div>
 
