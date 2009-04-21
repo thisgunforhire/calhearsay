@@ -11,7 +11,7 @@
 
   <p>
   <%if @user.userpic.filename != nil%>
-  <%= link_to image_tag(@user.userpic.public_filename, :alt => 'foo', :width => '100', :border => '1'), @user %><%#= image_tag @user.userpic.public_filename, :alt => 'foo' %>
+  <%= link_to image_tag(@user.userpic.public_filename, :alt => 'foo', :height => '100', :width => '100', :border => '1'), @user %><%#= image_tag @user.userpic.public_filename, :alt => 'foo' %>
   <!--<img width="100" src="<%= @user.userpic.public_filename %>" border="1">-->
   <%else%>
   <%= link_to image_tag("smiley.jpg", :alt => 'foo', :width => '100', :border => '0'), @user  %>
