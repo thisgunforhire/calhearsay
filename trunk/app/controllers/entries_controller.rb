@@ -22,14 +22,9 @@ class EntriesController < ApplicationController
     end
   end
   
-  def archive
-    @entries = Entry.find(:all)
-
-    respond_to do |format|
-      format.html #index.html.erb
-      format.xml  { render :xml => @entries }
-    end
-  end
+  #def archive
+   # @entries = Entry.find(:all)
+  #end
 
   # GET /entries/1
   # GET /entries/1.xml
