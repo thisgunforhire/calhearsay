@@ -92,29 +92,30 @@ about | entries | archive | categories | search | faq | contact us</font>
             &bull;
         </div>
     </div>
-    
-              <p1>Quick Search</p1><br>
+  
+<div align="center">  
+ <p1>Quick Search</p1><br>
      <%= text_field_tag("query", params[:query], :autocomplete => "off" ) %>
     
     <%= observe_field 'query',  :frequency => 2,
 								:update => "search_results",								
 								:url => {:controller => "tags", :action => "entrySearch"},
-								:with => "query" %>
-                
-  <div id="search_results">
+								:with => "query" %>  
+</div>
+       
+        <div id="search_results" align="center">
      (type in the box to search by entry title or tag)
   </div>
        <hr>
        <%= render :partial => 'entries/top_ranked'%>
        <!--<hr>
        <%= render :partial => 'entries/archive'%>-->
-      </div>
        
 </div>
       </div>
 
       <div id="main">
-      <!--<% if !logged_in? %>-->
+      <% if !logged_in? %>
 	<div id="prebox">
   
    <div class="rounded-box-prebox">
@@ -151,8 +152,7 @@ about | entries | archive | categories | search | faq | contact us</font>
 		<p>Rank the hottest girl. The most "granola" Berkeleyan. Most awkward geek.</p>
     <p>So what are you waiting for? Start posting! There's nothing to feel guilty about -- it's all <b>hearsay!</b></p>
         </div></div>
-        <!--<% end %>-->
-	
+        <% end %>
         
 	<div id="entries">
   
@@ -182,7 +182,7 @@ about | entries | archive | categories | search | faq | contact us</font>
 	  <p>You must log in to <%= link_to 'view the posts', entries_path %>. If you do not have a log in and password yet, please sign up!</p>
   <a name="signup"></a>
       <% end %>
-	  <p><p1><%= flash[:notice] %></p1></p>
+      <p><p1><%= flash[:notice] %></p1></p>
   <%= yield %>
 		
 	</div></div>
