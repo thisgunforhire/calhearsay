@@ -33,7 +33,14 @@
   
 <div id="logininfo">  
     <font color="#ffffff">
-about | entries | archive | categories | search | faq | contact us</font>
+<%= link_to 'about', {:controller => "entries", :action => "about"} %>
+| <%= link_to 'entries', entries_path %>
+| <%= link_to 'archive', {:controller => "entries", :action => "archive"} %>
+| <%= link_to 'categories', {:controller => "entries", :action => "categories"} %>
+| <%= link_to 'stats', {:controller => "entries", :action => "stats"} %>
+| <%= link_to 'faq', {:controller => "entries", :action => "faq"} %>
+| <%= link_to 'contact us', {:controller => "entries", :action => "contact_us"} %>
+</font>
 </div>
     
       <div id="side">
