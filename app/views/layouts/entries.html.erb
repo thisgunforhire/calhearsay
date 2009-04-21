@@ -9,7 +9,7 @@
 <link rel="stylesheet"  href="/stylesheets/entry.css" type="text/css">
   <%= javascript_include_tag "shadedBorder" %>
   <%= javascript_include_tag "shadedBorderVar" %>
-  <%= javascript_include_tag 'prototype' %>
+<%= javascript_include_tag 'prototype' %>
 <%= javascript_include_tag :defaults %>
 </head>
 <body id="entry">
@@ -17,7 +17,7 @@
 
 <div id="sideofbanner">
 <%= render :partial => 'users/user_bar' %>
-  <div id="user-bar-action"  >
+  <div id="user-bar-action"  ><!--<a href="/login" title="Log in">Log in</a> /-->
                                </div>
 </div>                               
 
@@ -93,7 +93,7 @@ about | entries | archive | categories | search | faq | contact us</font>
         </div>
     </div>
     
-       <p1>Quick Search</p1><br>
+              <p1>Quick Search</p1><br>
      <%= text_field_tag("query", params[:query], :autocomplete => "off" ) %>
     
     <%= observe_field 'query',  :frequency => 2,
@@ -109,7 +109,6 @@ about | entries | archive | categories | search | faq | contact us</font>
        <!--<hr>
        <%= render :partial => 'entries/archive'%>-->
       </div>
-       
        
 </div>
       </div>
