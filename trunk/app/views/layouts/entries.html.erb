@@ -62,8 +62,52 @@ about | entries | archive | categories | search | faq | contact us</font>
     </div>
     <!-- Content -->
       
-      <div align="center"><h1>welcome!</h1>
-        david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay david is gay 
+      <div align="center">
+<% if logged_in? -%>      
+      
+      <p><h1>top ranked users</h1></p>
+    <%@u = User.find(:all)%>
+    <%@u_ent = 0%>
+    <%@u_com = 0%>
+    <%for user in @u%>
+      <%if user.entry_count >= @u_ent%>
+        <%@u_ent = user.entry_count%>
+      <%end%>
+      <%if user.comment_count >= @u_com%>
+        <%@u_com = user.comment_count%>
+      <%end%>
+    <%end%>
+    <%for user in @u%>
+      <%if user.entry_count == @u_ent%>
+        <%@u_ent+=1%>
+        user with most entries:
+        <p align="center">
+        <%if user.userpic.filename != nil%>
+          <img width="100" src="<%= user.userpic.public_filename %>" border="1">
+        <%else%>
+          <img src="../../../images/smiley.jpg" border="1">
+        <%end%>
+        <br>
+        <b><%= link_to h(user.login), user %></b>
+        </p>
+      <%end%>
+      <%if user.comment_count == @u_com%>
+        <%@u_com+=1%>
+        user with most comments:
+        <p align="center">
+        <%if user.userpic.filename != nil%>
+          <img width="100" src="<%= user.userpic.public_filename %>" border="1">
+        <%else%>
+          <img src="../../../images/smiley.jpg" >
+        <%end%>
+        <br>
+        <b><%= link_to h(user.login), user %></b>
+        </p>
+      <%end%>
+    <%end%>  
+
+<% end %>
+	
        </div></div>
        </div>
        
