@@ -37,9 +37,9 @@ font: bold smaller century gothic sans-serif;
 }
 #sideofbanner {
 	/*background: transparent url(h_gray.png) no-repeat top;*/
-	margin-left: 56px;
+	margin-left: 70px;
 	height: 200px;
-	width: 300px;
+	width: 250px;
 	margin-top: 40px;
 	position: absolute;
 	z-index: 0;
