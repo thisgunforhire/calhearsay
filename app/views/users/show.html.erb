@@ -10,6 +10,12 @@
   </subs></p>
 
 <div align="center">
+<p>
+  
+    <br><subs>entries posted: <%=@user.entry_count%>
+  <br>comments posted: <%=@user.comment_count%>
+  </subs>
+  </p>
   <p>
     <%if @user.userpic.filename != nil%>
       <img src="<%= @user.userpic.public_filename %>" border="1">
