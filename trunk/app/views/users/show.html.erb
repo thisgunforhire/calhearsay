@@ -19,8 +19,7 @@
   <p>
     <%if @user.userpic.filename != nil%>
     <%= image_tag @user.userpic.public_filename, :border => '1', :width => '500' %>
-      <img src="<%= @user.userpic.public_filename %>" border="1">
-    <%else%>
+          <%else%>
       <%= image_tag 'smiley.jpg', :border => '1' %>
       <%end%>
   </p>
