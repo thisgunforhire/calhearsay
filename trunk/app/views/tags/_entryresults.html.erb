@@ -2,7 +2,7 @@
 <% if params[:query] != ""%>
   <% if searchresults2.length == 0 %>
     <% if searchresults.length == 0 %>
-      <% if params[:query] != "contact us" %>
+      <% if params[:query] != "meebo" %>
         <% if params[:query] != "unhub" %>
 	        <p>Sorry! No articles found...</p>
           <hr>
@@ -11,7 +11,7 @@
     <% end %>
   <% end %>
 <% end %>
-<% if params[:query] == "contact us" %>
+<% if params[:query] == "meebo" %>
     <p><!-- Beginning of meebo me widget code. Want to talk with visitors on your page? Go to http://www.meebome.com/ and get your widget! --> <object width="150" height="300" ><param name="movie" value="http://widget.meebo.com/mm.swf?rOPQHPbzDF"/><embed src="http://widget.meebo.com/mm.swf?rOPQHPbzDF" type="application/x-shockwave-flash" width="150" height="300"></embed></object>
     </p>
     <hr>
