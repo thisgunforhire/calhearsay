@@ -1,7 +1,27 @@
 <%= link_to 'entries', entries_path %>
-| <%= link_to 'archive', {:controller => "entries", :action => "archive"} %>
-| <%= link_to 'categories', {:controller => "entries", :action => "categories"} %>
-| <%= link_to 'stats', {:controller => "entries", :action => "stats"} %>
-| <%= link_to 'faq', {:controller => "entries", :action => "faq"} %>
-|<%= link_to 'about', {:controller => "entries", :action => "about"} %>
-| <%= link_to 'contact us', {:controller => "entries", :action => "contact_us"} %>
+| 
+
+<% if logged_in? %>
+<%= link_to 'archive', {:controller => "entries", :action => "archive"} %>
+<% else %>
+<%= link_to 'archive', entries_path %>
+
+<% end %>
+| 
+<% if logged_in? %>
+<%= link_to 'categories', {:controller => "entries", :action => "categories"} %>
+<% else %>
+<%= link_to 'archive', entries_path %>
+<% end %>
+| 
+<% if logged_in? %>
+<%= link_to 'stats', {:controller => "entries", :action => "stats"} %>
+<% else %>
+<%= link_to 'archive', entries_path %>
+<% end %>
+| 
+<%= link_to 'faq', {:controller => "entries", :action => "faq"} %>
+|
+<%= link_to 'about', {:controller => "entries", :action => "about"} %>
+|
+<%= link_to 'contact us', {:controller => "entries", :action => "contact_us"} %>
