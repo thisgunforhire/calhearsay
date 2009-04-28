@@ -26,66 +26,8 @@
   </p>
   
 <% for entry in @entries.reverse %>
-  <p>
-  <table cellpadding="5" cellspacing="0" width="100%">
-      <tr class="list-line-even">
-         <td width="100px">
-  <% if entry.picture != '' %>
-    <img class="list-one-sheet" src="<%=entry.picture%>">
-  <% else %>
-  <% if entry.pic.filename != nil %>
-    <img class="list-one-sheet" src="<%=entry.pic.public_filename %>">
-  <%else%>
-    <img src="../images/holder.jpg">
-  <% end %>
-  <% end %>
-
-
-      </td>
-      
-      <td valign="top">
-      
-      <p>
-      <div align="right" id="subs"><b>posted by</b> <%= link_to h(entry.user.login), entry.user %> <b>on</b> <%= entry.created_at %></div>
-        <span class="list-title"><%= link_to h(entry.title), entry %></span><br />
-	<subs><b>category:</b> <%= entry.category %></p> | <b>location:</b> <%= entry.state %> | <b>tags:</b>
-  <% i=0 %>
-	<% for tag in entry.tags %>
-  <% if i < 3 %>
-		 : <%= link_to h(tag.tag), entry_tag_url(entry,tag) %>
-     <% i += 1 %>
-  <% end %>   
-	<% end %>
-  ...
-	<%#= link_to 'add tag', new_entry_tag_url(@entry) %>
-	<br><b>rating:</b> <%= number_with_precision(entry.rating, 1) %>/5.0 stars
-	</subs>
-	<p>
-        <%= h(truncate(entry.description, 80)) %>
-	</p>
-	<p align="right">
-	<% j = 0 %>
-	<% for comment in entry.comments %>
-	<% j += 1 %>
-	<% end %>
-	<%= link_to j, entry_path(entry.id, :anchor => "comments")%> <%= link_to 'comments', entry_path(entry.id, :anchor => "comments")%>
-	</p>
-	
-	<p>
-	<!--
-	<div class="list-actions">
-        <%= link_to 'edit', edit_entry_path(entry) %> | 
-	
-        <%= link_to 'delete', entry, :confirm => 'Are you sure?', :method => :delete %>
-	-->
-      </p>
-        </td>
-       </tr>
-    
-  
-  </table>
-  </p>
-  <% end %>
+  <%= render :partial => "entries/entrybox", :locals => { :entry => entry } %>
+<% end %>
 </div>
 <br>
 </body>
