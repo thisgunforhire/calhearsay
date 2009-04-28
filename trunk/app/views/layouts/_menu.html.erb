@@ -11,13 +11,13 @@
 <% if logged_in? %>
 <%= link_to 'categories', {:controller => "entries", :action => "categories"} %>
 <% else %>
-<%= link_to 'archive', entries_path %>
+<%= link_to 'categories', entries_path %>
 <% end %>
 | 
 <% if logged_in? %>
 <%= link_to 'stats', {:controller => "entries", :action => "stats"} %>
 <% else %>
-<%= link_to 'archive', entries_path %>
+<%= link_to 'stats', entries_path %>
 <% end %>
 | 
 <%= link_to 'faq', {:controller => "entries", :action => "faq"} %>
