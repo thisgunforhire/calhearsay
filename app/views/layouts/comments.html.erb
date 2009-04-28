@@ -63,7 +63,7 @@
     <!-- Content -->
       
       <%= render :partial => 'users/top_users'%>
-       </div>
+      </div>
        </div>
        
        
@@ -102,9 +102,7 @@
 								:with => "query" %>  
 </div>
        
-        <div id="search_results" align="center">
-     (type in the box to search by entry title or tag)
-  </div>
+        
        <hr>
        <%= render :partial => 'entries/top_ranked'%>
        <!--<hr>
@@ -182,6 +180,8 @@
   <a name="signup"></a>
       <% end %>
       <p><p1><%= flash[:notice] %></p1></p>
+      <div id="search_results" align="center">
+  </div>
   <%= yield %>
 		
 	</div></div>
