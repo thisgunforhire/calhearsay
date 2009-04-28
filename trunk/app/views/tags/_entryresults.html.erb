@@ -1,32 +1,34 @@
 <% elist = Entry.find(:all) %>
-
-<% if params[:query] == "" %>
+<% if params[:query] != ""%>
   <% if searchresults2.length == 0 %>
     <% if searchresults.length == 0 %>
       <% if params[:query] != "contact us" %>
         <% if params[:query] != "unhub" %>
 	        <p>Sorry! No articles found...</p>
+          <hr>
         <% end %>
       <% end %>
     <% end %>
   <% end %>
 <% end %>
-
 <% if params[:query] == "contact us" %>
     <p><!-- Beginning of meebo me widget code. Want to talk with visitors on your page? Go to http://www.meebome.com/ and get your widget! --> <object width="150" height="300" ><param name="movie" value="http://widget.meebo.com/mm.swf?rOPQHPbzDF"/><embed src="http://widget.meebo.com/mm.swf?rOPQHPbzDF" type="application/x-shockwave-flash" width="150" height="300"></embed></object>
     </p>
+    <hr>
 <% end %>
 
 <% if params[:query] == "unhub" %>
     <p>
-    <iframe src ="http://www.unhub.com/dreichbach" width="150" height="500">
+    <iframe src ="http://www.unhub.com/dreichbach" width="500" height="500">
   <p>Your browser does not support iframes.</p>
     </iframe>
     </p>
+    <hr>
 <% end %>
 
 <% if params[:query] == "" %>
     <p>You should enter a search term.</p>
+    <hr>
 <% end %>
 
 <% if params[:query] != "" %>
@@ -49,7 +51,7 @@
       <% end %>
     <% end %>
   <% end %>
-
+   <hr>
 <% end %>
 
 <!--######################################################################-->
@@ -71,8 +73,7 @@ Related Entries:
   <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
   <% end %>
 </p>
-
-<% end %>
-
-<% end %>
 <hr>
+<% end %>
+
+<% end %>
