@@ -22,10 +22,10 @@
   <img style="border-width:0;" src="http://chart.apis.google.com/chart?chco=000000,000000,f29f01,365e24,13390a&chd=s:<%=@chd%>&chf=bg,s,ffffff&chtm=usa&chld=<%=@chld%>&chs=440x220&cht=t">
   <%#000000,000000,f29f01     f5f5f5,edf0d4,6c9642,365e24,13390a%>
   </p>
-  <p align="right"><%= link_to 'Post a new entry', new_entry_path %> | <a href="#recent">Newest entry</a>
+  <p align="right"><%= link_to 'Post a new entry', new_entry_path %> 
   </p>
   
-<% for entry in @entries %>
+<% for entry in @entries.reverse %>
   <p>
   <table cellpadding="5" cellspacing="0" width="100%">
       <tr class="list-line-even">
@@ -86,7 +86,6 @@
   </table>
   </p>
   <% end %>
-  <a name="recent"></a>
 </div>
 <br>
 </body>
