@@ -44,26 +44,26 @@ font: bold smaller century gothic sans-serif;
 	position: absolute;
 	z-index: 0;
 }
+
+
+
+/*#banner img {
+float: center;
+}*/
 #banner {
 /*background: transparent url(h_gray.png) no-repeat top;*/
 margin-left: 315px;
-height: 250px;
+/*height: 100px;*/
 width: 258px;
 margin-top: 20px;
 position: absolute;
-z-index: 10;
+z-index: 2;
 /*border-bottom: 4px solid;
  font: small-caps 50px/50px "Times New Roman", serif; */
 /*font: small-caps 50px/50px serif;
 color: #000080;
 text-align: center;*/
 }
-
-
-/*#banner img {
-float: center;
-}*/
-
 #columns {
 /*background: lightpink; changed from #000000 for shadedBorder*/
 /*float: left;*/
@@ -71,6 +71,7 @@ height: 100%;
 margin-top: 175px;
 margin-left: -15px;
 position: absolute;
+
 /*height: 100%;
 width: 64.5em;
 padding-bottom: 5em;
@@ -80,12 +81,14 @@ margin-left: 2em;
 }
 #logininfo {
 /*float: left;*/
-margin-left: 450px;
+margin-left: 520px;
 margin-top: 10px;
 width: 500px;
 /*border: 1px dashed #ffffff;*/
 position: relative;
+
 }
+
 #main {
 float: left;
 margin-left: 6px;
