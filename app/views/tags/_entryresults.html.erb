@@ -27,8 +27,8 @@
 <% end %>
 
 <% if params[:query] == "" %>
-    <p>You should enter a search term.</p>
-    <hr>
+    <!--<p>You should enter a search term.</p>
+    <hr>-->
 <% end %>
 
 <% if params[:query] != "" %>
@@ -45,13 +45,15 @@
           <% if i == 0 %>
             Related Tags:  
             <p align=center><%= link_to h(tag.tag), entry_tag_url(entry,tag) %></p>
-            <% i = 1 %>
+            <% i = 1 %> <!-- only one tag will be printed -->
           <% end %>
         <% end %>
       <% end %>
     <% end %>
   <% end %>
+  <% if searchresults.length == 0 %>
    <hr>
+  <% end %>
 <% end %>
 
 <!--######################################################################-->
