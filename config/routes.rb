@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'entries/categories', :controller => 'entries', :action => 'categories'
   map.connect 'entries/contact_us', :controller => 'entries', :action => 'contact_us'
   map.connect 'entries/faq', :controller => 'entries', :action => 'faq'
-  map.connect 'entries/search', :controller => 'entries', :action => 'search'
+  map.connect 'entries/stats', :controller => 'entries', :action => 'stats'
    
   map.resources :tags
   
