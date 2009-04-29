@@ -1,7 +1,13 @@
 <table border="0" width="540"><tr><td valign="top">
    <t1><%=h @entry.title %></t1>
    <br><subs>(<b>posted on</b> <%= @entry.created_at %>)</subs>
-   <br><b>category</b> : <%=h @entry.category %> | 
+   <br><b>category</b> : 
+   <% if @entry.category != "other" %>
+     <%=h @entry.category %>
+   <% else %>
+     <%=h @entry.othercategory %>   
+   <% end %>
+   | 
    <b>location</b>: <%=h @entry.state %> |
    <b>tags</b><% for tag in @tags %>
  : <%= link_to h(tag.tag), entry_tag_url(@entry,tag) %>

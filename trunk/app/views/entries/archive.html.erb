@@ -1,8 +1,6 @@
-<html>
-<body>
 <div id="entry-list">
   <h1>Archive</h1>
-  <p align="right"><%= link_to 'Post a new entry', new_entry_path %> </p>
+  <p align="right"><%#= link_to 'Post a new entry', new_entry_path %> </p>
   <%@query = Entry.find(:all)%>
 
 <%@hos = 0%>
@@ -12,134 +10,64 @@
 <%@hot = 0%>
 <%@other = 0%>
 
-<div align="center">
 <%for entry in @query%>
-<%if entry.category == 'hos'%>
-  <%if @hos == 0%>
-    <%@hos += 1%>
-    <c1>(hos)</c1><br/>
+  <%if entry.category == 'hos'%>
+    <%if @hos == 0%>
+      <%@hos += 1%>
+      <c1>(hos)</c1><br/>
+    <%end%>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => entry } %>
   <%end%>
-  <p>
-  <% if entry.picture != '' %>
-      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
-  <% else %>
-  <% if entry.pic.filename != nil %>
-    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-  <%else%>
-    <img src="../../../images/holder.jpg">
-  <% end %>
-  <% end %><br/>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
-<%end%>
-</div>
 
-<div align="center">
 <%for entry in @query%>
-<%if entry.category == 'bums'%>
-  <%if @bums == 0%>
-    <%@bums += 1%>
-    <c1>(bums)</c1><br/>
+  <%if entry.category == 'bums'%>
+    <%if @bums == 0%>
+      <%@bums += 1%>
+      <c1>(bums)</c1><br/>
+    <%end%>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => entry } %>
   <%end%>
-  <p><% if entry.picture != '' %>
-      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
-  <% else %>
-  <% if entry.pic.filename != nil %>
-    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-  <%else%>
-    <img src="../../../images/holder.jpg">
-  <% end %>
-  <% end %><br/>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
-<%end%>
-</div>
 
-<div align="center">
 <%for entry in @query%>
-<%if entry.category == 'celebs'%>
-  <%if @celebs == 0%>
-    <%@celebs += 1%>
-    <c1>(celebs)</c1><br/>
+  <%if entry.category == 'celebs'%>
+    <%if @celebs == 0%>
+      <%@celebs += 1%>
+      <c1>(celebs)</c1><br/>
+    <%end%>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => entry } %>
   <%end%>
-  <p><% if entry.picture != '' %>
-      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
-  <% else %>
-  <% if entry.pic.filename != nil %>
-    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-  <%else%>
-    <img src="../../../images/holder.jpg">
-  <% end %>
-  <% end %><br/>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
-<%end%>
-</div>
 
-<div align="center">
 <%for entry in @query%>
-<%if entry.category == 'geeks'%>
-  <%if @geeks == 0%>
-    <%@geeks = 1%>
-    <c1>(geeks)</c1><br/>
+  <%if entry.category == 'geeks'%>
+    <%if @geeks == 0%>
+      <%@geeks = 1%>
+      <c1>(geeks)</c1><br/>
+    <%end%>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => entry } %>
   <%end%>
-  <p><% if entry.picture != '' %>
-      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
-  <% else %>
-  <% if entry.pic.filename != nil %>
-    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-  <%else%>
-    <img src="../../../images/holder.jpg">
-  <% end %>
-  <% end %><br/>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
-<%end%>
-</div>
 
-<div align="center">
 <%for entry in @query%>
-<%if entry.category == 'hot'%>
-  <%if @hot == 0%>
-    <%@hot = 1%>
-    <c1>(hot)</c1><br/>
+  <%if entry.category == 'hot'%>
+    <%if @hot == 0%>
+      <%@hot = 1%>
+      <c1>(hot)</c1><br/>
+    <%end%>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => entry } %>
   <%end%>
-  <p><% if entry.picture != '' %>
-      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
-  <% else %>
-  <% if entry.pic.filename != nil %>
-    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-  <%else%>
-    <img src="../../../images/holder.jpg">
-  <% end %>
-  <% end %><br/>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
-<%end%>
-</div>
 
-<div align="center">
 <%for entry in @query%>
-<%if entry.category == 'other'%>
-  <%if @other == 0%>
-    <%@other = 1%>
-    <c1>(other)</c1><br/>
+  <%if entry.category == 'other'%>
+    <%if @other == 0%>
+      <%@other = 1%>
+      <c1>(other)</c1><br/>
+    <%end%>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => entry } %>
   <%end%>
-  <p><% if entry.picture != '' %>
-      <%= link_to image_tag(entry.picture, :width => 100), entry %> 
-  <% else %>
-  <% if entry.pic.filename != nil %>
-    <%= link_to image_tag(entry.pic.public_filename, :width => 100), entry %> 
-  <%else%>
-    <img src="../../../images/holder.jpg">
-  <% end %>
-  <% end %><br/>
-  <subs><%= link_to h(truncate(entry.title,16)), entry %></subs><br/>
 <%end%>
-<%end%>
-</div>
 
 </div>
-<br>
-</body>
-</html>

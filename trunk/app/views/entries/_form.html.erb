@@ -92,13 +92,14 @@
     <%= observe_field 'entry_category',  :frequency => 2,
 								:update => "category_other",								
 								:url => {:controller => "entries", :action => "categoryOther"},
+								:locals => { :f => f },
 								:with => "entry_category" %>
                 
     <div id="category_other">
-     <subs>If you don't see the category you want yet, <%= link_to h("select other"), current_user %></subs>
+     <subs>If you don't see the category you want yet, select other</subs>
     </div>
     
-    <!--<%= f.text_field :category %>-->
+    <!--<%#= f.text_field :category %>-->
   </p>
   <p>
     <%= f.submit label_text %>  <input type="reset" value="Do over!">
