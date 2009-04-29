@@ -20,7 +20,15 @@
       <p>
       <div align="right" id="subs"><b>posted by</b> <%= link_to h(entry.user.login), entry.user %> <b>on</b> <%= entry.created_at %></div>
         <span class="list-title"><%= link_to h(entry.title), entry %></span><br />
-	<subs><b>category:</b> <%= entry.category %></p> | <b>location:</b> <%= entry.state %> | <b>tags:</b>
+	<subs><b>category:</b> 
+	
+	<% if entry.category != "other" %>
+          <%=h entry.category %>
+        <% else %>
+          <%=h entry.othercategory %>   
+        <% end %>
+	
+	</p> | <b>location:</b> <%= entry.state %> | <b>tags:</b>
   <% i=0 %>
 	<% for tag in entry.tags %>
   <% if i < 3 %>
