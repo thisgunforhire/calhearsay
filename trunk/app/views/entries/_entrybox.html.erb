@@ -22,11 +22,11 @@
         <span class="list-title"><%= link_to h(entry.title), entry %></span><br />
 	<subs><b>category:</b> 
 	
-	<% if entry.category != "other" %>
+	<%# if entry.category != "other" %>
           <%=h entry.category %>
-        <% else %>
-          <%=h entry.othercategory %>   
-        <% end %>
+        <%# else %>
+          <%#=h entry.othercategory %>   
+        <%# end %>
 	
 	</p> | <b>location:</b> <%= entry.state %> | <b>tags:</b>
   <% i=0 %>
