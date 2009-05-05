@@ -8,38 +8,90 @@
 <%@geeks = 0%>
 <%@hot = 0%>
 <%@other = 0%>
+
+<%@hos2 = 0%>
+<%@bums2 = 0%>
+<%@celebs2 = 0%>
+<%@geeks2 = 0%>
+<%@hot2 = 0%>
+<%@other2 =0%>
+
 <%for entry in @query%>
-  <%if entry.category == 'hos'%>
-    <%@hos += 1%>
-  <%end%>
-  <%if entry.category == 'bums'%>
-    <%@bums += 1%>
-  <%end%>
-  <%if entry.category == 'celebs'%>
-    <%@celebs += 1%>
-  <%end%>
-  <%if entry.category == 'geeks'%>
-    <%@geeks += 1%>
-  <%end%>
-  <%if entry.category == 'hot'%>
-    <%@hot += 1%>
-  <%end%>
-  <%if entry.category == 'other'%>
-    <%@other += 1%>
-  <%end%>
+    <%if entry.category == 'hos'%>
+      <%@hos += 1%>
+      <%if entry.rating >= @hos2%>
+        <%@hos2 = entry.rating%>
+        <%@ho = entry%>
+      <%end%>
+    <%end%>
+    <%if entry.category == 'bums'%>
+      <%@bums += 1%>
+      <%if entry.rating >= @bums2%>
+        <%@bums2 = entry.rating%>
+        <%@bum = entry%>
+      <%end%>
+    <%end%>
+    <%if entry.category == 'celebs'%>
+      <%@celebs += 1%>
+      <%if entry.rating >= @celebs2%>
+        <%@celebs2 = entry.rating%>
+        <%@celeb = entry%>
+      <%end%>
+    <%end%>
+    <%if entry.category == 'geeks'%>
+      <%@geeks += 1%>
+      <%if entry.rating >= @geeks2%>
+        <%@geeks2 = entry.rating%>
+        <%@geek = entry%>
+      <%end%>
+    <%end%>
+    <%if entry.category == 'hot'%>
+      <%@hot += 1%>
+      <%if entry.rating >= @hot2%>
+        <%@hot2 = entry.rating%>
+        <%@hots = entry%>
+      <%end%>
+    <%end%>
+    <%if entry.category == 'other'%>
+      <%@other += 1%>
+      <%if entry.rating >= @other2%>
+        <%@other2 = entry.rating%>
+        <%@others = entry%>
+      <%end%>
+    <%end%>
 <%end%>
 
-<c1>(hos)</c1><%= @hos %><br>
-<c1>(bums)</c1><%= @bums %><br>
-<c1>(celebs)</c1><%= @celebs %><br>
-<c1>(geeks)</c1><%= @geeks %><br>
-<c1>(hot)</c1><%= @hot %><br>
-<c1>(other)</c1><%= @other %><br>
-<%if @other > 0 %>
-<subs><b>sub-categories :</b>
-<% for entry in @query %>
-  <% if entry.category == 'other' %>
-    <%= entry.othercategory %>, 
+<div align="center">
+  <c1>(hos)</c1> X<%= @hos %><br/>
+  <% if @hos2 > 0 %>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => @ho } %>
   <%end%>
-<%end%></subs>
-<%end%>
+  <c1>(bums)</c1> X<%= @bums %><br/>
+  <% if @bums2 > 0 %>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => @bum } %>
+  <%end%>
+  <c1>(celebs)</c1> X<%= @celebs %><br/>
+  <% if @celebs2 > 0 %>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => @celeb } %>
+  <%end%>
+  <c1>(geeks)</c1> X<%= @geeks %><br/>
+  <% if @geeks2 > 0 %>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => @geek } %>
+  <%end%>
+  <c1>(hot)</c1> X<%= @hot %><br/>
+  <% if @hot2 > 0 %>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => @hots } %>
+  <%end%>
+  <c1>(other)</c1> X<%= @other %><br/>
+  <% if @other2 > 0 %>
+    <%= render :partial => "entries/entrybox", :locals => { :entry => @others } %>
+  <%end%>
+  <%if @other > 0%>
+    <b>sub-categories :</b><br>
+    <% for entry in @query %>
+      <% if entry.category == 'other' %>
+        <%= entry.othercategory %><br> 
+      <%end%>
+    <%end%>
+  <%end%>
+</div>
