@@ -1,4 +1,7 @@
 
 --This line, and those below, will be ignored--
 
-
+M    app/views/layouts/entries.html.erb
+M    db/schema.rb
+M    db/development.sqlite3
+M    config/routes.rb

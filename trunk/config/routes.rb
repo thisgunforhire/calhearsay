@@ -1,10 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+
+
   map.connect 'entries/about', :controller => 'entries', :action => 'about'
   map.connect '/archive', :controller => 'entries', :action => 'archive'
   map.connect '/categories', :controller => 'entries', :action => 'categories'
   map.connect 'entries/contact_us', :controller => 'entries', :action => 'contact_us'
   map.connect 'entries/faq', :controller => 'entries', :action => 'faq'
   map.connect '/stats', :controller => 'entries', :action => 'stats'
+  map.connect 'infos/about', :controller => 'infos', :action => 'about'
    
   map.resources :tags
   
@@ -19,6 +22,8 @@ ActionController::Routing::Routes.draw do |map|
   
 
   map.resource :session
+  
+  map.resources :infos
 
   map.resources :users do |user|
     user.resources :userpics

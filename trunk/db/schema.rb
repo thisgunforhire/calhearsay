@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081130180816) do
+ActiveRecord::Schema.define(:version => 20090505223458) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -35,6 +35,11 @@ ActiveRecord::Schema.define(:version => 20081130180816) do
     t.integer  "raw_score"
     t.decimal  "score"
     t.integer  "pic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "infos", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
