@@ -62,6 +62,17 @@
     </div>
     <!-- Content -->
       
+      <div align="center">  
+        <p1>Quick Search</p1><br>
+        <%= text_field_tag("query", params[:query], :autocomplete => "off" ) %>
+    
+        <%= observe_field 'query',  :frequency => 2,
+								:update => "search_results",								
+								:url => {:controller => "tags", :action => "entrySearch"},
+								:with => "query" %>  
+      </div>
+
+      <hr>
       <%= render :partial => 'users/top_users'%>
       </div>
        </div>
@@ -93,14 +104,8 @@
     </div>
   
 <div align="center">  
- <p1>Quick Search</p1><br>
-     <%= text_field_tag("query", params[:query], :autocomplete => "off" ) %>
-    
-    <%= observe_field 'query',  :frequency => 2,
-								:update => "search_results",								
-								:url => {:controller => "tags", :action => "entrySearch"},
-								:with => "query" %>  
-</div>
+ poop
+ </div>
        
         
        <hr>
