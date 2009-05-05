@@ -1,9 +1,17 @@
 
 --This line, and those below, will be ignored--
 
-M    app/views/layouts/_menu.html.erb
-M    app/views/entries/about.html.erb
+A    app/helpers/infos_helper.rb
+A    app/models/info.rb
+A    app/controllers/infos_controller.rb
+M    app/views/layouts/entries.html.erb
+A    app/views/infos
+A    app/views/infos/edit.html.erb
+A    app/views/infos/index.html.erb
+A    app/views/infos/new.html.erb
+A    app/views/infos/about.html.erb
+A    app/views/infos/show.html.erb
+M    db/schema.rb
 M    db/development.sqlite3
-A    svn-commit.tmp~
-A    #svn-commit.tmp#
-A    public/about.html
+M    #svn-commit.tmp#
+M    config/routes.rb
