@@ -44,9 +44,10 @@
   <% end %>
   <% if @user.website != nil && @user.website != ''%>
     <c1>Website:</c1>
-      <iframe src ="<%= @user.website %>" width="500" height="500">
+      <!--<iframe src ="<%#= @user.website %>" width="500" height="500">
       <p>Your browser does not support iframes.</p>
-      </iframe>
+      </iframe>-->
+      <a href="<%= @user.website %>"><%= @user.website %></a>
     <br>
   <% end %>
     <br>

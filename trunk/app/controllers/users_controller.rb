@@ -66,7 +66,7 @@ class UsersController < ApplicationController
       # reset session
       self.current_user = @user # !! now logged in
       redirect_back_or_default('/entries/')#change this line to redirect to user edit instead of entries :-)
-      flash[:notice] = "Thanks for signing up!"
+      flash[:notice] = "Thanks for signing up! Edit your profile to personalize your account"
     else
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact the webmaster."
       render :action => 'new'

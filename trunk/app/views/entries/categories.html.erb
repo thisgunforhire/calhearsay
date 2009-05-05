@@ -8,41 +8,33 @@
 <%@geeks = 0%>
 <%@hot = 0%>
 <%@other = 0%>
-
 <%for entry in @query%>
-
   <%if entry.category == 'hos'%>
     <%@hos += 1%>
   <%end%>
-
   <%if entry.category == 'bums'%>
     <%@bums += 1%>
   <%end%>
-
   <%if entry.category == 'celebs'%>
     <%@celebs += 1%>
   <%end%>
-
   <%if entry.category == 'geeks'%>
     <%@geeks += 1%>
   <%end%>
-
   <%if entry.category == 'hot'%>
     <%@hot += 1%>
   <%end%>
-
   <%if entry.category == 'other'%>
     <%@other += 1%>
   <%end%>
-
 <%end%>
 
-<c1>(hos)</c1><%= @hos %><br/>
-<c1>(bums)</c1><%= @bums %><br/>
-<c1>(celebs)</c1><%= @celebs %><br/>
-<c1>(geeks)</c1><%= @geeks %><br/>
-<c1>(hot)</c1><%= @hot %><br/>
-<c1>(other)</c1><%= @other %><br/>
+<c1>(hos)</c1><%= @hos %><br>
+<c1>(bums)</c1><%= @bums %><br>
+<c1>(celebs)</c1><%= @celebs %><br>
+<c1>(geeks)</c1><%= @geeks %><br>
+<c1>(hot)</c1><%= @hot %><br>
+<c1>(other)</c1><%= @other %><br>
 <%if @other > 0 %>
 <subs><b>sub-categories :</b>
 <% for entry in @query %>
