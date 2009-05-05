@@ -1,0 +1,9 @@
+
+--This line, and those below, will be ignored--
+
+M    app/views/layouts/_menu.html.erb
+M    app/views/entries/about.html.erb
+M    db/development.sqlite3
+A    svn-commit.tmp~
+A    #svn-commit.tmp#
+A    public/about.html
