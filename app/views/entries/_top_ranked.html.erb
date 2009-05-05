@@ -2,77 +2,94 @@
 <div align="center"><h1>top ranked <br>by category</h1></div>
 <%@query = Entry.find(:all)%>
 
+<%@hos = 0%>
+<%@bums = 0%>
+<%@celebs = 0%>
+<%@geeks = 0%>
+<%@hot = 0%>
+<%@other = 0%>
+
 <%@hos2 = 0%>
+<%@bums2 = 0%>
+<%@celebs2 = 0%>
+<%@geeks2 = 0%>
+<%@hot2 = 0%>
+<%@other2 =0%>
+
 <%for entry in @query%>
     <%if entry.category == 'hos'%>
+      <%@hos += 1%>
       <%if entry.rating >= @hos2%>
         <%@hos2 = entry.rating%>
         <%@ho = entry%>
-<%end%><%end%><%end%>
-
-<%@bums2 = 0%>
-<%for entry in @query%>
+      <%end%>
+    <%end%>
     <%if entry.category == 'bums'%>
+      <%@bums += 1%>
       <%if entry.rating >= @bums2%>
         <%@bums2 = entry.rating%>
         <%@bum = entry%>
-<%end%><%end%><%end%>
-
-<%@celebs2 = 0%>
-<%for entry in @query%>
+      <%end%>
+    <%end%>
     <%if entry.category == 'celebs'%>
+      <%@celebs += 1%>
       <%if entry.rating >= @celebs2%>
         <%@celebs2 = entry.rating%>
         <%@celeb = entry%>
-<%end%><%end%><%end%>
-
-<%@geeks2 = 0%>
-<%for entry in @query%>
+      <%end%>
+    <%end%>
     <%if entry.category == 'geeks'%>
+      <%@geeks += 1%>
       <%if entry.rating >= @geeks2%>
         <%@geeks2 = entry.rating%>
         <%@geek = entry%>
-<%end%><%end%><%end%>
-
-<%@hot2 = 0%>
-<%for entry in @query%>
+      <%end%>
+    <%end%>
     <%if entry.category == 'hot'%>
+      <%@hot += 1%>
       <%if entry.rating >= @hot2%>
         <%@hot2 = entry.rating%>
         <%@hots = entry%>
-<%end%><%end%><%end%>
-
-<%@other2 = 0%>
-<%for entry in @query%>
+      <%end%>
+    <%end%>
     <%if entry.category == 'other'%>
+      <%@other += 1%>
       <%if entry.rating >= @other2%>
         <%@other2 = entry.rating%>
         <%@others = entry%>
-<%end%><%end%><%end%>
+      <%end%>
+    <%end%>
+<%end%>
 
 <div align="center">
   <% if @hos2 > 0 %>
-    <c1>(hos)</c1><br/>
+    <c1>(hos)</c1> X<%= @hos %><br/>
     <%= render :partial => "entries/entrybox", :locals => { :entry => @ho } %>
   <%end%>
   <% if @bums2 > 0 %>
-    <c1>(bums)</c1><br/>
+    <c1>(bums)</c1> X<%= @bums %><br/>
     <%= render :partial => "entries/entrybox", :locals => { :entry => @bum } %>
   <%end%>
   <% if @celebs2 > 0 %>
-    <c1>(celebs)</c1><br/>
+    <c1>(celebs)</c1> X<%= @celebs %><br/>
     <%= render :partial => "entries/entrybox", :locals => { :entry => @celeb } %>
   <%end%>
   <% if @geeks2 > 0 %>
-    <c1>(geeks)</c1><br/>
+    <c1>(geeks)</c1> X<%= @geeks %><br/>
     <%= render :partial => "entries/entrybox", :locals => { :entry => @geek } %>
   <%end%>
   <% if @hot2 > 0 %>
-    <c1>(hot)</c1>
+    <c1>(hot)</c1> X<%= @hot %><br/>
     <%= render :partial => "entries/entrybox", :locals => { :entry => @hots } %>
   <%end%>
   <% if @other2 > 0 %>
-    <c1>(other)</c1><br/>
+    <c1>(other)</c1> X<%= @other %><br/>
     <%= render :partial => "entries/entrybox", :locals => { :entry => @others } %>
   <%end%>
+  <b>sub-categories :</b>
+<% for entry in @query %>
+  <% if entry.category == 'other' %>
+    <%= entry.othercategory %>, 
+  <%end%>
+<%end%>
 </div>
