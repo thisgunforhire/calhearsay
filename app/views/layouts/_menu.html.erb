@@ -2,20 +2,20 @@
 | 
 
 <% if logged_in? %>
-<%= link_to 'archive', {:controller => "entries", :action => "archive"} %>
+<%= link_to 'archive', {:controller => "archive"} %>
 <% else %>
 <%= link_to 'archive', entries_path %>
 
 <% end %>
 | 
 <% if logged_in? %>
-<%= link_to 'categories', {:controller => "entries", :action => "categories"} %>
+<%= link_to 'categories', {:controller => "categories"} %>
 <% else %>
 <%= link_to 'categories', entries_path %>
 <% end %>
 | 
 <% if logged_in? %>
-<%= link_to 'stats', {:controller => "entries", :action => "stats"} %>
+<%= link_to 'stats', {:controller => "stats"} %>
 <% else %>
 <%= link_to 'stats', entries_path %>
 <% end %>

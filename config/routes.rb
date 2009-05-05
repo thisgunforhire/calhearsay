@@ -1,10 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.connect 'entries/about', :controller => 'entries', :action => 'about'
-  map.connect 'entries/archive', :controller => 'entries', :action => 'archive'
-  map.connect 'entries/categories', :controller => 'entries', :action => 'categories'
+  map.connect '/archive', :controller => 'entries', :action => 'archive'
+  map.connect '/categories', :controller => 'entries', :action => 'categories'
   map.connect 'entries/contact_us', :controller => 'entries', :action => 'contact_us'
   map.connect 'entries/faq', :controller => 'entries', :action => 'faq'
-  map.connect 'entries/stats', :controller => 'entries', :action => 'stats'
+  map.connect '/stats', :controller => 'entries', :action => 'stats'
    
   map.resources :tags
   
