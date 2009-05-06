@@ -4,8 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   #map.connect 'entries/about', :controller => 'entries', :action => 'about'
   map.connect '/archive', :controller => 'entries', :action => 'archive'
   map.connect '/categories', :controller => 'entries', :action => 'categories'
-  map.connect 'entries/contact_us', :controller => 'entries', :action => 'contact_us'
-  map.connect 'entries/faq', :controller => 'entries', :action => 'faq'
+  map.connect '/contact', :controller => 'infos', :action => 'contact'
+  map.connect '/faq', :controller => 'infos', :action => 'faq'
   map.connect '/stats', :controller => 'entries', :action => 'stats'
   map.connect '/about', :controller => 'infos', :action => 'about'
    
