@@ -3,12 +3,12 @@
       <tr class="list-line-even">
          <td width="100px">
   <% if entry.picture != '' %>
-    <%= image_tag entry.picture, :class => "list-one-sheet" %>
+    <%= link_to (image_tag entry.picture, :class => "list-one-sheet"), entry %>
   <% else %>
   <% if entry.pic.filename != nil %>
-    <%= image_tag entry.pic.public_filename, :class => "list-one-sheet" %>
+    <%= link_to (image_tag entry.pic.public_filename, :class => "list-one-sheet"), entry %>
   <%else%>
-    <%= image_tag "holder.jpg" %>
+    <%= link_to (image_tag "holder.jpg", :class=>"list-one-sheet"), entry %>
   <% end %>
   <% end %>
 
