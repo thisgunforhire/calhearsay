@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>hearsay! - collaborative photo sharing and gossiping of the local community</title>
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"  href="/stylesheets/entry.css" type="text/css">
+  <%= javascript_include_tag "shadedBorder" %>
+  <%= javascript_include_tag "shadedBorderVar" %>
+<%= javascript_include_tag 'prototype' %>
+<%= javascript_include_tag :defaults %>
+</head>
+<body id="entry">
+
+
+<div id="sideofbanner">
+<%= render :partial => 'users/user_bar' %>
+  <div id="user-bar-action"  ><!--<a href="/login" title="Log in">Log in</a> -->
+                               </div>
+</div>                               
+
+
+  <div id="banner">
+     <%= image_tag "hearsaybubble.png", :border => '0' %>
+   </div>
+   
+  
+  
+  <div id="columns">
+    <div id="shadowed-border" class="sb">
+  
+<div id="logininfo">  
+    <font color="#ffffff">
+<%= render :partial => 'layouts/menu' %></font>
+</div>
+    
+      <div id="side">
+      
+      <div class="rounded-box-side">
+    <!-- Corners -->
+    <div class="top-left-corner">
+        <div class="top-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-left-corner">
+        <div class="bottom-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="top-right-corner">
+        <div class="top-right-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-right-corner">
+        <div class="bottom-right-inside">
+            &bull;
+        </div>
+    </div>
+    <!-- Content -->
+      
+      <div align="center">  
+        <p1>Quick Search</p1><br>
+        <%= text_field_tag("query", params[:query], :autocomplete => "off" ) %>
+    
+        <%= observe_field 'query',  :frequency => 2,
+								:update => "search_results",								
+								:url => {:controller => "tags", :action => "entrySearch"},
+								:with => "query" %>  
+      </div>
+
+      <hr>
+      <%= render :partial => 'users/top_users'%>
+      </div>
+       </div>
+       
+       
+    <div id="right">
+    
+     <div class="rounded-box-right">
+    <!-- Corners -->
+    <div class="top-left-corner">
+        <div class="top-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-left-corner">
+        <div class="bottom-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="top-right-corner">
+        <div class="top-right-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-right-corner">
+        <div class="bottom-right-inside">
+            &bull;
+        </div>
+    </div>
+  
+<div align="center">  
+ poop
+ </div>
+       
+        
+       <hr>
+       <%= render :partial => 'entries/top_ranked'%>
+       
+</div>
+      </div>
+
+      <div id="main">
+
+
+	<div id="prebox">
+  
+   <div class="rounded-box-prebox">
+    <!-- Corners -->
+    <div class="top-left-corner">
+        <div class="top-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-left-corner">
+        <div class="bottom-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="top-right-corner">
+        <div class="top-right-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-right-corner">
+        <div class="bottom-right-inside">
+            &bull;
+        </div>
+    </div>
+    
+  
+<%= yield %>
+        </div></div>
+ 
+        
+<!--	<div id="entries">
+  
+    <div class="rounded-box-entries">-->
+    <!-- Corners -->
+ <!--   <div class="top-left-corner">
+        <div class="top-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-left-corner">
+        <div class="bottom-left-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="top-right-corner">
+        <div class="top-right-inside">
+            &bull;
+        </div>
+    </div>
+    <div class="bottom-right-corner">
+        <div class="bottom-right-inside">
+            &bull;
+        </div>
+    </div>
+
+      <div id="search_results" align="center">
+  </div>
+  <%= yield %>
+		
+	</div></div>
+	
+-->
+      </div>
+     
+    </div>
+  </div>
+  </p>
+</body>
+</html>
+
