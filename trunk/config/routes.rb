@@ -1,7 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
 
-  #map.connect 'entries/about', :controller => 'entries', :action => 'about'
   map.connect '/archive', :controller => 'entries', :action => 'archive'
   map.connect '/categories', :controller => 'entries', :action => 'categories'
   map.connect '/contact', :controller => 'infos', :action => 'contact'

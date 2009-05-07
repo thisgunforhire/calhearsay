@@ -61,7 +61,7 @@
         </div>
     </div>
     <!-- Content -->
-      
+    <% if logged_in? %>
       <div align="center">  
         <p1>Quick Search</p1><br>
         <%= text_field_tag("query", params[:query], :autocomplete => "off" ) %>
@@ -71,9 +71,10 @@
 								:url => {:controller => "tags", :action => "entrySearch"},
 								:with => "query" %>  
       </div>
-
+    <%end%>
       <hr>
       <%= render :partial => 'users/top_users'%>
+    
       </div>
        </div>
        
@@ -142,7 +143,8 @@
         </div>
     </div>
     
-  
+  <div id="search_results" align="center">
+  </div>
 <%= yield %>
         </div></div>
  
